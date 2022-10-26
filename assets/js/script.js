@@ -1,7 +1,8 @@
 createPlayArea();
 markOutOfBounds();
 markPreFilled();
-randomiseDice()
+availableDice = [];
+randomiseDice();
 
 /**
  * Create the play area.
@@ -92,6 +93,12 @@ function markPreFilled() {
     for (let i = 1; i < 7; i++) {
         let num = Math.floor(Math.random() * 6) + 1;
         document.getElementById('die'+i).textContent = num;
+        availableDice.push(num);
     }
+    placeRolledDice(availableDice)
     return;
+}
+
+function placeRolledDice() {
+    
 }
