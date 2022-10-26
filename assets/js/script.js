@@ -1,4 +1,6 @@
 createPlayArea();
+markOutOfBounds();
+markPreFilled();
 
 /**
  * Create the play area.
@@ -36,13 +38,13 @@ function createPlayArea() {
         }
     }
 
-    markoutSpaces();
+    return;
 }
 
 /**
  * Mark out the blank spaces.
  */
-function markoutSpaces() {
+function markOutOfBounds() {
     const outOfBoundsArray = [
         'v0105', 'v0115', 'v0116', 'v0117', 'v0118', 'v0119', 'v0120',
         'v0205', 'v0215', 'v0216', 'v0217', 'v0218', 'v0219', 'v0220',
@@ -66,4 +68,15 @@ function markoutSpaces() {
         blankout.classList.remove("available");
         blankout.classList.add("empty");
     }
+    return;
+}
+
+function markPreFilled() {
+    const preFilledArray = ['v0202', 'v0213', 'v0310', 'v0514', 'v0611', 'v0914', 'v1008', 'v1019', 'v1102', 'v1108', 'v1109', 'v1202', 'v1203', 'v1208', 'v1311', 'v1513',]
+    for (x of preFilledArray) {
+        let blankout = document.getElementById(x);
+        blankout.classList.remove("available");
+        blankout.classList.add("filled");
+    }
+    return;
 }

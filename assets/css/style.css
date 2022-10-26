@@ -27,6 +27,11 @@
     border-color: white;
 }
 
+.filled {
+    background-color: grey;
+    border-color: grey;
+}
+
 .clear {
     clear: both
 }
