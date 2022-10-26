@@ -23,8 +23,8 @@
 }
 
 .empty {
-    background-color: white;
-    border-color: white;
+    background: none;
+    border: none;
 }
 
 .filled {
@@ -34,4 +34,16 @@
 
 .clear {
     clear: both
+}
+
+.background-image {
+    width: 845px;
+    height: 680px;
+    position: absolute;
+    z-index: -1;
+}
+
+#dice-area {
+    margin-left: 15px;
+    margin-top: 28px;
 }

@@ -1,6 +1,7 @@
 createPlayArea();
 markOutOfBounds();
 markPreFilled();
+randomiseDice()
 
 /**
  * Create the play area.
@@ -71,12 +72,26 @@ function markOutOfBounds() {
     return;
 }
 
+/**
+ * Mark out the prefilled spaces.
+ */
 function markPreFilled() {
     const preFilledArray = ['v0202', 'v0213', 'v0310', 'v0514', 'v0611', 'v0914', 'v1008', 'v1019', 'v1102', 'v1108', 'v1109', 'v1202', 'v1203', 'v1208', 'v1311', 'v1513',]
     for (x of preFilledArray) {
         let blankout = document.getElementById(x);
         blankout.classList.remove("available");
         blankout.classList.add("filled");
+    }
+    return;
+}
+
+/**
+ * Randomises the 6 dice values, between 1 and 6 and prints them in the die roller spaces.
+ */
+ function randomiseDice() {
+    for (let i = 1; i < 7; i++) {
+        let num = Math.floor(Math.random() * 6) + 1;
+        document.getElementById('die'+i).textContent = num;
     }
     return;
 }
