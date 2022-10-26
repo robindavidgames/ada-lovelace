@@ -1,5 +1,8 @@
 createPlayArea();
 
+/**
+ * Create the play area.
+ */
 function createPlayArea() {
     let dieWrapper = document.getElementById("dice-area");
 
@@ -18,15 +21,15 @@ function createPlayArea() {
             element.setAttribute("class", "space available");
             if (r < 10) {
                 if (i < 10) {
-                    element.setAttribute("id", "0"+r+"0"+i);
+                    element.setAttribute("id", "v0"+r+"0"+i);
                 } else {
-                    element.setAttribute("id", "0"+r+i);
+                    element.setAttribute("id", "v0"+r+i);
                 }
             } else {
                 if (i < 10) {
-                    element.setAttribute("id", +r+"0"+i);
+                    element.setAttribute("id", "v"+r+"0"+i);
                 } else {
-                    element.setAttribute("id", +r+i);
+                    element.setAttribute("id", "v"+r+i);
                 }
             }
             elementWrapper.appendChild(element);
@@ -36,13 +39,31 @@ function createPlayArea() {
     markoutSpaces();
 }
 
+/**
+ * Mark out the blank spaces.
+ */
 function markoutSpaces() {
-    const outOfBoundsArray = ['0105', '0115', '0116', '0117', '0118', '0119', '0120', '0205', '0215', '0216', '0217', '0218', '0219', '0220', '0305', '0315', '0316', '0317', '0318', '0319', '0320',]
+    const outOfBoundsArray = [
+        'v0105', 'v0115', 'v0116', 'v0117', 'v0118', 'v0119', 'v0120',
+        'v0205', 'v0215', 'v0216', 'v0217', 'v0218', 'v0219', 'v0220',
+        'v0305', 'v0315', 'v0316', 'v0317', 'v0318', 'v0319', 'v0320',
+        'v0405', 'v0406', 'v0407', 'v0408', 'v0411', 'v0412', 'v0413', 'v0414', 'v0415', 'v0416', 'v0417', 'v0418', 'v0419', 'v0420',
+        'v0505', 'v0516', 'v0517', 'v0518', 'v0519', 'v0520',
+        'v0601', 'v0602', 'v0603', 'v0616', 'v0617', 'v0618', 'v0619', 'v0620',
+        'v0701', 'v0702', 'v0703', 'v0705', 'v0706', 'v0709', 'v0716', 'v0717', 'v0718', 'v0719', 'v0720',
+        'v0806', 'v0809', 'v0810', 'v0811', 'v0812', 'v0813', 'v0816', 'v0817', 'v0818', 'v0819', 'v0820',
+        'v0906', 'v0916',
+        'v1006',
+        'v1106', 'v1116',
+        'v1206', 'v1212', 'v1213', 'v1216', 'v1217', 'v1218',
+        'v1306',
+        'v1406', 'v1420',
+        'v1501', 'v1519', 'v1520',
+        'v1601', 'v1602', 'v1612', 'v1613', 'v1614', 'v1615', 'v1616', 'v1617', 'v1618', 'v1619', 'v1620',
+    ]
     for (x of outOfBoundsArray) {
-        console.log(x);
         let blankout = document.getElementById(x);
         blankout.classList.remove("available");
         blankout.classList.add("empty");
     }
-    // let blankout = document.getElementById("dice-area");
 }
