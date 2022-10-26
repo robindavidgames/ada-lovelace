@@ -87,12 +87,11 @@ function markPreFilled() {
 }
 
 /**
- * Randomises the 6 dice values, between 1 and 6 and prints them in the die roller spaces.
+ * Randomises the 6 dice values, between 1 and 6.
  */
  function randomiseDice() {
     for (let i = 1; i < 7; i++) {
         let num = Math.floor(Math.random() * 6) + 1;
-        // document.getElementById('die'+i).textContent = num;
         availableDice.push(num);
     }
     console.log(availableDice)
@@ -100,17 +99,18 @@ function markPreFilled() {
     return;
 }
 
+/**
+ * Places each die value in the correct space.
+ */
 function placeRolledDice(availableDice) {
     for (let x = 1; x < 7; x++) {
         dieValue = availableDice[x-1];
-        console.log(availableDice[x]);
         let avaialableSpace = document.getElementById('action'+dieValue);
-        console.log(avaialableSpace);
         let divElement = document.createElement("div");
         divElement.setAttribute("class", "space available");
         divElement.setAttribute("id", "dice"+x);
-        console.log(divElement);
         avaialableSpace.appendChild(divElement);
         document.getElementById("dice"+x).textContent = dieValue;
     }
+    return;
 }
