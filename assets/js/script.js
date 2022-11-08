@@ -94,8 +94,8 @@ function markPreFilled() {
         let num = Math.floor(Math.random() * 6) + 1;
         availableDice.push(num);
     }
-    console.log(availableDice)
-    placeRolledDice(availableDice)
+    console.log(availableDice);
+    placeRolledDice(availableDice);
     return;
 }
 
@@ -113,4 +113,109 @@ function placeRolledDice(availableDice) {
         document.getElementById("dice"+x).textContent = dieValue;
     }
     return;
+}
+
+/**
+ * Player can click on an available die.
+ */
+function clickDie() {
+
+}
+
+/**
+ * Player can place the available die on a shape or evidence ability.
+ */
+function placeDie() {
+
+}
+
+/**
+ * Player can select an appropriate shape.
+ */
+function pickShape() {
+
+}
+
+/**
+ * Player can place a shape on the board.
+ */
+function placeShape() {
+
+}
+
+/**
+ * Check if shape placement is valid.
+ */
+function checkShape() {
+
+}
+
+/**
+ * Check if a piece of evidence is surrounded.
+ */
+function checkSurround() {
+
+}
+
+/**
+ * Enable a piece of evidence.
+ */
+function enableEvidence() {
+
+}
+
+/**
+ * Check if a room has been filled.
+ */
+function checkRoom() {
+
+}
+
+/**
+ * Check if an evidence ability has been activated.
+ */
+function checkAbilityActivation() {
+
+}
+
+/**
+ * Remove the used die.
+ */
+function removeDie() {
+
+}
+
+/**
+ * Check if unused dice remain.
+ */
+function checkRemainingDice() {
+
+}
+
+/**
+ * Enable next turn button.
+ */
+function createNewTurnButton() {
+
+}
+
+/**
+ * Start a new turn. Update the round number and roll dice.
+ */
+function newTurn() {
+    randomiseDice();
+}
+
+/**
+ * Check if all rounds have been played.
+ */
+function checkGameOver() {
+
+}
+
+/**
+ * Present scoring information.
+ */
+ function presentScoring() {
+
 }
