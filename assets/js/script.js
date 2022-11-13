@@ -99,7 +99,7 @@ function markPreFilled() {
         let num = Math.floor(Math.random() * 6) + 1;
         availableDice.push(num);
     }
-    console.log(availableDice);
+    console.log(`Dice rolled: ${availableDice}`);
     placeRolledDice(availableDice);
     return;
 }
@@ -121,41 +121,13 @@ function placeRolledDice(availableDice) {
 }
 
 // Event listener for clicking each die.
-let clickDice1 = document.getElementById("dice1");
-clickDice1.addEventListener("click", function() {
-    console.log("Event listener clicked dice 1");
-    clickDie(1);
-});
-
-let clickDice2 = document.getElementById("dice2");
-clickDice2.addEventListener("click", function() {
-    console.log("Event listener clicked dice 2");
-    clickDie(2);
-});
-
-let clickDice3 = document.getElementById("dice3");
-clickDice3.addEventListener("click", function() {
-    console.log("Event listener clicked dice 3");
-    clickDie(3);
-});
-
-let clickDice4 = document.getElementById("dice4");
-clickDice4.addEventListener("click", function() {
-    console.log("Event listener clicked dice 4");
-    clickDie(4);
-});
-
-let clickDice5 = document.getElementById("dice5");
-clickDice5.addEventListener("click", function() {
-    console.log("Event listener clicked dice 5");
-    clickDie(5);
-});
-
-let clickDice6 = document.getElementById("dice6");
-clickDice6.addEventListener("click", function() {
-    console.log("Event listener clicked dice 6");
-    clickDie(6);
-});
+for (let x = 1; x < 7; x++) {
+    let clickDice = document.getElementById("dice"+x);
+        clickDice.addEventListener("click", function() {
+        console.log(`Event listener clicked dice ${x}`);
+        clickDie(x);
+    });
+}
 
 /**
  * Player can click on an available die.
@@ -167,7 +139,9 @@ function clickDie(clickedDice) {
     let dice4 = document.getElementById('dice4');
     let dice5 = document.getElementById('dice5');
     let dice6 = document.getElementById('dice6');
-    console.log(`Running clickDie. Clicked dice ${clickedDice}`)
+    console.log(`Running clickDie. Clicked dice ${clickedDice}`);
+    dieChosen = clickedDice;
+    console.log(`dieChosen variable is ${dieChosen}`);
 }
 
 /**
