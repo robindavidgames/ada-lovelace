@@ -1,7 +1,7 @@
 let roundNumber = 0;
 
 // The die the player has clicked.
-let dieChosen = "";
+let dieValue = "";
 
 createPlayArea();
 markOutOfBounds();
@@ -133,15 +133,11 @@ for (let x = 1; x < 7; x++) {
  * Player can click on an available die.
  */
 function clickDie(clickedDice) {
-    let dice1 = document.getElementById('dice1');
-    let dice2 = document.getElementById('dice2');
-    let dice3 = document.getElementById('dice3');
-    let dice4 = document.getElementById('dice4');
-    let dice5 = document.getElementById('dice5');
-    let dice6 = document.getElementById('dice6');
     console.log(`Running clickDie. Clicked dice ${clickedDice}`);
-    dieChosen = clickedDice;
-    console.log(`dieChosen variable is ${dieChosen}`);
+    dieChosen = document.getElementById('dice'+clickedDice);
+    // Read the text on the chosen die.
+    dieValue = parseInt(dieChosen.innerText);
+    console.log(`dieValue variable is ${dieValue}`);
 }
 
 /**
