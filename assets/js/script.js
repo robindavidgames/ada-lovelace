@@ -102,7 +102,7 @@ function randomiseDice() {
     }
     console.log(`Dice rolled: ${availableDice}`);
     placeRolledDice(availableDice);
-    blockoutSpaces();
+    reduceReserveSpaces();
     return;
 }
 
@@ -120,14 +120,24 @@ function placeRolledDice(availableDice) {
 /**
  * Reduce dice in the reserve. Make rolled dice clickable.
  */
-function blockoutSpaces() {
-    console.log("Blockout spaces running.")
+function reduceReserveSpaces() {
+    let numberOfDiceRolled = 0;
     for (let x = 1; x < 7; x++) {
-        console.log("For loop running")
+        // Ensure that only 2 dice are changed.
+        // Possible bug: what if only 1 dice remains?
+        if (numberOfDiceRolled == 2) {
+            continue;
+        }
         let checkAvailable = document.getElementById("reserve"+x);
-        console.log(checkAvailable);
+        // Start checking the lowest value reserve dice. If they are "filled", empty them and fill 2 of the used dice with the corresponding ids.
         if (checkAvailable.classList.contains("filled")) {
-            console.log("If loop works.");
+            checkAvailable.classList.remove("filled");
+            checkAvailable.classList.add("empty");
+            usedDice = document.getElementById("used"+x)
+            usedDice.classList.remove("empty");
+            usedDice.classList.add("filled");
+            numberOfDiceRolled += 1;
+            console.log(`numberOfDiceRolled is equal to ${numberOfDiceRolled}`);
         }
     }
 }
