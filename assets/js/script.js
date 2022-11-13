@@ -1,3 +1,8 @@
+let roundNumber = 0;
+
+// The die the player has clicked.
+let dieChosen = "";
+
 createPlayArea();
 markOutOfBounds();
 markPreFilled();
@@ -115,11 +120,54 @@ function placeRolledDice(availableDice) {
     return;
 }
 
+// Event listener for clicking each die.
+let clickDice1 = document.getElementById("dice1");
+clickDice1.addEventListener("click", function() {
+    console.log("Event listener clicked dice 1");
+    clickDie(1);
+});
+
+let clickDice2 = document.getElementById("dice2");
+clickDice2.addEventListener("click", function() {
+    console.log("Event listener clicked dice 2");
+    clickDie(2);
+});
+
+let clickDice3 = document.getElementById("dice3");
+clickDice3.addEventListener("click", function() {
+    console.log("Event listener clicked dice 3");
+    clickDie(3);
+});
+
+let clickDice4 = document.getElementById("dice4");
+clickDice4.addEventListener("click", function() {
+    console.log("Event listener clicked dice 4");
+    clickDie(4);
+});
+
+let clickDice5 = document.getElementById("dice5");
+clickDice5.addEventListener("click", function() {
+    console.log("Event listener clicked dice 5");
+    clickDie(5);
+});
+
+let clickDice6 = document.getElementById("dice6");
+clickDice6.addEventListener("click", function() {
+    console.log("Event listener clicked dice 6");
+    clickDie(6);
+});
+
 /**
  * Player can click on an available die.
  */
-function clickDie() {
-
+function clickDie(clickedDice) {
+    let dice1 = document.getElementById('dice1');
+    let dice2 = document.getElementById('dice2');
+    let dice3 = document.getElementById('dice3');
+    let dice4 = document.getElementById('dice4');
+    let dice5 = document.getElementById('dice5');
+    let dice6 = document.getElementById('dice6');
+    console.log(`Running clickDie. Clicked dice ${clickedDice}`)
 }
 
 /**
