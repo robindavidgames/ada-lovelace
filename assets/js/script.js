@@ -121,14 +121,22 @@ function placeRolledDice(availableDice) {
  * Reduce dice in the reserve. Make rolled dice clickable.
  */
 function blockoutSpaces() {
-
+    console.log("Blockout spaces running.")
+    for (let x = 1; x < 7; x++) {
+        console.log("For loop running")
+        let checkAvailable = document.getElementById("reserve"+x);
+        console.log(checkAvailable);
+        if (checkAvailable.classList.contains("filled")) {
+            console.log("If loop works.");
+        }
+    }
 }
 
 // Event listener for clicking each die.
 for (let x = 1; x < 3; x++) {
     let clickDice = document.getElementById("available"+x);
-        clickDice.addEventListener("click", function() {
-            console.log(`Event listener clicked dice ${x}`);
+    clickDice.addEventListener("click", function() {
+        console.log(`Event listener clicked dice ${x}`);
         clickDie(x);
     });
 }
