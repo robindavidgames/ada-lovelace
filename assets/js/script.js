@@ -95,15 +95,6 @@ function markPreFilled() {
 /**
  * Randomises the 6 dice values, between 1 and 6.
  */
-// function randomiseDice() {
-//     for (let i = 1; i < 7; i++) {
-//         let num = Math.floor(Math.random() * 6) + 1;
-//         availableDice.push(num);
-//     }
-//     console.log(`Dice rolled: ${availableDice}`);
-//     placeRolledDice(availableDice);
-//     return;
-// }
 function randomiseDice() {
     for (let i = 1; i < 3; i++) {
         let num = Math.floor(Math.random() * 6) + 1;
@@ -118,18 +109,6 @@ function randomiseDice() {
 /**
  * Places each die value in the correct space.
  */
-// function placeRolledDice(availableDice) {
-//     for (let x = 1; x < 7; x++) {
-//         dieValue = availableDice[x-1];
-//         let avaialableSpace = document.getElementById('action'+dieValue);
-//         let divElement = document.createElement("div");
-//         divElement.setAttribute("class", "space available");
-//         divElement.setAttribute("id", "dice"+x);
-//         avaialableSpace.appendChild(divElement);
-//         document.getElementById("dice"+x).textContent = dieValue;
-//     }
-//     return;
-// }
 function placeRolledDice(availableDice) {
     for (let x = 1; x < 3; x++) {
         dieValue = availableDice[x-1];
@@ -146,13 +125,6 @@ function blockoutSpaces() {
 }
 
 // Event listener for clicking each die.
-// for (let x = 1; x < 7; x++) {
-//     let clickDice = document.getElementById("dice"+x);
-//         clickDice.addEventListener("click", function() {
-//         console.log(`Event listener clicked dice ${x}`);
-//         clickDie(x);
-//     });
-// }
 for (let x = 1; x < 3; x++) {
     let clickDice = document.getElementById("available"+x);
         clickDice.addEventListener("click", function() {
@@ -164,12 +136,6 @@ for (let x = 1; x < 3; x++) {
 /**
  * Player can click on an available die.
  */
-// function clickDie(clickedDice) {
-//     dieChosen = document.getElementById('dice'+clickedDice);
-//     // Read the text on the chosen die.
-//     dieValue = parseInt(dieChosen.innerText);
-//     console.log(`dieValue variable is ${dieValue}`);
-// }
 function clickDie(clickedDice) {
     dieChosen = document.getElementById('available'+clickedDice);
     // Read the text on the chosen die.
