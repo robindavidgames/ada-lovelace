@@ -47,3 +47,96 @@
     margin-left: 15px;
     margin-top: 28px;
 }
+
+.shape-picker {
+    width: 200px;
+    height: 200px;
+    padding: 30px 0 0 10px;
+    border: 2px solid white;
+    float: left;
+    box-sizing: border-box;
+    /* color: whitesmoke; */
+    /* text-align: center; */
+    background-size: 200px;
+}
+
+.shapeA1-unavailable {
+    background:
+        linear-gradient(
+            rgba(214, 0, 0, 0.547),
+            rgba(214, 0, 0, 0.547)
+        ), 
+        url(../images/shapeA1.jpg) no-repeat center center;
+}
+
+.shapeB1-unavailable {
+    background:
+        linear-gradient(
+            rgba(214, 0, 0, 0.547),
+            rgba(214, 0, 0, 0.547)
+        ), 
+        url(../images/shapeB1.jpg) no-repeat center center;
+}
+
+.shapeC1-unavailable {
+    background:
+        linear-gradient(
+            rgba(214, 0, 0, 0.547),
+            rgba(214, 0, 0, 0.547)
+        ), 
+        url(../images/shapeC1.jpg) no-repeat center center;
+}
+
+.shapeD1-unavailable {
+    background:
+        linear-gradient(
+            rgba(214, 0, 0, 0.547),
+            rgba(214, 0, 0, 0.547)
+        ), 
+        url(../images/shapeD1.jpg) no-repeat center center;
+}
+
+.shapeE1-unavailable {
+    background:
+        linear-gradient(
+            rgba(214, 0, 0, 0.547),
+            rgba(214, 0, 0, 0.547)
+        ), 
+        url(../images/shapeE1.jpg) no-repeat center center;
+}
+
+.shapeF1-unavailable {
+    background:
+        linear-gradient(
+            rgba(214, 0, 0, 0.547),
+            rgba(214, 0, 0, 0.547)
+        ), 
+        url(../images/shapeF1.jpg) no-repeat center center;
+}
+
+.shapeG1-unavailable {
+    background:
+        linear-gradient(
+            rgba(214, 0, 0, 0.547),
+            rgba(214, 0, 0, 0.547)
+        ), 
+        url(../images/shapeG1.jpg) no-repeat center center;
+}
+
+.shapeH1-unavailable {
+    background:
+        linear-gradient(
+            rgba(214, 0, 0, 0.547),
+            rgba(214, 0, 0, 0.547)
+        ), 
+        url(../images/shapeH1.jpg) no-repeat center center;
+}
+
+.shapeI1-unavailable {
+    background:
+        linear-gradient(
+            rgba(214, 0, 0, 0.547),
+            rgba(214, 0, 0, 0.547)
+        ), 
+        url(../images/shapeI1.jpg) no-repeat center center;
+}
