@@ -1,5 +1,4 @@
 let roundNumber = 1;
-// let reserveDice = 6;
 
 // The die the player has clicked.
 let dieValue = "";
@@ -191,12 +190,51 @@ function activateSpaces() {
     return;
 }
 
-// Event listener for clicking active shapes.
+// Event listener for rotating shapes.
+let rotateShape = document.getElementById("rotate-shapes");
+rotateShape.addEventListener("click", function() {rotate90Degrees();});
+
+/**
+ * Check current shape rotation and rotate by 90 degrees CW.
+ */
+function rotate90Degrees() {
+    let checkRotation = document.getElementById("shape1");
+    if (shape1.classList.contains("rotate-0")) {
+        for (let x = 1; x < 10; x++) {
+            let adjustShape = document.getElementById("shape"+x);
+            adjustShape.classList.remove("rotate-0");
+            adjustShape.classList.add("rotate-90");
+        }
+    } else if (shape1.classList.contains("rotate-90")) {
+        for (let x = 1; x < 10; x++) {
+            let adjustShape = document.getElementById("shape"+x);
+            adjustShape.classList.remove("rotate-90");
+            adjustShape.classList.add("rotate-180");
+        }
+    } else if (shape1.classList.contains("rotate-180")) {
+        for (let x = 1; x < 10; x++) {
+            let adjustShape = document.getElementById("shape"+x);
+            adjustShape.classList.remove("rotate-180");
+            adjustShape.classList.add("rotate-270");
+        }
+    } else if (shape1.classList.contains("rotate-270")) {
+        for (let x = 1; x < 10; x++) {
+            let adjustShape = document.getElementById("shape"+x);
+            adjustShape.classList.remove("rotate-270");
+            adjustShape.classList.add("rotate-0");
+        }
+    }
+}
+
+// Event listener for flipping shapes.
+
+// Event listener for clicking shapes.
 for (let x = 1; x < 10; x++) {
-    let clickDice = document.getElementById("shape"+x);
-    clickDice.addEventListener("click", function() {
-        if (clickDice.classList.contains("shape-available")) {
+    let clickShape = document.getElementById("shape"+x);
+    clickShape.addEventListener("click", function() {
+        if (clickShape.classList.contains("shape-available")) {
             console.log(`Event listener clicked available shape ${x}`);
+            // pickShape(clickShape);
         } else {
             console.log(`Event listener clicked unavailable shape ${x}`);
         }
@@ -206,7 +244,7 @@ for (let x = 1; x < 10; x++) {
 /**
  * Player can select an appropriate shape.
  */
-function pickShape() {
+function pickShape(chosenShape) {
 
 }
 
