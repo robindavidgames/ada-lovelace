@@ -3,11 +3,14 @@ let roundNumber = 1;
 // The die the player has clicked.
 let dieValue = "";
 
+// The player's chosen shape.
+let currentShape = "";
+
 createPlayArea();
 markOutOfBounds();
 markPreFilled();
 availableDice = [];
-randomiseDice();
+// randomiseDice();
 
 /**
  * Create the play area.
@@ -91,15 +94,21 @@ function markPreFilled() {
     return;
 }
 
+// Event listener for rolling dice.
+let diceRoller = document.getElementById("roll-dice-button");
+diceRoller.addEventListener("click", function() {
+    availableDice = [];
+    randomiseDice();
+});
+
 /**
- * Randomises the 6 dice values, between 1 and 6.
+ * Randomises the 2 dice values, between 1 and 6.
  */
 function randomiseDice() {
     for (let i = 1; i < 3; i++) {
         let num = Math.floor(Math.random() * 6) + 1;
         availableDice.push(num);
     }
-    console.log(`Dice rolled: ${availableDice}`);
     placeRolledDice(availableDice);
     reduceReserveSpaces();
     return;
@@ -138,6 +147,15 @@ function reduceReserveSpaces() {
             numberOfDiceRolled += 1;
             console.log(`numberOfDiceRolled is equal to ${numberOfDiceRolled}`);
         }
+    }
+    // Remove roll dice button if all dice are in used space.
+    let checkUsed = document.getElementsByClassName("used");
+    if (checkUsed[1].classList.contains("filled") && checkUsed[2].classList.contains("filled") && checkUsed[3].classList.contains("filled") && checkUsed[4].classList.contains("filled") && checkUsed[5].classList.contains("filled") && checkUsed[0].classList.contains("filled")) {
+        document.getElementById("roll-dice-button").classList.add("hidden");
+        document.getElementById("new-round-button").classList.remove("hidden");
+    } else {
+        document.getElementById("roll-dice-button").classList.remove("hidden");
+        document.getElementById("new-round-button").classList.add("hidden");
     }
 }
 
@@ -182,7 +200,6 @@ function deactivateSpaces() {
 function activateSpaces() {
     let activeShapes = document.getElementsByClassName('d'+dieValue);
     for (let i = 0; i < activeShapes.length; i++) {
-        console.log(activeShapes[i]);
         let makeAvailable = activeShapes[i];
         makeAvailable.classList.remove("shape-unavailable");
         makeAvailable.classList.add("shape-available");
@@ -269,23 +286,23 @@ for (let x = 1; x < 10; x++) {
 function pickShape(chosenShape, x) {
     console.log(`User has chosen ${chosenShape}`);
     if (chosenShape.classList.contains("rotate-0") && chosenShape.classList.contains("flip-0")) {
-        console.log("0 rotate, 0 flip");
+        currentShape = x+"-0-0";
     } else if (chosenShape.classList.contains("rotate-90") && chosenShape.classList.contains("flip-0")) {
-        console.log("90 rotate, 0 flip");
+        currentShape = x+"-90-0";
     } else if (chosenShape.classList.contains("rotate-180") && chosenShape.classList.contains("flip-0")) {
-        console.log("180 rotate, 0 flip");
+        currentShape = x+"-180-0";
     } else if (chosenShape.classList.contains("rotate-270") && chosenShape.classList.contains("flip-0")) {
-        console.log("270 rotate, 0 flip");
+        currentShape = x+"-270-0";
     } else if (chosenShape.classList.contains("rotate-0") && chosenShape.classList.contains("flip-1")) {
-        console.log("0 rotate, 1 flip");
+        currentShape = x+"-0-1";
     } else if (chosenShape.classList.contains("rotate-90") && chosenShape.classList.contains("flip-1")) {
-        console.log("90 rotate, 1 flip");
+        currentShape = x+"-90-1";
     } else if (chosenShape.classList.contains("rotate-180") && chosenShape.classList.contains("flip-1")) {
-        console.log("180 rotate, 1 flip");
+        currentShape = x+"-180-1";
     } else if (chosenShape.classList.contains("rotate-270") && chosenShape.classList.contains("flip-1")) {
-        console.log("270 rotate, 1 flip");
+        currentShape = x+"-270-1";
     }
-    console.log(`Chosen shape ${x}`);
+    console.log(`Chosen shape ${x} - ${currentShape}`);
 }
 
 /**
