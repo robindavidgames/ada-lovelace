@@ -192,13 +192,16 @@ function activateSpaces() {
 }
 
 // Event listener for clicking active shapes.
-// for (let x = 1; x < 10; x++) {
-//     let clickDice = document.getElementById("available"+x);
-//     clickDice.addEventListener("click", function() {
-//         console.log(`Event listener clicked dice ${x}`);
-//         clickDie(x);
-//     });
-// }
+for (let x = 1; x < 10; x++) {
+    let clickDice = document.getElementById("shape"+x);
+    clickDice.addEventListener("click", function() {
+        if (clickDice.classList.contains("shape-available")) {
+            console.log(`Event listener clicked available shape ${x}`);
+        } else {
+            console.log(`Event listener clicked unavailable shape ${x}`);
+        }
+    });
+}
 
 /**
  * Player can select an appropriate shape.
