@@ -199,25 +199,25 @@ rotateShape.addEventListener("click", function() {rotate90Degrees();});
  */
 function rotate90Degrees() {
     let checkRotation = document.getElementById("shape1");
-    if (shape1.classList.contains("rotate-0")) {
+    if (checkRotation.classList.contains("rotate-0")) {
         for (let x = 1; x < 10; x++) {
             let adjustShape = document.getElementById("shape"+x);
             adjustShape.classList.remove("rotate-0");
             adjustShape.classList.add("rotate-90");
         }
-    } else if (shape1.classList.contains("rotate-90")) {
+    } else if (checkRotation.classList.contains("rotate-90")) {
         for (let x = 1; x < 10; x++) {
             let adjustShape = document.getElementById("shape"+x);
             adjustShape.classList.remove("rotate-90");
             adjustShape.classList.add("rotate-180");
         }
-    } else if (shape1.classList.contains("rotate-180")) {
+    } else if (checkRotation.classList.contains("rotate-180")) {
         for (let x = 1; x < 10; x++) {
             let adjustShape = document.getElementById("shape"+x);
             adjustShape.classList.remove("rotate-180");
             adjustShape.classList.add("rotate-270");
         }
-    } else if (shape1.classList.contains("rotate-270")) {
+    } else if (checkRotation.classList.contains("rotate-270")) {
         for (let x = 1; x < 10; x++) {
             let adjustShape = document.getElementById("shape"+x);
             adjustShape.classList.remove("rotate-270");
@@ -227,6 +227,28 @@ function rotate90Degrees() {
 }
 
 // Event listener for flipping shapes.
+let flipShape = document.getElementById("flip-shapes");
+flipShape.addEventListener("click", function() {flipHorizontal();});
+
+/**
+ * Check current shape flip and flip horizontal.
+ */
+function flipHorizontal() {
+    let checkFlip = document.getElementById("shape1");
+    if (checkFlip.classList.contains("flip-0")) {
+        for (let x = 1; x < 10; x++) {
+            let adjustShape = document.getElementById("shape"+x);
+            adjustShape.classList.remove("flip-0");
+            adjustShape.classList.add("flip-1");
+        } 
+    } else if (checkFlip.classList.contains("flip-1")) {
+        for (let x = 1; x < 10; x++) {
+            let adjustShape = document.getElementById("shape"+x);
+            adjustShape.classList.remove("flip-1");
+            adjustShape.classList.add("flip-0");
+        }
+    }
+}
 
 // Event listener for clicking shapes.
 for (let x = 1; x < 10; x++) {
