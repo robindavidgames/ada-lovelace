@@ -159,6 +159,30 @@ function clickDie(clickedDice) {
     // Read the text on the chosen die.
     dieValue = parseInt(dieChosen.innerText);
     console.log(`dieValue variable is ${dieValue}`);
+    activateSpaces()
+    return;
+}
+
+/**
+ * Shapes and abilities activate if they are available for the chosen die.
+ */
+function activateSpaces() {
+    // Deactivate all spaces.
+    let inactiveShapes = document.getElementsByClassName('shape-picker');
+    for (let i = 0; i < inactiveShapes.length; i++) {
+        let makeUnavailable = inactiveShapes[i];
+        makeUnavailable.classList.remove("shape-available");
+        makeUnavailable.classList.add("shape-unavailable");
+    }
+    // Activate relevant spaces.
+    let activeShapes = document.getElementsByClassName('d'+dieValue);
+    for (let i = 0; i < activeShapes.length; i++) {
+        console.log(activeShapes[i]);
+        let makeAvailable = activeShapes[i];
+        makeAvailable.classList.remove("shape-unavailable");
+        makeAvailable.classList.add("shape-available");
+    }
+    return;
 }
 
 /**
