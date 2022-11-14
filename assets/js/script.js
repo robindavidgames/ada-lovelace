@@ -159,7 +159,21 @@ function clickDie(clickedDice) {
     // Read the text on the chosen die.
     dieValue = parseInt(dieChosen.innerText);
     console.log(`dieValue variable is ${dieValue}`);
-    activateSpaces()
+    deactivateSpaces();
+    activateSpaces();
+    return;
+}
+
+/**
+ * Shapes and abilities deactivate.
+ */
+function deactivateSpaces() {
+    let inactiveShapes = document.getElementsByClassName('shape-picker');
+    for (let i = 0; i < inactiveShapes.length; i++) {
+        let makeUnavailable = inactiveShapes[i];
+        makeUnavailable.classList.remove("shape-available");
+        makeUnavailable.classList.add("shape-unavailable");
+    }
     return;
 }
 
@@ -167,14 +181,6 @@ function clickDie(clickedDice) {
  * Shapes and abilities activate if they are available for the chosen die.
  */
 function activateSpaces() {
-    // Deactivate all spaces.
-    let inactiveShapes = document.getElementsByClassName('shape-picker');
-    for (let i = 0; i < inactiveShapes.length; i++) {
-        let makeUnavailable = inactiveShapes[i];
-        makeUnavailable.classList.remove("shape-available");
-        makeUnavailable.classList.add("shape-unavailable");
-    }
-    // Activate relevant spaces.
     let activeShapes = document.getElementsByClassName('d'+dieValue);
     for (let i = 0; i < activeShapes.length; i++) {
         console.log(activeShapes[i]);
@@ -185,12 +191,14 @@ function activateSpaces() {
     return;
 }
 
-/**
- * Player can place the available die on a shape or evidence ability.
- */
-function placeDie() {
-
-}
+// Event listener for clicking active shapes.
+// for (let x = 1; x < 10; x++) {
+//     let clickDice = document.getElementById("available"+x);
+//     clickDice.addEventListener("click", function() {
+//         console.log(`Event listener clicked dice ${x}`);
+//         clickDie(x);
+//     });
+// }
 
 /**
  * Player can select an appropriate shape.
