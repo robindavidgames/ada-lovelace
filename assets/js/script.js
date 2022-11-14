@@ -256,7 +256,7 @@ for (let x = 1; x < 10; x++) {
     clickShape.addEventListener("click", function() {
         if (clickShape.classList.contains("shape-available")) {
             console.log(`Event listener clicked available shape ${x}`);
-            pickShape(clickShape);
+            pickShape(clickShape, x);
         } else {
             console.log(`Event listener clicked unavailable shape ${x}`);
         }
@@ -266,7 +266,7 @@ for (let x = 1; x < 10; x++) {
 /**
  * Player can select an appropriate shape.
  */
-function pickShape(chosenShape) {
+function pickShape(chosenShape, x) {
     console.log(`User has chosen ${chosenShape}`);
     if (chosenShape.classList.contains("rotate-0") && chosenShape.classList.contains("flip-0")) {
         console.log("0 rotate, 0 flip");
@@ -285,6 +285,7 @@ function pickShape(chosenShape) {
     } else if (chosenShape.classList.contains("rotate-270") && chosenShape.classList.contains("flip-1")) {
         console.log("270 rotate, 1 flip");
     }
+    console.log(`Chosen shape ${x}`);
 }
 
 /**
