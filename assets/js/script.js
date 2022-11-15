@@ -272,7 +272,7 @@ for (let x = 1; x < 10; x++) {
     let clickShape = document.getElementById("shape"+x);
     clickShape.addEventListener("click", function() {
         if (clickShape.classList.contains("shape-available")) {
-            // Remove any previously clicked elements.
+            // Remove styling on previously clicked elements.
             let removeClicked = document.getElementsByClassName("shape-picked")
             for (let i = 0; i < removeClicked.length; i++) {
                 removeClicked[i].classList.add("shape-available");
@@ -313,18 +313,23 @@ function pickShape(chosenShape, x) {
     console.log(`Chosen shape ${x} - ${currentShape}`);
 }
 
-/**
- * Player can place a shape on the board.
- */
-function placeShape() {
-
+// Event listener for clicking spaces on the board.
+let boardSpaces = document.getElementsByClassName("available")
+for (let x = 1; x < boardSpaces.length; x++) {
+    boardSpaces[x].addEventListener("click", function() {
+        console.log(`User clicked space ${boardSpaces[x]}`);
+        if (currentShape !== "") {
+            console.log("currentShape is not empty.")
+            checkShape(boardSpaces[x]);
+        }
+    });
 }
 
 /**
  * Check if shape placement is valid.
  */
 function checkShape() {
-
+    console.log("checkSpare is running.");
 }
 
 /**
