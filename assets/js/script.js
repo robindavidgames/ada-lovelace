@@ -329,7 +329,7 @@ for (let x = 1; x < boardSpaces.length; x++) {
  * Check if shape placement is valid.
  */
 function checkShape() {
-    console.log("checkSpare is running.");
+    console.log("checkSpace is running.");
 }
 
 /**
