@@ -350,8 +350,8 @@ function checkShape(boardSpace) {
     spacesToCheck = [checkValue];
     console.log(`spacesToCheck: ${spacesToCheck}`);
 
+    // Add values that need to be checked for each space and each space variation. The first space is automatic. The others need to be inputted counting from the original clicked space.
     if (currentShape == "1-0-0") {
-        // These are not the correct values. The first space is automatic. The others need to be inputted counting from the original clicked space.
         adjustSpace(1, -1);
         adjustSpace(2, 3);
     }
