@@ -314,13 +314,13 @@ function pickShape(chosenShape, x) {
 }
 
 // Event listener for clicking spaces on the board.
-let boardSpaces = document.getElementsByClassName("available")
-for (let x = 1; x < boardSpaces.length; x++) {
-    boardSpaces[x].addEventListener("click", function() {
-        console.log(`User clicked space ${boardSpaces[x]}`);
+let boardSpace = document.getElementsByClassName("available")
+for (let x = 1; x < boardSpace.length; x++) {
+    boardSpace[x].addEventListener("click", function() {
+        console.log(`User clicked space ${boardSpace[x]}`);
         if (currentShape !== "") {
             console.log("currentShape is not empty.")
-            checkShape(boardSpaces[x]);
+            checkShape(boardSpace[x]);
         }
     });
 }
@@ -328,8 +328,19 @@ for (let x = 1; x < boardSpaces.length; x++) {
 /**
  * Check if shape placement is valid.
  */
-function checkShape() {
+function checkShape(boardSpace) {
     console.log("checkSpace is running.");
+    console.log(boardSpace);
+    let checkValue = boardSpace.id;
+    let horizontal = checkValue.slice(1, 3);
+    let vertical = checkValue.slice(3, 5);
+    console.log(checkValue);
+    console.log(`Horizontal value: ${horizontal}`);
+    console.log(`Vertical value: ${vertical}`);
+
+    // if (currentShape == "1-0-0") {
+        
+    // }
 }
 
 /**
