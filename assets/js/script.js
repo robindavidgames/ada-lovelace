@@ -272,7 +272,15 @@ for (let x = 1; x < 10; x++) {
     let clickShape = document.getElementById("shape"+x);
     clickShape.addEventListener("click", function() {
         if (clickShape.classList.contains("shape-available")) {
+            // Remove any previously clicked elements.
+            let removeClicked = document.getElementsByClassName("shape-picked")
+            for (let i = 0; i < removeClicked.length; i++) {
+                removeClicked[i].classList.add("shape-available");
+                removeClicked[i].classList.remove("shape-picked");
+            }
             console.log(`Event listener clicked available shape ${x}`);
+            clickShape.classList.remove("shape-available");
+            clickShape.classList.add("shape-picked");
             pickShape(clickShape, x);
         } else {
             console.log(`Event listener clicked unavailable shape ${x}`);
