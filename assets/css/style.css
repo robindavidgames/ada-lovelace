@@ -22,6 +22,11 @@
     border-width: thin;
 }
 
+.contains-shape {
+    background-color: black;
+    border-color: black;
+}
+
 .empty {
     background: none;
     border: none;

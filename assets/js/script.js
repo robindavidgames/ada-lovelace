@@ -6,6 +6,10 @@ let dieValue = "";
 // The player's chosen shape.
 let currentShape = "";
 
+let spacesToCheck = [];
+let vertical = 0;
+let horizontal = 0;
+
 createPlayArea();
 markOutOfBounds();
 markPreFilled();
@@ -290,6 +294,7 @@ for (let x = 1; x < 10; x++) {
 
 /**
  * Player can select an appropriate shape.
+ * Argument is the chosenShape and x is the shape number.
  */
 function pickShape(chosenShape, x) {
     console.log(`User has chosen ${chosenShape}`);
@@ -327,20 +332,66 @@ for (let x = 1; x < boardSpace.length; x++) {
 
 /**
  * Check if shape placement is valid.
+ * Argument is the currently clicked space.
  */
 function checkShape(boardSpace) {
     console.log("checkSpace is running.");
     console.log(boardSpace);
     let checkValue = boardSpace.id;
-    let horizontal = checkValue.slice(1, 3);
-    let vertical = checkValue.slice(3, 5);
+
+    // Get horizontal and vertical values as integers.
+    horizontal = parseInt(checkValue.slice(1, 3));
+    vertical = parseInt(checkValue.slice(3, 5));
     console.log(checkValue);
     console.log(`Horizontal value: ${horizontal}`);
     console.log(`Vertical value: ${vertical}`);
 
-    // if (currentShape == "1-0-0") {
-        
-    // }
+    // Clear out spacesToCheck
+    spacesToCheck = [checkValue];
+    console.log(`spacesToCheck: ${spacesToCheck}`);
+
+    if (currentShape == "1-0-0") {
+        // These are not the correct values. The first space is automatic. The others need to be inputted counting from the original clicked space.
+        adjustSpace(1, -1);
+        adjustSpace(2, 3);
+    }
+}
+
+/**
+ * Adjust horizontal and vertical values and make them strings.
+ * Add the final values to the spacesToCheck array.
+ * Arguments are how much to adjust the horizontal by and how much to adjust the vertical by. Can be 0 or negative numbers.
+ */
+function adjustSpace(horizotalAdjustment, verticalAdjustment) {
+    let newHorizontal = 0;
+    let newVertical = 0;
+    if (horizontal < 10) {
+        newHorizontal = horizontal + horizotalAdjustment;
+        let string = newHorizontal.toString();
+        newHorizontal = "0"+string;
+    } else {
+        newHorizontal = horizontal + horizotalAdjustment;
+        newHorizontal = newHorizontal.toString();
+    }
+    if (vertical < 10) {
+        newVertical = vertical + verticalAdjustment;
+        let string = newVertical.toString();
+        newVertical = "0"+string;
+    } else {
+        newVertical = vertical + verticalAdjustment;
+        newVertical = newVertical.toString();
+    }
+    spacesToCheck.push("v"+newHorizontal+newVertical);
+    console.log(`spacesToCheck: ${spacesToCheck}`);
+    return;
+}
+
+/**
+ * Create a list of spaces to check for each shape.
+ */
+function createSpacesToCheck() {
+
+
 }
 
 /**
