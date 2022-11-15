@@ -387,14 +387,6 @@ function adjustSpace(horizotalAdjustment, verticalAdjustment) {
 }
 
 /**
- * Create a list of spaces to check for each shape.
- */
-function createSpacesToCheck() {
-
-
-}
-
-/**
  * Check if a piece of evidence is surrounded.
  */
 function checkSurround() {
