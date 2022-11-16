@@ -34,7 +34,7 @@ function createPlayArea() {
         for (let i = 1; i < 21; i++) {
             let elementWrapper = document.getElementById("row"+r);
             let element = document.createElement("div");
-            element.setAttribute("class", "space available");
+            element.setAttribute("class", "space available valid-space");
             if (r < 10) {
                 if (i < 10) {
                     element.setAttribute("id", "v0"+r+"0"+i);
@@ -319,7 +319,7 @@ function pickShape(chosenShape, x) {
 }
 
 // Event listener for clicking spaces on the board.
-let boardSpace = document.getElementsByClassName("available")
+let boardSpace = document.getElementsByClassName("valid-space")
 for (let x = 1; x < boardSpace.length; x++) {
     boardSpace[x].addEventListener("click", function() {
         console.log(`User clicked space ${boardSpace[x]}`);
