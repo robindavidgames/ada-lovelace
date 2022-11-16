@@ -353,8 +353,11 @@ function checkShape(boardSpace) {
     // Add values that need to be checked for each space and each space variation. The first space is automatic. The others need to be inputted counting from the original clicked space.
     if (currentShape == "1-0-0") {
         adjustSpace(1, -1);
-        adjustSpace(2, 3);
+        adjustSpace(1, 0);
+        adjustSpace(1, 1);
+        adjustSpace(1, 2);
     }
+    paintSpaces();
 }
 
 /**
@@ -363,27 +366,34 @@ function checkShape(boardSpace) {
  * Arguments are how much to adjust the horizontal by and how much to adjust the vertical by. Can be 0 or negative numbers.
  */
 function adjustSpace(horizotalAdjustment, verticalAdjustment) {
-    let newHorizontal = 0;
-    let newVertical = 0;
-    if (horizontal < 10) {
-        newHorizontal = horizontal + horizotalAdjustment;
+    let newHorizontal = horizontal + horizotalAdjustment;
+    let newVertical = vertical + verticalAdjustment;
+    if (newHorizontal < 10) {
         let string = newHorizontal.toString();
         newHorizontal = "0"+string;
     } else {
-        newHorizontal = horizontal + horizotalAdjustment;
         newHorizontal = newHorizontal.toString();
     }
-    if (vertical < 10) {
-        newVertical = vertical + verticalAdjustment;
+    if (newVertical < 10) {
         let string = newVertical.toString();
         newVertical = "0"+string;
     } else {
-        newVertical = vertical + verticalAdjustment;
         newVertical = newVertical.toString();
     }
     spacesToCheck.push("v"+newHorizontal+newVertical);
     console.log(`spacesToCheck: ${spacesToCheck}`);
     return;
+}
+
+/**
+ * Fill in spaces.
+ */
+function paintSpaces() {
+    for (let x = 0; x < spacesToCheck.length; x++) {
+        let paint = document.getElementById(spacesToCheck[x]);
+        // paint.classList.remove("shape-available");
+        paint.classList.add("contains-shape");
+    }
 }
 
 /**
