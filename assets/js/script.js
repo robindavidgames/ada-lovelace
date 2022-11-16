@@ -357,7 +357,24 @@ function checkShape(boardSpace) {
         adjustSpace(1, 1);
         adjustSpace(1, 2);
     }
-    paintSpaces();
+
+    // Check if the spaces are null or if they include unavailable spaces.
+    let approve = true;
+    for (let x = 0; x < spacesToCheck.length; x++) {
+        let check = document.getElementById(spacesToCheck[x]);
+        // This if line won't be needed once these spaces are checked.
+        if (check == null) {
+            console.log("null space");
+            approve = false;
+        } else if (!check.classList.contains("available")) {
+            console.log("not available");
+            approve = false;
+        }
+    }
+    if (approve == true) {
+        // This needs to be pop up approval button. Which has an event listener to go to paint spaces.
+        paintSpaces();
+    }
 }
 
 /**
