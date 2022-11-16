@@ -408,7 +408,7 @@ function adjustSpace(horizotalAdjustment, verticalAdjustment) {
 function paintSpaces() {
     for (let x = 0; x < spacesToCheck.length; x++) {
         let paint = document.getElementById(spacesToCheck[x]);
-        // paint.classList.remove("shape-available");
+        paint.classList.remove("available");
         paint.classList.add("contains-shape");
     }
 }
