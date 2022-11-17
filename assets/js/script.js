@@ -368,7 +368,7 @@ function checkShape(boardSpace) {
         adjustSpace(1, 1);
         adjustSpace(1, 2);
         adjustSpace(2, 2);
-    } else if (currentShape == "5-0-0") {
+    } else if (currentShape == "5-0-0" || currentShape == "5-0-1") {
         adjustSpace(-1, 1);
         adjustSpace(0, 1);
         adjustSpace(1, 1);
@@ -377,15 +377,21 @@ function checkShape(boardSpace) {
         adjustSpace(0, 2);
         adjustSpace(1, 2);
         adjustSpace(2, 2);
-    } else if (currentShape == "7-0-0") {
+    } else if (currentShape == "7-0-0" || currentShape == "7-0-1") {
         adjustSpace(0, 1);
-    } else if (currentShape == "8-0-0") {
+    } else if (currentShape == "8-0-0" || currentShape == "8-0-1") {
         adjustSpace(0, 1);
         adjustSpace(0, 2);
     } else if (currentShape == "9-0-0") {
         adjustSpace(0, 1);
         adjustSpace(1, 1);
     }
+
+    // New method (fewer lines but harder to debug.)
+    // if (currentShape == "3-270-0" || currentShape == "3-90-1" || currentShape == "2-180-0" || currentShape == "2-180-1" || currentShape == "1-180-0" || currentShape == "1-180-1" || currentShape == "6-180-0" || currentShape == "6-180-1" || currentShape == "5-180-0" || currentShape == "5-180-1" || currentShape == "4-270-0" || currentShape == "4-90-1" || currentShape == "7-180-0" || currentShape == "7-180-1" || currentShape == "8-180-0" || currentShape == "8-180-1" || currentShape == "9-180-0" || currentShape == "9-180-1") {
+        // 12 oclock, inner square.
+    //     adjustSpace(0, -1);
+    // }
 
     console.log(`spacesToCheck: ${spacesToCheck}`);
 
