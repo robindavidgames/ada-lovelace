@@ -27,6 +27,11 @@
     border-color: black;
 }
 
+.unconfirmed-shape {
+    background-color: lightsalmon;
+    border-color: lightsalmon;
+}
+
 .empty {
     background: none;
     border: none;
@@ -115,3 +120,14 @@
     left: 50px;
     top: 30px;
 }
+
+/* #confirm-button {
+    position: relative;
+    left: 700px;
+}
+
+#cancel-button {
+    position: relative;
+    left: 700px;
+    top: 30px;
+} */

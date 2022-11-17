@@ -286,8 +286,8 @@ function checkShape(boardSpace) {
         }
     }
     if (approve == true) {
-        // This needs to be pop up approval button. Which has an event listener to go to paint spaces.
-        paintSpaces();
+        let confirmation = false;
+        paintSpaces(confirmation);
         confirmPopUp();
     }
 }
@@ -297,11 +297,14 @@ function checkShape(boardSpace) {
  */
 function confirmPopUp() {
     let buttonWrapper = document.getElementById(spacesToCheck[0]);
+    // let buttonWrapper = document.getElementById("play-area");
 
     let confirmButton = document.createElement("button");
     var confirmText = document.createTextNode("Confirm");
     confirmButton.appendChild(confirmText);
     confirmButton.setAttribute("id", "confirm-button");
+    // confirmButton.setAttribute("z-index", "9999999");
+    // confirmButton.setAttribute("pointer-events", "visible");
     buttonWrapper.appendChild(confirmButton);
 
     let cancelButton = document.createElement("button");
@@ -309,17 +312,37 @@ function confirmPopUp() {
     cancelButton.appendChild(cancelText);
     cancelButton.setAttribute("id", "cancel-button");
     buttonWrapper.appendChild(cancelButton);
+
+    // Event listener for confirm button.
+    let confirmButtonClick = document.getElementById("confirm-button")
+    confirmButtonClick.addEventListener("click", function() {
+        console.log("User clicked confirm button.");
+        let confirmation = true;
+        paintSpaces(confirmation);
+    });
+
+    // Event listener for cancel button.
 }
 
 /**
  * Fill in spaces.
  */
-function paintSpaces() {
-    for (let x = 0; x < spacesToCheck.length; x++) {
-        let paint = document.getElementById(spacesToCheck[x]);
-        paint.classList.remove("available");
-        paint.classList.add("contains-shape");
+function paintSpaces(confirmation) {
+    if (confirmation == true) {
+        for (let x = 0; x < spacesToCheck.length; x++) {
+            let paint = document.getElementById(spacesToCheck[x]);
+            paint.classList.remove("available");
+            paint.classList.remove("unconfirmed-shape");
+            paint.classList.add("contains-shape");
+        }
+    } else {
+        for (let x = 0; x < spacesToCheck.length; x++) {
+            let paint = document.getElementById(spacesToCheck[x]);
+            paint.classList.remove("available");
+            paint.classList.add("unconfirmed-shape");
+        }
     }
+    return;
 }
 
 /**
