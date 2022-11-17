@@ -286,7 +286,7 @@ function checkShape(boardSpace) {
         }
     }
     if (approve == true) {
-        let confirmation = false;
+        let confirmation = "no";
         paintSpaces(confirmation);
         confirmPopUp();
     }
@@ -296,15 +296,14 @@ function checkShape(boardSpace) {
  * Pop up a confirm and cancel buttons when placing a shape.
  */
 function confirmPopUp() {
-    let buttonWrapper = document.getElementById(spacesToCheck[0]);
-    // let buttonWrapper = document.getElementById("play-area");
+    // let buttonWrapper = document.getElementById(spacesToCheck[0]);
+    // Make this where to put the buttons.
+    let buttonWrapper = document.getElementById("v0114");
 
     let confirmButton = document.createElement("button");
     var confirmText = document.createTextNode("Confirm");
     confirmButton.appendChild(confirmText);
     confirmButton.setAttribute("id", "confirm-button");
-    // confirmButton.setAttribute("z-index", "9999999");
-    // confirmButton.setAttribute("pointer-events", "visible");
     buttonWrapper.appendChild(confirmButton);
 
     let cancelButton = document.createElement("button");
@@ -317,29 +316,42 @@ function confirmPopUp() {
     let confirmButtonClick = document.getElementById("confirm-button")
     confirmButtonClick.addEventListener("click", function() {
         console.log("User clicked confirm button.");
-        let confirmation = true;
+        let confirmation = "yes";
         paintSpaces(confirmation);
     });
 
     // Event listener for cancel button.
+    let cancelButtonClick = document.getElementById("cancel-button")
+    cancelButtonClick.addEventListener("click", function() {
+        console.log("User clicked cancel button.");
+        let confirmation = "cancel";
+        paintSpaces(confirmation);
+    });
 }
 
 /**
  * Fill in spaces.
  */
 function paintSpaces(confirmation) {
-    if (confirmation == true) {
+    console.log(`confirmtation reads ${confirmation}`)
+    if (confirmation === "yes") {
         for (let x = 0; x < spacesToCheck.length; x++) {
             let paint = document.getElementById(spacesToCheck[x]);
             paint.classList.remove("available");
             paint.classList.remove("unconfirmed-shape");
             paint.classList.add("contains-shape");
         }
-    } else {
+    } else if (confirmation === "no") {
         for (let x = 0; x < spacesToCheck.length; x++) {
             let paint = document.getElementById(spacesToCheck[x]);
             paint.classList.remove("available");
             paint.classList.add("unconfirmed-shape");
+        }
+    } else if (confirmation === "cancel") {
+        for (let x = 0; x < spacesToCheck.length; x++) {
+            let paint = document.getElementById(spacesToCheck[x]);
+            paint.classList.remove("unconfirmed-shape");
+            paint.classList.add("available");
         }
     }
     return;
