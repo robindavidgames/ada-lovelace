@@ -288,18 +288,27 @@ function checkShape(boardSpace) {
     if (approve == true) {
         // This needs to be pop up approval button. Which has an event listener to go to paint spaces.
         paintSpaces();
+        confirmPopUp();
     }
 }
 
 /**
- * Pop up a confirm button when placing a shape.
+ * Pop up a confirm and cancel buttons when placing a shape.
  */
 function confirmPopUp() {
-    // let dieWrapper = document.getElementById("dice-area");
-    // let divElement = document.createElement("div");
-    // divElement.setAttribute("class", "clear");
-    // divElement.setAttribute("id", "row"+r);
-    // dieWrapper.appendChild(divElement);
+    let buttonWrapper = document.getElementById(spacesToCheck[0]);
+
+    let confirmButton = document.createElement("button");
+    var confirmText = document.createTextNode("Confirm");
+    confirmButton.appendChild(confirmText);
+    confirmButton.setAttribute("id", "confirm-button");
+    buttonWrapper.appendChild(confirmButton);
+
+    let cancelButton = document.createElement("button");
+    var cancelText = document.createTextNode("Cancel");
+    cancelButton.appendChild(cancelText);
+    cancelButton.setAttribute("id", "cancel-button");
+    buttonWrapper.appendChild(cancelButton);
 }
 
 /**
