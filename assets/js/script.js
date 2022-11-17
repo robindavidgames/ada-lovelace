@@ -348,15 +348,46 @@ function checkShape(boardSpace) {
 
     // Clear out spacesToCheck
     spacesToCheck = [checkValue];
-    console.log(`spacesToCheck: ${spacesToCheck}`);
 
     // Add values that need to be checked for each space and each space variation. The first space is automatic. The others need to be inputted counting from the original clicked space.
     if (currentShape == "1-0-0") {
-        adjustSpace(1, -1);
+        adjustSpace(-1, 1);
+        adjustSpace(0, 1);
+        adjustSpace(1, 1);
+        adjustSpace(2, 1);
+    } else if (currentShape == "2-0-0") {
+        adjustSpace(0, 1);
+        adjustSpace(1, 1);
+        adjustSpace(2, 1);
+    } else if (currentShape == "3-0-0") {
+        adjustSpace(1, 0);
+        adjustSpace(1, 1);
+        adjustSpace(2, 1);
+    } else if (currentShape == "4-0-0") {
         adjustSpace(1, 0);
         adjustSpace(1, 1);
         adjustSpace(1, 2);
+        adjustSpace(2, 2);
+    } else if (currentShape == "5-0-0") {
+        adjustSpace(-1, 1);
+        adjustSpace(0, 1);
+        adjustSpace(1, 1);
+    } else if (currentShape == "6-0-0") {
+        adjustSpace(0, 1);
+        adjustSpace(0, 2);
+        adjustSpace(1, 2);
+        adjustSpace(2, 2);
+    } else if (currentShape == "7-0-0") {
+        adjustSpace(0, 1);
+    } else if (currentShape == "8-0-0") {
+        adjustSpace(0, 1);
+        adjustSpace(0, 2);
+    } else if (currentShape == "9-0-0") {
+        adjustSpace(0, 1);
+        adjustSpace(1, 1);
     }
+
+    console.log(`spacesToCheck: ${spacesToCheck}`);
 
     // Check if the spaces are null or if they include unavailable spaces.
     let approve = true;
@@ -382,7 +413,7 @@ function checkShape(boardSpace) {
  * Add the final values to the spacesToCheck array.
  * Arguments are how much to adjust the horizontal by and how much to adjust the vertical by. Can be 0 or negative numbers.
  */
-function adjustSpace(horizotalAdjustment, verticalAdjustment) {
+function adjustSpace(verticalAdjustment, horizotalAdjustment) {
     let newHorizontal = horizontal + horizotalAdjustment;
     let newVertical = vertical + verticalAdjustment;
     if (newHorizontal < 10) {
@@ -398,7 +429,6 @@ function adjustSpace(horizotalAdjustment, verticalAdjustment) {
         newVertical = newVertical.toString();
     }
     spacesToCheck.push("v"+newHorizontal+newVertical);
-    console.log(`spacesToCheck: ${spacesToCheck}`);
     return;
 }
 
