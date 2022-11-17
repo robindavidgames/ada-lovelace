@@ -493,6 +493,110 @@ function checkShape(boardSpace) {
     } else if (currentShape == "9-270-0") {
         adjustSpace(1, 0);
         adjustSpace(1, -1);
+    } else if (currentShape == "1-0-1") {
+        adjustSpace(-1, 1);
+        adjustSpace(0, 1);
+        adjustSpace(1, 1);
+        adjustSpace(-2, 1);
+    } else if (currentShape == "2-0-1") {
+        adjustSpace(0, 1);
+        adjustSpace(-1, 1);
+        adjustSpace(-2, 1);
+    } else if (currentShape == "3-0-1") {
+        adjustSpace(-1, 0);
+        adjustSpace(-1, 1);
+        adjustSpace(-2, 1);
+    } else if (currentShape == "4-0-1") {
+        adjustSpace(-1, 0);
+        adjustSpace(-1, 1);
+        adjustSpace(-1, 2);
+        adjustSpace(-2, 2);
+    } else if (currentShape == "6-0-1") {
+        adjustSpace(0, 1);
+        adjustSpace(0, 2);
+        adjustSpace(-1, 2);
+        adjustSpace(-2, 2);
+    } else if (currentShape == "9-0-1") {
+        adjustSpace(0, 1);
+        adjustSpace(-1, 1);
+    } else if (currentShape == "1-90-1") {
+        adjustSpace(-1, -1);
+        adjustSpace(-1, 0);
+        adjustSpace(-1, 1);
+        adjustSpace(-1, -2);
+    } else if (currentShape == "2-90-1") {
+        adjustSpace(-1, 0);
+        adjustSpace(-1, -1);
+        adjustSpace(-1, -2);
+    } else if (currentShape == "3-90-1") {
+        adjustSpace(0, -1);
+        adjustSpace(-1, -1);
+        adjustSpace(-1, -2);
+    } else if (currentShape == "4-90-1") {
+        adjustSpace(0, -1);
+        adjustSpace(-1, -1);
+        adjustSpace(-2, -1);
+        adjustSpace(-2, -2);
+    } else if (currentShape == "6-90-1") {
+        adjustSpace(-1, 0);
+        adjustSpace(-2, 0);
+        adjustSpace(-2, -1);
+        adjustSpace(-2, -2);
+    } else if (currentShape == "9-90-1") {
+        adjustSpace(-1, 0);
+        adjustSpace(-1, -1);
+    } else if (currentShape == "1-180-1") {
+        adjustSpace(2, -1);
+        adjustSpace(1, -1);
+        adjustSpace(0, -1);
+        adjustSpace(-1, -1);
+    } else if (currentShape == "2-180-1") {
+        adjustSpace(2, -1);
+        adjustSpace(1, -1);
+        adjustSpace(0, -1);
+    } else if (currentShape == "3-180-1") {
+        adjustSpace(1, 0);
+        adjustSpace(1, -1);
+        adjustSpace(2, -1);
+    } else if (currentShape == "4-180-1") {
+        adjustSpace(1, 0);
+        adjustSpace(1, -1);
+        adjustSpace(1, -2);
+        adjustSpace(2, -2);
+    } else if (currentShape == "6-180-1") {
+        adjustSpace(0, -1);
+        adjustSpace(0, -2);
+        adjustSpace(1, -2);
+        adjustSpace(2, -2);
+    } else if (currentShape == "9-180-1") {
+        adjustSpace(0, -1);
+        adjustSpace(1, -1);
+    } else if (currentShape == "1-270-0") {
+        adjustSpace(1, 2);
+        adjustSpace(1, 1);
+        adjustSpace(1, 0);
+        adjustSpace(1, -1);
+    } else if (currentShape == "2-270-0") {
+        adjustSpace(1, 2);
+        adjustSpace(1, 1);
+        adjustSpace(1, 0);
+    } else if (currentShape == "3-270-0") {
+        adjustSpace(0, 1);
+        adjustSpace(1, 1);
+        adjustSpace(1, 2);
+    } else if (currentShape == "4-270-0") {
+        adjustSpace(0, 1);
+        adjustSpace(1, 1);
+        adjustSpace(2, 1);
+        adjustSpace(2, 2);
+    } else if (currentShape == "6-270-0") {
+        adjustSpace(1, 0);
+        adjustSpace(2, 0);
+        adjustSpace(2, 1);
+        adjustSpace(2, 2);
+    } else if (currentShape == "9-270-0") {
+        adjustSpace(1, 0);
+        adjustSpace(1, 1);
     }
 
     // New method (fewer lines but harder to debug.)
