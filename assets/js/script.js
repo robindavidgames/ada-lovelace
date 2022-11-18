@@ -14,6 +14,7 @@ let horizontal = 0;
 createPlayArea();
 markOutOfBounds();
 markPreFilled();
+createConfirmButtons();
 availableDice = [];
 
 // Event listener for rolling dice.
@@ -292,41 +293,47 @@ function checkShape(boardSpace) {
     }
 }
 
+// Event listener for confirm button.
+let confirmButtonClick = document.getElementById("confirm-button")
+confirmButtonClick.addEventListener("click", function() {
+    console.log("User clicked confirm button.");
+    let confirmation = "yes";
+    paintSpaces(confirmation);
+});
+
+// Event listener for cancel button.
+let cancelButtonClick = document.getElementById("cancel-button")
+cancelButtonClick.addEventListener("click", function() {
+    console.log("User clicked cancel button.");
+    let confirmation = "cancel";
+    paintSpaces(confirmation);
+});
+
 /**
  * Pop up a confirm and cancel buttons when placing a shape.
  */
 function confirmPopUp() {
     // let buttonWrapper = document.getElementById(spacesToCheck[0]);
     // Make this where to put the buttons.
-    let buttonWrapper = document.getElementById("v0114");
+    // let buttonWrapper = document.getElementById("v0114");
 
-    let confirmButton = document.createElement("button");
-    var confirmText = document.createTextNode("Confirm");
-    confirmButton.appendChild(confirmText);
-    confirmButton.setAttribute("id", "confirm-button");
-    buttonWrapper.appendChild(confirmButton);
+    // let confirmButton = document.createElement("button");
+    // var confirmText = document.createTextNode("Confirm");
+    // confirmButton.appendChild(confirmText);
+    // confirmButton.setAttribute("id", "confirm-button");
+    // buttonWrapper.appendChild(confirmButton);
 
-    let cancelButton = document.createElement("button");
-    var cancelText = document.createTextNode("Cancel");
-    cancelButton.appendChild(cancelText);
-    cancelButton.setAttribute("id", "cancel-button");
-    buttonWrapper.appendChild(cancelButton);
+    // let cancelButton = document.createElement("button");
+    // var cancelText = document.createTextNode("Cancel");
+    // cancelButton.appendChild(cancelText);
+    // cancelButton.setAttribute("id", "cancel-button");
+    // buttonWrapper.appendChild(cancelButton);
 
-    // Event listener for confirm button.
-    let confirmButtonClick = document.getElementById("confirm-button")
-    confirmButtonClick.addEventListener("click", function() {
-        console.log("User clicked confirm button.");
-        let confirmation = "yes";
-        paintSpaces(confirmation);
-    });
+    let confirmButton = document.getElementById("confirm-button");
+    confirmButton.classList.remove("hidden");
+    let cancelButton = document.getElementById("cancel-button");
+    cancelButton.classList.remove("hidden");
 
-    // Event listener for cancel button.
-    let cancelButtonClick = document.getElementById("cancel-button")
-    cancelButtonClick.addEventListener("click", function() {
-        console.log("User clicked cancel button.");
-        let confirmation = "cancel";
-        paintSpaces(confirmation);
-    });
 }
 
 /**
