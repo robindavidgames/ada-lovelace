@@ -313,27 +313,20 @@ cancelButtonClick.addEventListener("click", function() {
  * Pop up a confirm and cancel buttons when placing a shape.
  */
 function confirmPopUp() {
-    // let buttonWrapper = document.getElementById(spacesToCheck[0]);
-    // Make this where to put the buttons.
-    // let buttonWrapper = document.getElementById("v0114");
+    let confirmCancelButtons = document.getElementsByClassName("confirm-cancel-buttons");
+    for (let x = 0; x < confirmCancelButtons.length; x++) {
+        confirmCancelButtons[x].classList.remove("hidden");
+    }
+}
 
-    // let confirmButton = document.createElement("button");
-    // var confirmText = document.createTextNode("Confirm");
-    // confirmButton.appendChild(confirmText);
-    // confirmButton.setAttribute("id", "confirm-button");
-    // buttonWrapper.appendChild(confirmButton);
-
-    // let cancelButton = document.createElement("button");
-    // var cancelText = document.createTextNode("Cancel");
-    // cancelButton.appendChild(cancelText);
-    // cancelButton.setAttribute("id", "cancel-button");
-    // buttonWrapper.appendChild(cancelButton);
-
-    let confirmButton = document.getElementById("confirm-button");
-    confirmButton.classList.remove("hidden");
-    let cancelButton = document.getElementById("cancel-button");
-    cancelButton.classList.remove("hidden");
-
+/**
+ * Pop up a confirm and cancel buttons when placing a shape.
+ */
+function removePopUp() {
+    let confirmCancelButtons = document.getElementsByClassName("confirm-cancel-buttons");
+    for (let x = 0; x < confirmCancelButtons.length; x++) {
+        confirmCancelButtons[x].classList.add("hidden");
+    }
 }
 
 /**
@@ -347,6 +340,7 @@ function paintSpaces(confirmation) {
             paint.classList.remove("available");
             paint.classList.remove("unconfirmed-shape");
             paint.classList.add("contains-shape");
+            removePopUp();
         }
     } else if (confirmation === "no") {
         for (let x = 0; x < spacesToCheck.length; x++) {
@@ -359,6 +353,7 @@ function paintSpaces(confirmation) {
             let paint = document.getElementById(spacesToCheck[x]);
             paint.classList.remove("unconfirmed-shape");
             paint.classList.add("available");
+            removePopUp();
         }
     }
     return;

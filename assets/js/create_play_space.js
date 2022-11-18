@@ -90,13 +90,13 @@ function createConfirmButtons() {
     var confirmText = document.createTextNode("Confirm");
     confirmButton.appendChild(confirmText);
     confirmButton.setAttribute("id", "confirm-button");
-    confirmButton.setAttribute("class", "hidden");
+    confirmButton.setAttribute("class", "hidden confirm-cancel-buttons");
     buttonWrapper.appendChild(confirmButton);
 
     let cancelButton = document.createElement("button");
     var cancelText = document.createTextNode("Cancel");
     cancelButton.appendChild(cancelText);
     cancelButton.setAttribute("id", "cancel-button");
-    cancelButton.setAttribute("class", "hidden");
+    cancelButton.setAttribute("class", "hidden confirm-cancel-buttons");
     buttonWrapper.appendChild(cancelButton);
 }
