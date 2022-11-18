@@ -130,6 +130,20 @@ function activateSpaces() {
     return;
 }
 
+/**
+ * Shapes and abilities deactivate when relevant.
+ */
+function deactivateSpaces() {
+    let shapes = document.getElementsByClassName('shape-picker');
+    for (let i = 0; i < shapes.length; i++) {
+        let makeUnavailable = shapes[i];
+        makeUnavailable.classList.remove("shape-available");
+        makeUnavailable.classList.remove("shape-picked");
+        makeUnavailable.classList.add("shape-unavailable");
+    }
+    return;
+}
+
 // Event listener for rotating shapes.
 let rotateShape = document.getElementById("rotate-shapes");
 rotateShape.addEventListener("click", function() {rotate90Degrees();});
@@ -335,20 +349,24 @@ function removePopUp() {
 function paintSpaces(confirmation) {
     console.log(`confirmtation reads ${confirmation}`)
     if (confirmation === "yes") {
+        // Player has clicked "confirm", so change spaces to contain-shape.
         for (let x = 0; x < spacesToCheck.length; x++) {
             let paint = document.getElementById(spacesToCheck[x]);
             paint.classList.remove("available");
             paint.classList.remove("unconfirmed-shape");
             paint.classList.add("contains-shape");
+            deactivateSpaces();
             removePopUp();
         }
     } else if (confirmation === "no") {
+        // Player has not yet chosen "confirm" or "cancel", so shapes are greyed out.
         for (let x = 0; x < spacesToCheck.length; x++) {
             let paint = document.getElementById(spacesToCheck[x]);
             paint.classList.remove("available");
             paint.classList.add("unconfirmed-shape");
         }
     } else if (confirmation === "cancel") {
+        // Player has clicked "cancel", so remove the unconfirmed-shape.
         for (let x = 0; x < spacesToCheck.length; x++) {
             let paint = document.getElementById(spacesToCheck[x]);
             paint.classList.remove("unconfirmed-shape");
