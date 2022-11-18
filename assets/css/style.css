@@ -62,6 +62,10 @@
     margin-top: 28px;
 }
 
+.clicked-die {
+    background-color: lightgreen;
+}
+
 .shape-picker {
     width: 200px;
     height: 200px;

@@ -95,9 +95,15 @@ for (let x = 1; x < 3; x++) {
  * Player can click on an available die.
  */
 function clickDie(clickedDice) {
-    dieChosen = document.getElementById('available'+clickedDice);
+    let uncolourDice = document.getElementsByClassName("die-roller");
+    for (let x = 0; x < uncolourDice.length; x++) {
+        uncolourDice[x].classList.remove("clicked-die");
+    } 
+
+    let dieChosen = document.getElementById('available'+clickedDice);
     // Read the text on the chosen die.
     dieValue = parseInt(dieChosen.innerText);
+    dieChosen.classList.add("clicked-die");
     console.log(`dieValue variable is ${dieValue}`);
     deactivateSpaces();
     activateSpaces();
