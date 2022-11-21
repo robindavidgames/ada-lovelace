@@ -85,6 +85,38 @@ function reduceReserveSpaces() {
     }
 }
 
+// Event listener for new round button.
+let newRoundButton = document.getElementById("new-round-button");
+newRoundButton.addEventListener("click", function() {
+    if (roundNumber < 6) {
+        setUpNewRound();
+    } else {
+        presentScoring();
+    }
+});
+
+/**
+ * Sets up a new round.
+ */
+function setUpNewRound() {
+    // Update the tracking boxes.
+    for (let x = 1; x < 7; x++) {
+        let checkAvailable = document.getElementById("reserve"+x);
+        checkAvailable.classList.add("filled");
+        checkAvailable.classList.remove("empty");
+        usedDice = document.getElementById("used"+x)
+        usedDice.classList.add("empty");
+        usedDice.classList.remove("filled");
+    }
+    // Update the round number.
+    roundNumber++;
+    console.log(`Begin round: ${roundNumber}`);
+    document.getElementById("round-tracker").textContent = "Round "+roundNumber+" of 6";
+    // Reset the buttons.
+    document.getElementById("new-round-button").classList.add("hidden");
+    document.getElementById("roll-dice-button").classList.remove("hidden");
+}
+
 // Event listener for clicking each die.
 for (let x = 1; x < 3; x++) {
     let clickDice = document.getElementById("available"+x);
@@ -456,16 +488,9 @@ function createNewTurnButton() {
 /**
  * Start a new turn. Update the round number and roll dice.
  */
-function newTurn() {
-    randomiseDice();
-}
-
-/**
- * Check if all rounds have been played.
- */
-function checkGameOver() {
-
-}
+// function newTurn() {
+//     randomiseDice();
+// }
 
 /**
  * Present scoring information.
