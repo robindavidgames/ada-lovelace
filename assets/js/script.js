@@ -44,6 +44,8 @@ function placeRolledDice(availableDice) {
     for (let x = 1; x < 3; x++) {
         dieValue = availableDice[x-1];
         document.getElementById("available"+x).textContent = dieValue;
+        document.getElementById("available"+x).classList.remove("used-rolled-dice");
+        document.getElementById("available"+x).classList.add("unused-rolled-dice");
     }
     return;
 }
@@ -86,8 +88,10 @@ function reduceReserveSpaces() {
 for (let x = 1; x < 3; x++) {
     let clickDice = document.getElementById("available"+x);
     clickDice.addEventListener("click", function() {
-        console.log(`Event listener clicked dice ${x}`);
-        clickDie(x);
+        if (clickDice.classList.contains("unused-rolled-dice")) {
+            console.log(`Event listener clicked dice ${x}`);
+            clickDie(x);
+        }
     });
 }
 
@@ -98,7 +102,7 @@ function clickDie(clickedDice) {
     let uncolourDice = document.getElementsByClassName("die-roller");
     for (let x = 0; x < uncolourDice.length; x++) {
         uncolourDice[x].classList.remove("clicked-die");
-    } 
+    }
 
     let dieChosen = document.getElementById('available'+clickedDice);
     // Read the text on the chosen die.
@@ -361,6 +365,7 @@ function paintSpaces(confirmation) {
             paint.classList.remove("available");
             paint.classList.remove("unconfirmed-shape");
             paint.classList.add("contains-shape");
+            deactivateDice();
             deactivateSpaces();
             removePopUp();
         }
@@ -381,6 +386,21 @@ function paintSpaces(confirmation) {
         }
     }
     return;
+}
+
+/**
+ * Deactivate the used dice.
+ */
+function deactivateDice() {
+    for (let x = 1; x < 3; x++) {
+        let deactivate = document.getElementById("available"+x);
+        if (deactivate.classList.contains("clicked-die")) {
+            deactivate.classList.remove("clicked-die");
+            deactivate.classList.remove("unused-rolled-dice");
+            deactivate.classList.add("used-rolled-dice");
+            deactivate.textContent = "";
+        }
+    };
 }
 
 /**

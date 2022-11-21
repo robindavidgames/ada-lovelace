@@ -66,6 +66,10 @@
     background-color: lightgreen;
 }
 
+.used-rolled-dice {
+    background-color: black;
+}
+
 .shape-picker {
     width: 200px;
     height: 200px;
