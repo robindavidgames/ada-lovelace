@@ -81,11 +81,23 @@ function markPreFilled() {
 }
 
 /**
+ * Create round tracker.
+ */
+function createRoundTracker() {
+    let roundTrackerWrapper = document.getElementById("v0117");
+    let roundTracker = document.createElement("div");
+    // roundTracker.setAttribute("class", "");
+    roundTracker.setAttribute("id", "round-tracker");
+    roundTrackerWrapper.appendChild(roundTracker);
+    roundTracker.textContent = "Round 1 of 6";
+}
+
+/**
  * Create confirm and cancel shape buttons.
  */
 function createConfirmButtons() {
-    let confirmButtonWrapper = document.getElementById("v0117");
-    let cancelButtonWrapper = document.getElementById("v0317");
+    let confirmButtonWrapper = document.getElementById("v0317");
+    let cancelButtonWrapper = document.getElementById("v0517");
 
     let confirmButton = document.createElement("button");
     var confirmText = document.createTextNode("Confirm");

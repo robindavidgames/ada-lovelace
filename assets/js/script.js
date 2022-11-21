@@ -14,6 +14,7 @@ let horizontal = 0;
 createPlayArea();
 markOutOfBounds();
 markPreFilled();
+createRoundTracker();
 createConfirmButtons();
 availableDice = [];
 

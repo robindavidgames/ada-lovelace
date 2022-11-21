@@ -120,11 +120,18 @@
 
 #confirm-button {
     position: relative;
+    width: 170px;
     /* left: 50px; */
 }
 
 #cancel-button {
     position: relative;
+    width: 170px;
     /* left: 50px; */
     /* top: 30px; */
+}
+
+#round-tracker {
+    position: relative;
+    width: 170px;
 }
