@@ -443,28 +443,29 @@ function paintSpaces(confirmation) {
             paint.classList.remove("available");
             paint.classList.remove("unconfirmed-shape");
             paint.classList.add("contains-shape");
-            tempPlacement = false;
-            deactivateDice();
-            deactivateSpaces();
-            removePopUp();
         }
+        tempPlacement = false;
+        deactivateDice();
+        deactivateSpaces();
+        removePopUp();
+        checkSurround();
     } else if (confirmation === "no") {
         // Player has not yet chosen "confirm" or "cancel", so shapes are greyed out.
         for (let x = 0; x < spacesToCheck.length; x++) {
             let paint = document.getElementById(spacesToCheck[x]);
             paint.classList.remove("available");
             paint.classList.add("unconfirmed-shape");
-            tempPlacement = true;
         }
+        tempPlacement = true;
     } else if (confirmation === "cancel") {
         // Player has clicked "cancel", so remove the unconfirmed-shape.
         for (let x = 0; x < spacesToCheck.length; x++) {
             let paint = document.getElementById(spacesToCheck[x]);
             paint.classList.remove("unconfirmed-shape");
             paint.classList.add("available");
-            tempPlacement = false;
-            removePopUp();
         }
+        tempPlacement = false;
+        removePopUp();
     }
     return;
 }
@@ -488,17 +489,48 @@ function deactivateDice() {
  * Check if a piece of evidence is surrounded.
  */
 function checkSurround() {
-    const evidence01Surround = [v0101, v0102, v0103, v0201, v0203, v0301, v0302, v0303];
-    const evidence02Surround = [];
-    const evidence03Surround = [];
-    const evidence04Surround = [];
-    const evidence05Surround = [];
-    const evidence06Surround = [];
-    const evidence07Surround = [];
-    const evidence08Surround = [];
-    const evidence09Surround = [];
-    const evidence10Surround = [];
-    const evidence11Surround = [];
+    const evidence01Surround = ["v0101", "v0102", "v0103", "v0201", "v0203", "v0301", "v0302", "v0303"];
+    const evidence02Surround = ["v0112", "v0113", "v0114", "v0212", "v0214", "v0312", "v0313", "v0314"];
+    // const evidence03Surround = [];
+    // const evidence04Surround = [];
+    // const evidence05Surround = [];
+    // const evidence06Surround = [];
+    // const evidence07Surround = [];
+    // const evidence08Surround = [];
+    // const evidence09Surround = [];
+    // const evidence10Surround = [];
+    // const evidence11Surround = [];
+    
+    // Build an array, if each element contains-shape
+    let evidence01Check = [];
+    for (let x = 0; x < evidence01Surround.length; x++) {
+        if (document.getElementById(evidence01Surround[x]).classList.contains("contains-shape")) {
+            evidence01Check.push("yes");
+        } else {
+            evidence01Check.push("no");
+        }
+    }
+
+    // Check if every element is yes.
+    let evidence01Surrounded = evidence01Check.every(checkYes);
+
+    function checkYes(value) {
+        return value === "yes";
+    }
+
+    console.log(`Evidence 1 surrounded: ${evidence01Surrounded}`);
+
+    // for (let x = 1; x < 2; x++) {
+    //     let currentEvidence = "evidenceSurround"+x;
+    //     let evidenceSurround = currentEvidence.every(checkFilled);
+    //     console.log(`Evidence ${x} surrounded: ${evidenceSurround}`);
+    // }
+    // let evidenceSurrounded1 = evidenceSurround1.every(checkFilled);
+    // console.log(`Evidence 1 surrounded: ${evidenceSurrounded1}`);
+    
+    // function checkFilled(location) {
+    //     return document.getElementById(location).classList.contains("contains-shape");
+    // }
 }
 
 /**
