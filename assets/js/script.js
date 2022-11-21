@@ -361,16 +361,11 @@ for (let x = 0; x < boardSpace.length; x++) {
  * Argument is the currently clicked space.
  */
 function checkShape(boardSpace) {
-    console.log("checkSpace is running.");
-    console.log(boardSpace);
     let checkValue = boardSpace.id;
 
     // Get horizontal and vertical values as integers.
     horizontal = parseInt(checkValue.slice(1, 3));
     vertical = parseInt(checkValue.slice(3, 5));
-    console.log(checkValue);
-    console.log(`Horizontal value: ${horizontal}`);
-    console.log(`Vertical value: ${vertical}`);
 
     // Clear out spacesToCheck
     spacesToCheck = [checkValue];
@@ -493,7 +488,17 @@ function deactivateDice() {
  * Check if a piece of evidence is surrounded.
  */
 function checkSurround() {
-
+    const evidence01Surround = [v0101, v0102, v0103, v0201, v0203, v0301, v0302, v0303];
+    const evidence02Surround = [];
+    const evidence03Surround = [];
+    const evidence04Surround = [];
+    const evidence05Surround = [];
+    const evidence06Surround = [];
+    const evidence07Surround = [];
+    const evidence08Surround = [];
+    const evidence09Surround = [];
+    const evidence10Surround = [];
+    const evidence11Surround = [];
 }
 
 /**
