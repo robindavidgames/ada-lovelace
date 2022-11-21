@@ -230,6 +230,26 @@ function rotate90Degrees() {
     }
     if (currentShape !== "") {
         console.log("Current shape is selected.");
+        // This needs to update the selected shape.
+        for (let x = 1; x < 10; x++) {
+            if (currentShape == x+"-0-0") {
+                currentShape = x+"-90-0";
+            } else if (currentShape == x+"-90-0") {
+                currentShape = x+"-180-0";
+            } else if (currentShape == x+"-180-0") {
+                currentShape = x+"-270-0";
+            } else if (currentShape == x+"-270-0") {
+                currentShape = x+"-0-0";
+            } else if (currentShape == x+"-0-1") {
+                currentShape = x+"-90-1";
+            } else if (currentShape == x+"-90-1") {
+                currentShape = x+"-180-1";
+            } else if (currentShape == x+"-180-1") {
+                currentShape = x+"-270-1";
+            } else if (currentShape == x+"-270-1") {
+                currentShape = x+"-0-1";
+            }
+        }
     }
 }
 
@@ -253,6 +273,29 @@ function flipHorizontal() {
             let adjustShape = document.getElementById("shape"+x);
             adjustShape.classList.remove("flip-1");
             adjustShape.classList.add("flip-0");
+        }
+    }
+    if (currentShape !== "") {
+        console.log("Current shape is selected.");
+        // This needs to update the selected shape.
+        for (let x = 1; x < 10; x++) {
+            if (currentShape == x+"-0-0") {
+                currentShape = x+"-0-1";
+            } else if (currentShape == x+"-90-0") {
+                currentShape = x+"-90-1";
+            } else if (currentShape == x+"-180-0") {
+                currentShape = x+"-180-1";
+            } else if (currentShape == x+"-270-0") {
+                currentShape = x+"-270-1";
+            } else if (currentShape == x+"-0-1") {
+                currentShape = x+"-0-0";
+            } else if (currentShape == x+"-90-1") {
+                currentShape = x+"-90-0";
+            } else if (currentShape == x+"-180-1") {
+                currentShape = x+"-180-0";
+            } else if (currentShape == x+"-270-1") {
+                currentShape = x+"-270-0";
+            }
         }
     }
 }
