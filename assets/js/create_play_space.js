@@ -84,19 +84,20 @@ function markPreFilled() {
  * Create confirm and cancel shape buttons.
  */
 function createConfirmButtons() {
-    let buttonWrapper = document.getElementById("v0114");
+    let confirmButtonWrapper = document.getElementById("v0117");
+    let cancelButtonWrapper = document.getElementById("v0317");
 
     let confirmButton = document.createElement("button");
     var confirmText = document.createTextNode("Confirm");
     confirmButton.appendChild(confirmText);
     confirmButton.setAttribute("id", "confirm-button");
     confirmButton.setAttribute("class", "hidden confirm-cancel-buttons");
-    buttonWrapper.appendChild(confirmButton);
+    confirmButtonWrapper.appendChild(confirmButton);
 
     let cancelButton = document.createElement("button");
     var cancelText = document.createTextNode("Cancel");
     cancelButton.appendChild(cancelText);
     cancelButton.setAttribute("id", "cancel-button");
     cancelButton.setAttribute("class", "hidden confirm-cancel-buttons");
-    buttonWrapper.appendChild(cancelButton);
+    cancelButtonWrapper.appendChild(cancelButton);
 }

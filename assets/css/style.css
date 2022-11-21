@@ -116,11 +116,11 @@
 
 #confirm-button {
     position: relative;
-    left: 50px;
+    /* left: 50px; */
 }
 
 #cancel-button {
     position: relative;
-    left: 50px;
-    top: 30px;
+    /* left: 50px; */
+    /* top: 30px; */
 }
