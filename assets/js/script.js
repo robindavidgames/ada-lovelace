@@ -491,46 +491,39 @@ function deactivateDice() {
 function checkSurround() {
     const evidence01Surround = ["v0101", "v0102", "v0103", "v0201", "v0203", "v0301", "v0302", "v0303"];
     const evidence02Surround = ["v0112", "v0113", "v0114", "v0212", "v0214", "v0312", "v0313", "v0314"];
-    // const evidence03Surround = [];
-    // const evidence04Surround = [];
-    // const evidence05Surround = [];
-    // const evidence06Surround = [];
-    // const evidence07Surround = [];
-    // const evidence08Surround = [];
-    // const evidence09Surround = [];
-    // const evidence10Surround = [];
-    // const evidence11Surround = [];
-    
-    // Build an array, if each element contains-shape
-    let evidence01Check = [];
-    for (let x = 0; x < evidence01Surround.length; x++) {
-        if (document.getElementById(evidence01Surround[x]).classList.contains("contains-shape")) {
-            evidence01Check.push("yes");
-        } else {
-            evidence01Check.push("no");
+    const evidence03Surround = ["v0209", "v0210", "v0211", "v0309", "v0311", "v0409", "v0410"];
+    const evidence04Surround = ["v0513", "v0515", "v0613", "v0614", "v0615"];
+    const evidence05Surround = ["v0510", "v0511", "v0512", "v0610", "v0612", "v0710", "v0711", "v0712"];
+    const evidence06Surround = ["v0814", "v0815", "v0913", "v0915", "v1013", "v1014", "v1015"];
+    const evidence07Surround = ["v0907", "v0908", "v0910", "v1007", "v1009", "v1107", "v1110", "v1207", "v1209", "v1307", "v1308", "v1309"];
+    const evidence08Surround = ["v0918", "v0919", "v0920", "v1018", "v1020", "v1118", "v1119", "v1120"];
+    const evidence09Surround = ["v1001", "v1002", "v1003", "v1101", "v1103", "v1201", "v1204", "v1301", "v1302", "v1303", "v1304"];
+    const evidence10Surround = ["v1210", "v1211", "v1310", "v1312", "v1410", "v1411", "v1412"];
+    const evidence11Surround = ["v1412", "v1413", "v1414", "v1512", "v1514"];
+
+    const arrayOfArrays = [evidence01Surround, evidence02Surround, evidence03Surround, evidence04Surround, evidence05Surround, evidence06Surround, evidence07Surround, evidence08Surround, evidence09Surround, evidence10Surround, evidence11Surround];
+
+    for (y of arrayOfArrays) {
+        let evidenceCheck = [];
+        for (let x = 0; x < y.length; x++) {
+            if (document.getElementById(y[x]).classList.contains("contains-shape")) {
+                evidenceCheck.push("yes");
+            } else {
+                evidenceCheck.push("no");
+            }
         }
+
+        let evidenceSurrounded = evidenceCheck.every(checkYes);
+
+    console.log(`${y} surrounded: ${evidenceSurrounded}`);
     }
 
-    // Check if every element is yes.
-    let evidence01Surrounded = evidence01Check.every(checkYes);
-
+    /**
+     * Check if the previous evidence check returned yes values for each space.
+     */
     function checkYes(value) {
         return value === "yes";
     }
-
-    console.log(`Evidence 1 surrounded: ${evidence01Surrounded}`);
-
-    // for (let x = 1; x < 2; x++) {
-    //     let currentEvidence = "evidenceSurround"+x;
-    //     let evidenceSurround = currentEvidence.every(checkFilled);
-    //     console.log(`Evidence ${x} surrounded: ${evidenceSurround}`);
-    // }
-    // let evidenceSurrounded1 = evidenceSurround1.every(checkFilled);
-    // console.log(`Evidence 1 surrounded: ${evidenceSurrounded1}`);
-    
-    // function checkFilled(location) {
-    //     return document.getElementById(location).classList.contains("contains-shape");
-    // }
 }
 
 /**
