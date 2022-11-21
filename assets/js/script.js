@@ -184,6 +184,10 @@ function deactivateSpaces() {
         makeUnavailable.classList.remove("shape-picked");
         makeUnavailable.classList.add("shape-unavailable");
     }
+    // Remove current shape selection.
+    if (currentShape !== "") {
+        currentShape = "";
+    }
     return;
 }
 
@@ -220,6 +224,9 @@ function rotate90Degrees() {
             adjustShape.classList.remove("rotate-270");
             adjustShape.classList.add("rotate-0");
         }
+    }
+    if (currentShape !== "") {
+        console.log("Current shape is selected.");
     }
 }
 
