@@ -14,6 +14,8 @@ let horizontal = 0;
 // If there is currently a temporary placement shape on the board.
 let tempPlacement = false;
 
+let evidenceComplete = [false, false, false, false, false, false, false, false, false, false, false];
+
 createPlayArea();
 markOutOfBounds();
 markPreFilled();
@@ -503,20 +505,27 @@ function checkSurround() {
 
     const arrayOfArrays = [evidence01Surround, evidence02Surround, evidence03Surround, evidence04Surround, evidence05Surround, evidence06Surround, evidence07Surround, evidence08Surround, evidence09Surround, evidence10Surround, evidence11Surround];
 
-    for (y of arrayOfArrays) {
+    for (let y = 0; y < arrayOfArrays.length; y++) {
+        // Check if the evidence space has been filled and update an array with yes if so.
         let evidenceCheck = [];
-        for (let x = 0; x < y.length; x++) {
-            if (document.getElementById(y[x]).classList.contains("contains-shape")) {
+        for (let x = 0; x < arrayOfArrays[y].length; x++) {
+            if (document.getElementById(arrayOfArrays[y][x]).classList.contains("contains-shape")) {
                 evidenceCheck.push("yes");
             } else {
                 evidenceCheck.push("no");
             }
         }
 
+        // If evidence completely surrounded, upcate the evidenceComplete array, which tracks this.
         let evidenceSurrounded = evidenceCheck.every(checkYes);
+        if (evidenceSurrounded) {
+            evidenceComplete[y] = true;
+        }
 
-    console.log(`${y} surrounded: ${evidenceSurrounded}`);
+    console.log(`${y+1} surrounded: ${evidenceSurrounded}`);
     }
+
+    console.log(evidenceComplete);
 
     /**
      * Check if the previous evidence check returned yes values for each space.
