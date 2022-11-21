@@ -598,34 +598,6 @@ function checkAbilityActivation() {
 }
 
 /**
- * Remove the used die.
- */
-function removeDie() {
-
-}
-
-/**
- * Check if unused dice remain.
- */
-function checkRemainingDice() {
-
-}
-
-/**
- * Enable next turn button.
- */
-function createNewTurnButton() {
-
-}
-
-/**
- * Start a new turn. Update the round number and roll dice.
- */
-// function newTurn() {
-//     randomiseDice();
-// }
-
-/**
  * Present scoring information.
  */
  function presentScoring() {
