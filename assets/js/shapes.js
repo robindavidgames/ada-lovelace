@@ -224,32 +224,34 @@ function shapeDefiner() {
     } else if (currentShape == "9-180-1") {
         adjustSpace(0, -1);
         adjustSpace(1, -1);
-    } else if (currentShape == "1-270-0") {
+    } else if (currentShape == "1-270-1") {
         adjustSpace(1, 2);
         adjustSpace(1, 1);
         adjustSpace(1, 0);
         adjustSpace(1, -1);
-    } else if (currentShape == "2-270-0") {
+    } else if (currentShape == "2-270-1") {
         adjustSpace(1, 2);
         adjustSpace(1, 1);
         adjustSpace(1, 0);
-    } else if (currentShape == "3-270-0") {
+    } else if (currentShape == "3-270-1") {
         adjustSpace(0, 1);
         adjustSpace(1, 1);
         adjustSpace(1, 2);
-    } else if (currentShape == "4-270-0") {
+    } else if (currentShape == "4-270-1") {
         adjustSpace(0, 1);
         adjustSpace(1, 1);
         adjustSpace(2, 1);
         adjustSpace(2, 2);
-    } else if (currentShape == "6-270-0") {
+    } else if (currentShape == "6-270-1") {
         adjustSpace(1, 0);
         adjustSpace(2, 0);
         adjustSpace(2, 1);
         adjustSpace(2, 2);
-    } else if (currentShape == "9-270-0") {
+    } else if (currentShape == "9-270-1") {
         adjustSpace(1, 0);
         adjustSpace(1, 1);
+    } else {
+        console.log("Error: Undefined shape selected.");
     }
     return;
 }
