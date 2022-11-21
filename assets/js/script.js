@@ -11,6 +11,9 @@ let spacesToCheck = [];
 let vertical = 0;
 let horizontal = 0;
 
+// If there is currently a temporary placement shape on the board.
+let tempPlacement = false;
+
 createPlayArea();
 markOutOfBounds();
 markPreFilled();
@@ -269,8 +272,6 @@ for (let x = 1; x < 10; x++) {
             clickShape.classList.remove("shape-available");
             clickShape.classList.add("shape-picked");
             pickShape(clickShape, x);
-        } else {
-            console.log(`Event listener clicked unavailable shape ${x}`);
         }
     });
 }
@@ -303,11 +304,10 @@ function pickShape(chosenShape, x) {
 
 // Event listener for clicking spaces on the board.
 let boardSpace = document.getElementsByClassName("valid-space")
-for (let x = 1; x < boardSpace.length; x++) {
+for (let x = 0; x < boardSpace.length; x++) {
     boardSpace[x].addEventListener("click", function() {
         console.log(`User clicked space ${boardSpace[x]}`);
-        if (currentShape !== "") {
-            console.log("currentShape is not empty.")
+        if (currentShape !== "" && tempPlacement == false) {
             checkShape(boardSpace[x]);
         }
     });
@@ -405,6 +405,7 @@ function paintSpaces(confirmation) {
             paint.classList.remove("available");
             paint.classList.remove("unconfirmed-shape");
             paint.classList.add("contains-shape");
+            tempPlacement = false;
             deactivateDice();
             deactivateSpaces();
             removePopUp();
@@ -415,6 +416,7 @@ function paintSpaces(confirmation) {
             let paint = document.getElementById(spacesToCheck[x]);
             paint.classList.remove("available");
             paint.classList.add("unconfirmed-shape");
+            tempPlacement = true;
         }
     } else if (confirmation === "cancel") {
         // Player has clicked "cancel", so remove the unconfirmed-shape.
@@ -422,6 +424,7 @@ function paintSpaces(confirmation) {
             let paint = document.getElementById(spacesToCheck[x]);
             paint.classList.remove("unconfirmed-shape");
             paint.classList.add("available");
+            tempPlacement = false;
             removePopUp();
         }
     }
