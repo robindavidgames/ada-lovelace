@@ -36,19 +36,21 @@
             <div class="row">
                 <div class="col-lg-auto">
                     <!-- Space to show main game board. -->
-                    <div class="clear">
+                    <div class="">
                         <img src="assets/images/background_image.jpg" class="background-image">
                     </div>
-                    <div class="clear" id="play-area">
+                    <div class="" id="play-area">
                         
                     </div>
                 </div>
                 <div class="col">
                     <!-- Space to roll dice. -->
-                    <div class="clear">
-                        <button id="roll-dice-button" class="clear">Roll Two Dice</button>
-                        <button id="new-round-button" class="clear hidden">Begin Next Round</button>
-                        <div id="reserve-dice" class="clear">
+                    <div class="row">
+                        <button id="roll-dice-button" class="">Roll Two Dice</button>
+                        <button id="new-round-button" class="hidden">Begin Next Round</button>
+                    </div>
+                    <div class="row">
+                        <div id="reserve-dice" class="right-section">
                             <p>Available dice:</p>
                             <div id="reserve1" class="space filled"></div>
                             <div id="reserve2" class="space filled"></div>
@@ -57,12 +59,16 @@
                             <div id="reserve5" class="space filled"></div>
                             <div id="reserve6" class="space filled"></div>
                         </div>
-                        <div id="available-dice" class="clear">
+                    </div>
+                    <div class="row">
+                        <div id="available-dice" class="right-section">
                             <p>Current dice:</p>
                             <div id="available1" class="space die-roller"></div>
                             <div id="available2" class="space die-roller"></div>
                         </div>
-                        <div id="used-dice" class="clear">
+                    </div>
+                    <div class="row">
+                        <div id="used-dice" class="right-section">
                             <p>Used dice:</p>
                             <div id="used1" class="used space empty"></div>
                             <div id="used2" class="used space empty"></div>
@@ -74,43 +80,47 @@
                     </div>
 
                     <!-- Space to pick shapes. -->
-                    <div class="clear" id="shape-area">
-                        <button id="rotate-shapes" class="clear">Rotate Shapes</button>
-                        <button id="flip-shapes" class="clear">Flip Shapes</button>
-                        <div class="clear">
-                            <div class="shape-unavailable shape-picker rotate-0 flip-0 d1 d6" id="shape1">
-                                <img src="assets/images/shapeA1.png" class="shape-image">
+                    <div class="row">
+                        <div id="shape-area" class="right-section">
+                            <div class="row">
+                                <button id="rotate-shapes" class="clear">Rotate Shapes</button>
+                                <button id="flip-shapes" class="clear">Flip Shapes</button>
                             </div>
-                            <div class="shape-unavailable shape-picker rotate-0 flip-0 d1 d2" id="shape2">
-                                <img src="assets/images/shapeB1.png" class="shape-image">
-                            </div>
-                            <div class="shape-unavailable shape-picker rotate-0 flip-0 d2 d3" id="shape3">
-                                <img src="assets/images/shapeC1.png" class="shape-image">
-                            </div>
-                            <div class="shape-unavailable shape-picker rotate-0 flip-0 d3 d4" id="shape4">
-                                <img src="assets/images/shapeD1.png" class="shape-image">
-                            </div>
-                            <div class="shape-unavailable shape-picker rotate-0 flip-0 d4 d5" id="shape5">
-                                <img src="assets/images/shapeE1.png" class="shape-image">
-                            </div>
-                            <div class="shape-unavailable shape-picker rotate-0 flip-0 d5 d6" id="shape6">
-                                <img src="assets/images/shapeF1.png" class="shape-image">
-                            </div>
-                            <div class="shape-unavailable shape-picker rotate-0 flip-0 d1 d2 d3 d4 d5 d6" id="shape7">
-                                <img src="assets/images/shapeG1.png" class="shape-image">
-                            </div>
-                            <div class="shape-unavailable shape-picker rotate-0 flip-0 d1 d2 d3 d4 d5 d6" id="shape8">
-                                <img src="assets/images/shapeH1.png" class="shape-image">
-                            </div>
-                            <div class="shape-unavailable shape-picker rotate-0 flip-0 d1 d2 d3 d4 d5 d6" id="shape9">
-                                <img src="assets/images/shapeI1.png" class="shape-image">
+                            <div class="clear">
+                                <div class="shape-unavailable shape-picker rotate-0 flip-0 d1 d6" id="shape1">
+                                    <img src="assets/images/shapeA1.png" class="shape-image">
+                                </div>
+                                <div class="shape-unavailable shape-picker rotate-0 flip-0 d1 d2" id="shape2">
+                                    <img src="assets/images/shapeB1.png" class="shape-image">
+                                </div>
+                                <div class="shape-unavailable shape-picker rotate-0 flip-0 d2 d3" id="shape3">
+                                    <img src="assets/images/shapeC1.png" class="shape-image">
+                                </div>
+                                <div class="shape-unavailable shape-picker rotate-0 flip-0 d3 d4" id="shape4">
+                                    <img src="assets/images/shapeD1.png" class="shape-image">
+                                </div>
+                                <div class="shape-unavailable shape-picker rotate-0 flip-0 d4 d5" id="shape5">
+                                    <img src="assets/images/shapeE1.png" class="shape-image">
+                                </div>
+                                <div class="shape-unavailable shape-picker rotate-0 flip-0 d5 d6" id="shape6">
+                                    <img src="assets/images/shapeF1.png" class="shape-image">
+                                </div>
+                                <div class="shape-unavailable shape-picker rotate-0 flip-0 d1 d2 d3 d4 d5 d6" id="shape7">
+                                    <img src="assets/images/shapeG1.png" class="shape-image">
+                                </div>
+                                <div class="shape-unavailable shape-picker rotate-0 flip-0 d1 d2 d3 d4 d5 d6" id="shape8">
+                                    <img src="assets/images/shapeH1.png" class="shape-image">
+                                </div>
+                                <div class="shape-unavailable shape-picker rotate-0 flip-0 d1 d2 d3 d4 d5 d6" id="shape9">
+                                    <img src="assets/images/shapeI1.png" class="shape-image">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-                <!-- Space to activate abilities. -->
+            <!-- Space to activate abilities. -->
             <!-- </section> -->
 
             <section id="how-to-play">

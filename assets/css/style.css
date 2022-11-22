@@ -9,6 +9,18 @@ nav {
     padding-bottom: 30px;
 }
 
+#play-area {
+    padding-left: 10px;
+    padding-top: 20px;
+}
+
+.background-image {
+    width: 832px;
+    height: 690px;
+    position: absolute;
+    z-index: -1;
+}
+
 /* Establish style for all die and boxes. */
 .space {
     height: 35px;
@@ -52,13 +64,6 @@ nav {
 
 .hidden {
     display: none;
-}
-
-.background-image {
-    width: 845px;
-    height: 680px;
-    position: absolute;
-    z-index: -1;
 }
 
 #dice-area {
@@ -135,4 +140,25 @@ nav {
 #round-tracker {
     position: relative;
     width: 170px;
+}
+
+#reserve-dice {
+    background-color: aqua;
+}
+
+#available-dice {
+    background-color: blanchedalmond;
+}
+
+#used-dice {
+    background-color: lightblue;
+}
+
+.right-section {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 3px;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
 }
