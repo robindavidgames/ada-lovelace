@@ -21,6 +21,12 @@ nav {
     z-index: -1;
 }
 
+.evidence-image {
+    width: 40px;
+    height: 40px;
+    padding: 0px;
+}
+
 /* Establish style for all die and boxes. */
 .space {
     height: 35px;
@@ -56,6 +62,7 @@ nav {
 .filled {
     background-color: grey;
     border-color: grey;
+    opacity: 0.3;
 }
 
 .clear {
