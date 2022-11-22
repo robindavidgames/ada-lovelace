@@ -1,8 +1,12 @@
 /* Remove padding and margin by default. */
-* {
+/* * {
     padding: 0;
     margin: 0;
     border: none;
+} */
+
+nav {
+    padding-bottom: 30px;
 }
 
 /* Establish style for all die and boxes. */
@@ -71,15 +75,15 @@
 }
 
 .shape-picker {
-    width: 200px;
-    height: 200px;
+    width: 125px;
+    height: 125px;
     float: left;
     box-sizing: border-box;
 }
 
 .shape-image {
-    width: 200px;
-    height: 200px;
+    width: 125px;
+    height: 125px;
 }
 
 .rotate-0 {
@@ -121,14 +125,11 @@
 #confirm-button {
     position: relative;
     width: 170px;
-    /* left: 50px; */
 }
 
 #cancel-button {
     position: relative;
     width: 170px;
-    /* left: 50px; */
-    /* top: 30px; */
 }
 
 #round-tracker {
