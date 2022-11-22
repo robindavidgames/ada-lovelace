@@ -25,6 +25,7 @@ nav {
     width: 40px;
     height: 40px;
     padding: 0px;
+    margin-right: 20px;
 }
 
 .ability {
@@ -41,12 +42,24 @@ nav {
     text-align: center;
     font-size: larger;
     font-weight: 700;
-    line-height: 50px;
+    line-height: 35px;
     background-color: whitesmoke;
     border-radius: 5px;
     border-color: black;
     border-style: solid;
     border-width: thin;
+}
+
+.space-in-abilities {
+    width: auto;
+    float: left;
+    text-align: center;
+    font-size: medium;
+    font-weight: 700;
+    line-height: 35px;
+    background-color: white;
+    border-style: none;
+    margin: 0px;
 }
 
 .contains-shape {
