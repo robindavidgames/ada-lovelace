@@ -522,6 +522,7 @@ function checkSurround() {
         let evidenceSurrounded = evidenceCheck.every(checkYes);
         if (evidenceSurrounded) {
             evidenceComplete[y] = true;
+            abilityActivation();
         }
 
     console.log(`${y+1} surrounded: ${evidenceSurrounded}`);
@@ -593,8 +594,13 @@ function checkRoom() {
 /**
  * Check if an evidence ability has been activated.
  */
-function checkAbilityActivation() {
-
+function abilityActivation() {
+    for (let x = 0; x < evidenceComplete.length; x++) {
+        if (evidenceComplete[x] === true) {
+            document.getElementById("ability"+x).classList.remove("inactive-ability");
+            // document.getElementById("ability"+x).classList.add("active-ability");
+        }
+    }
 }
 
 /**
