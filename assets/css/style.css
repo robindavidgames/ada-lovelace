@@ -174,3 +174,7 @@ nav {
     margin-top: 2.5px;
     margin-bottom: 2.5px;
 }
+
+.inactive-ability div, .inactive-ability img {
+    opacity: 0.3;
+}
