@@ -30,7 +30,7 @@ nav {
 
 .ability {
     margin-bottom: 10px;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 /* Establish style for all die and boxes. */
@@ -50,7 +50,7 @@ nav {
     border-width: thin;
 }
 
-.space-in-abilities {
+.annotations-in-abilities {
     width: auto;
     float: left;
     text-align: center;
@@ -60,6 +60,7 @@ nav {
     background-color: white;
     border-style: none;
     margin: 0px;
+    padding: 0px;
 }
 
 .contains-shape {
