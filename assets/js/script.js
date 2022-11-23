@@ -176,6 +176,14 @@ function activateAbilitySpaces(dieValue) {
     }
 }
 
+// Event listener for clicking ability spaces.
+// for (let x = 1; x < 11; x++) {
+//     let clickSpace1 = document.getElementById("ability"+x+"-space1");
+//     clickSpace1.addEventListener("click", function() {
+        
+//     });
+// }
+
 /**
  * Ability spaces deactivate when changing dice selection.
  */
