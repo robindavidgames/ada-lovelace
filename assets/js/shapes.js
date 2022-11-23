@@ -1,4 +1,102 @@
 /**
+ * Check current shape rotation and rotate by 90 degrees CW.
+ */
+ function rotate90Degrees() {
+    let checkRotation = document.getElementById("shape1");
+    if (checkRotation.classList.contains("rotate-0")) {
+        for (let x = 1; x < 10; x++) {
+            let adjustShape = document.getElementById("shape"+x);
+            adjustShape.classList.remove("rotate-0");
+            adjustShape.classList.add("rotate-90");
+        }
+    } else if (checkRotation.classList.contains("rotate-90")) {
+        for (let x = 1; x < 10; x++) {
+            let adjustShape = document.getElementById("shape"+x);
+            adjustShape.classList.remove("rotate-90");
+            adjustShape.classList.add("rotate-180");
+        }
+    } else if (checkRotation.classList.contains("rotate-180")) {
+        for (let x = 1; x < 10; x++) {
+            let adjustShape = document.getElementById("shape"+x);
+            adjustShape.classList.remove("rotate-180");
+            adjustShape.classList.add("rotate-270");
+        }
+    } else if (checkRotation.classList.contains("rotate-270")) {
+        for (let x = 1; x < 10; x++) {
+            let adjustShape = document.getElementById("shape"+x);
+            adjustShape.classList.remove("rotate-270");
+            adjustShape.classList.add("rotate-0");
+        }
+    }
+    if (currentShape !== "") {
+        console.log("Current shape is selected.");
+        // This needs to update the selected shape.
+        for (let x = 1; x < 10; x++) {
+            if (currentShape == x+"-0-0") {
+                currentShape = x+"-90-0";
+            } else if (currentShape == x+"-90-0") {
+                currentShape = x+"-180-0";
+            } else if (currentShape == x+"-180-0") {
+                currentShape = x+"-270-0";
+            } else if (currentShape == x+"-270-0") {
+                currentShape = x+"-0-0";
+            } else if (currentShape == x+"-0-1") {
+                currentShape = x+"-90-1";
+            } else if (currentShape == x+"-90-1") {
+                currentShape = x+"-180-1";
+            } else if (currentShape == x+"-180-1") {
+                currentShape = x+"-270-1";
+            } else if (currentShape == x+"-270-1") {
+                currentShape = x+"-0-1";
+            }
+        }
+    }
+}
+
+/**
+ * Check current shape flip and flip horizontal.
+ */
+ function flipHorizontal() {
+    let checkFlip = document.getElementById("shape1");
+    if (checkFlip.classList.contains("flip-0")) {
+        for (let x = 1; x < 10; x++) {
+            let adjustShape = document.getElementById("shape"+x);
+            adjustShape.classList.remove("flip-0");
+            adjustShape.classList.add("flip-1");
+        } 
+    } else if (checkFlip.classList.contains("flip-1")) {
+        for (let x = 1; x < 10; x++) {
+            let adjustShape = document.getElementById("shape"+x);
+            adjustShape.classList.remove("flip-1");
+            adjustShape.classList.add("flip-0");
+        }
+    }
+    if (currentShape !== "") {
+        console.log("Current shape is selected.");
+        // This needs to update the selected shape.
+        for (let x = 1; x < 10; x++) {
+            if (currentShape == x+"-0-0") {
+                currentShape = x+"-0-1";
+            } else if (currentShape == x+"-90-0") {
+                currentShape = x+"-90-1";
+            } else if (currentShape == x+"-180-0") {
+                currentShape = x+"-180-1";
+            } else if (currentShape == x+"-270-0") {
+                currentShape = x+"-270-1";
+            } else if (currentShape == x+"-0-1") {
+                currentShape = x+"-0-0";
+            } else if (currentShape == x+"-90-1") {
+                currentShape = x+"-90-0";
+            } else if (currentShape == x+"-180-1") {
+                currentShape = x+"-180-0";
+            } else if (currentShape == x+"-270-1") {
+                currentShape = x+"-270-0";
+            }
+        }
+    }
+}
+
+/**
  * Define the squares that each shape needs to occupy.
  */
 function shapeDefiner() {

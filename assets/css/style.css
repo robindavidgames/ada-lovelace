@@ -154,6 +154,25 @@ nav {
     border: 2px solid red;
 }
 
+.ability-space-active {
+    border: 1px solid black;
+}
+
+.ability-space-available {
+    border: 2px solid blue;
+    background-color: lightblue;
+}
+
+.ability-space-picked {
+    border: 2px solid red;
+    background-color: lightsalmon;
+}
+
+.ability-space-confirmed {
+    border: 2px solid black;
+    background-color: grey;
+}
+
 #confirm-button {
     position: relative;
     width: 170px;
