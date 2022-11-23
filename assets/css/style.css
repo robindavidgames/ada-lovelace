@@ -48,6 +48,7 @@ nav {
     border-color: black;
     border-style: solid;
     border-width: thin;
+    padding: 0;
 }
 
 .annotations-in-abilities {
