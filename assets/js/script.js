@@ -149,6 +149,7 @@ function clickDie(clickedDice) {
     dieChosen.classList.add("clicked-die");
     console.log(`dieValue variable is ${dieValue}`);
     deactivateSpaces();
+    deactivateAbilitySpaces();
     activateSpaces();
     activateAbilitySpaces(dieValue);
     return;
@@ -171,7 +172,20 @@ function activateAbilitySpaces(dieValue) {
                 abilityDieSpace2.classList.add("ability-space-available");
             }
         }
+        // This will need to search through each ability type and compare the two ability spaces to see if they can accept a number. Remember, dieValue is the current clicked die.
     }
+}
+
+/**
+ * Ability spaces deactivate when changing dice selection.
+ */
+function deactivateAbilitySpaces() {
+    let inactiveAbilitySpaces = document.getElementsByClassName('ability-space-available');
+    for (let i = 0; i < inactiveAbilitySpaces.length; i++) {
+        let makeUnavailable = inactiveAbilitySpaces[i];
+        makeUnavailable.classList.remove("ability-space-available");
+    }
+    return;
 }
 
 /**
@@ -373,6 +387,7 @@ function paintSpaces(confirmation) {
         tempPlacement = false;
         deactivateDice();
         deactivateSpaces();
+        deactivateAbilitySpaces();
         removePopUp();
         checkSurround();
         checkRoom();
