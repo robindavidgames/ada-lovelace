@@ -184,7 +184,7 @@ for (let x = 1; x < 11; x++) {
             abilitySpaceClicked(clickSpace1);
         }
     });
-    let clickSpace2 = document.getElementById("ability"+x+"-space1");
+    let clickSpace2 = document.getElementById("ability"+x+"-space2");
     clickSpace2.addEventListener("click", function() {
         if (clickSpace2.classList.contains("ability-space-available")) {
             abilitySpaceClicked(clickSpace2);
@@ -192,8 +192,14 @@ for (let x = 1; x < 11; x++) {
     });
 }
 
-function abilitySpaceClicked() {
-    console.log("Active ability space clicked.")
+/**
+ * Add dice value to the ability space, pop up confirmation. Then check if both have been filled in. If so, redirect to the ability specific function.
+ */
+function abilitySpaceClicked(clickSpace) {
+    clickSpace.classList.remove("ability-space-available");
+    clickSpace.classList.add("ability-space-picked");
+    clickSpace.textContent = dieValue;
+    // Disable all other spaces and pop up confirm button.
 }
 
 /**
