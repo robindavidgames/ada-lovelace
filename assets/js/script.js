@@ -150,11 +150,32 @@ function clickDie(clickedDice) {
     console.log(`dieValue variable is ${dieValue}`);
     deactivateSpaces();
     activateSpaces();
+    activateAbilitySpaces(dieValue);
     return;
 }
 
 /**
- * Shapes and abilities deactivate.
+ * Ability spaces activate if the chosen die is valid.
+ */
+function activateAbilitySpaces(dieValue) {
+    for (let x = 0; x < 11; x++) {
+        // If the ability is not inactive.
+        if (!document.getElementById("ability"+x).classList.contains("inactive-ability")) {
+            console.log(`Ability ${x} is active.`)
+            let abilityDieSpace1 = document.getElementById("ability"+x+"-space1");
+            let abilityDieSpace2 = document.getElementById("ability"+x+"-space2");
+            // If the two spaces are empty.
+            if (abilityDieSpace1.innerText == "" && abilityDieSpace2.innerText == "") {
+                console.log(`Dice spaces for ability ${x} are empty.`)
+                abilityDieSpace1.classList.add("ability-space-available");
+                abilityDieSpace2.classList.add("ability-space-available");
+            }
+        }
+    }
+}
+
+/**
+ * Shapes deactivate.
  */
 function deactivateSpaces() {
     let inactiveShapes = document.getElementsByClassName('shape-picker');
@@ -167,7 +188,7 @@ function deactivateSpaces() {
 }
 
 /**
- * Shapes and abilities activate if they are available for the chosen die.
+ * Shapes activate if they are available for the chosen die.
  */
 function activateSpaces() {
     let activeShapes = document.getElementsByClassName('d'+dieValue);
@@ -180,7 +201,7 @@ function activateSpaces() {
 }
 
 /**
- * Shapes and abilities deactivate when relevant.
+ * Shapes deactivate when relevant.
  */
 function deactivateSpaces() {
     let shapes = document.getElementsByClassName('shape-picker');
@@ -392,7 +413,7 @@ function deactivateDice() {
 }
 
 /**
- * Check if an evidence ability has been activated.
+ * Upon evidence being surrounded, enable the relevant ability.
  */
 function abilityActivation() {
     for (let x = 0; x < evidenceComplete.length; x++) {
