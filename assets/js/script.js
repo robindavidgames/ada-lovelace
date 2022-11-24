@@ -52,6 +52,10 @@ function randomiseDice() {
     deactivateSpaces();
     deactivateAbilitySpaces();
 
+    confirmation = "cancel";
+    paintSpaces(confirmation);
+    removePopUp;
+
     placeRolledDice(availableDice);
     reduceReserveSpaces();
     return;
@@ -174,6 +178,10 @@ function clickDie(clickedDice) {
     // Read the text on the chosen die.
     dieValue = parseInt(dieChosen.innerText);
     dieChosen.classList.add("clicked-die");
+
+    confirmation = "cancel";
+    paintSpaces(confirmation);
+    removePopUp;
     deactivateSpaces();
     deactivateAbilitySpaces();
     activateSpaces();
