@@ -67,21 +67,6 @@
         }
     }
 
-    // if ((currentAbility.getAttribute("id") == "ability2") || (currentAbility.getAttribute("id") == "ability5") && emptySpace) {
-    //     console.log("Ability2 or Ability5 with one available space.");
-    //     if (abilityDieSpace1.innerText != "") {
-    //         let abilityValue = parseInt(abilityDieSpace1.innerText);
-    //         if ((abilityValue + dieValue == 6) || (abilityValue + dieValue == 7) || (abilityValue + dieValue == 8)) {
-    //             abilityDieSpace2.classList.add("ability-space-available");
-    //         }
-    //     } else if (abilityDieSpace2.innerText != "") {
-    //         let abilityValue = parseInt(abilityDieSpace2.innerText);
-    //         if (abilityValue + dieValue == 6 || 7 || 8) {
-    //             abilityDieSpace1.classList.add("ability-space-available");
-    //         }
-    //     }
-    // } 
-
     // Ability 3 (key) with 1 empty space.
     let ability3 = document.getElementById("ability3");
     let ability3die1 = document.getElementById("ability3-space1");
@@ -98,11 +83,53 @@
         }
     }
 
-    // Ability 4 () with 1 empty space.
+    // Ability 4 (violin) with 1 empty space.
+    let ability4 = document.getElementById("ability4");
+    let ability4die1 = document.getElementById("ability4-space1");
+    let ability4die2 = document.getElementById("ability4-space2");
+    if (!ability4.classList.contains("inactive-ability") && ability4die1.innerText != "") {
+        let abilityValue = parseInt(ability4die1.innerText);
+        if ((abilityValue + 1 == dieValue) || (abilityValue - 1 == dieValue)) {
+            ability4die2.classList.add("ability-space-available");
+        }
+    } else if (ability4die2.innerText != "") {
+        let abilityValue = parseInt(ability4die2.innerText);
+        if ((abilityValue + 1 == dieValue) || (abilityValue - 1 == dieValue)) {
+            ability4die1.classList.add("ability-space-available");
+        }
+    }
 
-    // Ability 5 () with 1 empty space.
+    // Ability 5 (binoculars) with 1 empty space.
+    let ability5 = document.getElementById("ability5");
+    let ability5die1 = document.getElementById("ability5-space1");
+    let ability5die2 = document.getElementById("ability5-space2");
+    if (!ability5.classList.contains("inactive-ability") && ability5die1.innerText != "") {
+        let abilityValue = parseInt(ability5die1.innerText);
+        if ((abilityValue + dieValue == 6) || (abilityValue + dieValue == 7) || (abilityValue + dieValue == 8)) {
+            ability5die2.classList.add("ability-space-available");
+        }
+    } else if (ability5die2.innerText != "") {
+        let abilityValue = parseInt(ability5die2.innerText);
+        if ((abilityValue + dieValue == 6) || (abilityValue + dieValue == 7) || (abilityValue + dieValue == 8)) {
+            ability5die1.classList.add("ability-space-available");
+        }
+    }
 
-    // Ability 6 () with 1 empty space.
+    // Ability 6 (crowbar) with 1 empty space.
+    let ability6 = document.getElementById("ability6");
+    let ability6die1 = document.getElementById("ability6-space1");
+    let ability6die2 = document.getElementById("ability6-space2");
+    if (!ability6.classList.contains("inactive-ability") && ability6die1.innerText != "") {
+        let abilityValue = parseInt(ability6die1.innerText);
+        if ((abilityValue == dieValue) || (abilityValue - 1 == dieValue)) {
+            ability6die2.classList.add("ability-space-available");
+        }
+    } else if (ability6die2.innerText != "") {
+        let abilityValue = parseInt(ability6die2.innerText);
+        if ((abilityValue == dieValue) || (abilityValue - 1 == dieValue)) {
+            ability6die1.classList.add("ability-space-available");
+        }
+    }
 
     // Ability 7 (top hat) with 1 empty space.
     let ability7 = document.getElementById("ability7");
@@ -120,89 +147,51 @@
         }
     }
 
-    // Ability 8 () with 1 empty space.
+    // Ability 8 (telescope) with 1 empty space.
+    let ability8 = document.getElementById("ability8");
+    let ability8die1 = document.getElementById("ability8-space1");
+    let ability8die2 = document.getElementById("ability8-space2");
+    if (!ability8.classList.contains("inactive-ability") && ability8die1.innerText != "") {
+        let abilityValue = parseInt(ability8die1.innerText);
+        if ((abilityValue == dieValue) || (abilityValue - 1 == dieValue)) {
+            ability8die2.classList.add("ability-space-available");
+        }
+    } else if (ability8die2.innerText != "") {
+        let abilityValue = parseInt(ability8die2.innerText);
+        if ((abilityValue == dieValue) || (abilityValue - 1 == dieValue)) {
+            ability8die1.classList.add("ability-space-available");
+        }
+    }
 
-    // Ability 9 () with 1 empty space.
+    // Ability 9 (meat) with 1 empty space.
+    let ability9 = document.getElementById("ability9");
+    let ability9die1 = document.getElementById("ability9-space1");
+    let ability9die2 = document.getElementById("ability9-space2");
+    if (!ability9.classList.contains("inactive-ability") && ability9die1.innerText != "") {
+        let abilityValue = parseInt(ability9die1.innerText);
+        if ((abilityValue + 1 == dieValue) || (abilityValue - 1 == dieValue)) {
+            ability9die2.classList.add("ability-space-available");
+        }
+    } else if (ability9die2.innerText != "") {
+        let abilityValue = parseInt(ability9die2.innerText);
+        if ((abilityValue + 1 == dieValue) || (abilityValue - 1 == dieValue)) {
+            ability9die1.classList.add("ability-space-available");
+        }
+    }
 
-    // Ability 10 () with 1 empty space.
-
-    // Ability 11 () with 1 empty space.
-
-    // if (currentAbility.getAttribute("id") == "ability1" && emptySpace) {
-    //     console.log("Ability1 with one available space.");
-    //     if (abilityDieSpace1.innerText != "") {
-    //         let abilityValue = parseInt(abilityDieSpace1.innerText);
-    //         if (abilityValue + dieValue == 8 || 9) {
-    //             abilityDieSpace2.classList.add("ability-space-available");
-    //         }
-    //     } else if (abilityDieSpace2.innerText != "") {
-    //         let abilityValue = parseInt(abilityDieSpace2.innerText);
-    //         if (abilityValue + dieValue == 8 || 9) {
-    //             abilityDieSpace1.classList.add("ability-space-available");
-    //         }
-    //     }
-    // }
-    
-    // if (currentAbility.getAttribute("id") == "ability3" && emptySpace) {
-    //     console.log("Ability3 with one available space.");
-    //     if (abilityDieSpace1.innerText != "") {
-    //         let abilityValue = parseInt(abilityDieSpace1.innerText);
-    //         if (abilityValue + dieValue < 5) {
-    //             abilityDieSpace2.classList.add("ability-space-available");
-    //         }
-    //     } else if (abilityDieSpace2.innerText != "") {
-    //         let abilityValue = parseInt(abilityDieSpace2.innerText);
-    //         if (abilityValue + dieValue < 5) {
-    //             abilityDieSpace1.classList.add("ability-space-available");
-    //         }
-    //     }
-    // }
-    
-    // if ((currentAbility.getAttribute("id") == "ability8") || (currentAbility.getAttribute("id") == "ability6") && emptySpace) {
-    //     console.log("Ability8 or Ability6 with one available space.");
-    //     if (abilityDieSpace1.innerText != "") {
-    //         let abilityValue = parseInt(abilityDieSpace1.innerText);
-    //         if (abilityValue == dieValue) {
-    //             abilityDieSpace2.classList.add("ability-space-available");
-    //         }
-    //     } else if (abilityDieSpace2.innerText != "") {
-    //         let abilityValue = parseInt(abilityDieSpace2.innerText);
-    //         if (abilityValue == dieValue) {
-    //             abilityDieSpace1.classList.add("ability-space-available");
-    //         }
-    //     }
-    // }
-    
-    // if ((currentAbility.getAttribute("id") == "ability4") || (currentAbility.getAttribute("id") == "ability9") || (currentAbility.getAttribute("id") == "ability10") && emptySpace) {
-    //     console.log("Ability4, Ability9 or Ability10 with one available space.");
-    //     if (abilityDieSpace1.innerText != "") {
-    //         let abilityValue = parseInt(abilityDieSpace1.innerText);
-    //         if (abilityValue == (dieValue + 1) || (dieValue - 1)) {
-    //             abilityDieSpace2.classList.add("ability-space-available");
-    //         }
-    //     } else if (abilityDieSpace2.innerText != "") {
-    //         let abilityValue = parseInt(abilityDieSpace2.innerText);
-    //         if (abilityValue == (dieValue + 1) || (dieValue - 1)) {
-    //             abilityDieSpace1.classList.add("ability-space-available");
-    //         }
-    //     }
-    // }
-    
-    // if (currentAbility.getAttribute("id") == "ability7" && emptySpace) {
-    //     console.log("Ability7 with one available space.");
-    //     if (abilityDieSpace1.innerText != "") {
-    //         let abilityValue = parseInt(abilityDieSpace1.innerText);
-    //         if (abilityValue + dieValue == 5 || 6) {
-    //             abilityDieSpace2.classList.add("ability-space-available");
-    //         }
-    //     } else if (abilityDieSpace2.innerText != "") {
-    //         let abilityValue = parseInt(abilityDieSpace2.innerText);
-    //         if (abilityValue + dieValue == 5 || 6) {
-    //             abilityDieSpace1.classList.add("ability-space-available");
-    //         }
-    //     }
-    // }
-    
-    
-        
+    // Ability 10 (bike) with 1 empty space.
+    let ability10 = document.getElementById("ability10");
+    let ability10die1 = document.getElementById("ability10-space1");
+    let ability10die2 = document.getElementById("ability10-space2");
+    if (!ability10.classList.contains("inactive-ability") && ability10die1.innerText != "") {
+        let abilityValue = parseInt(ability10die1.innerText);
+        if ((abilityValue + 1 == dieValue) || (abilityValue - 1 == dieValue)) {
+            ability10die2.classList.add("ability-space-available");
+        }
+    } else if (ability10die2.innerText != "") {
+        let abilityValue = parseInt(ability10die2.innerText);
+        if ((abilityValue + 1 == dieValue) || (abilityValue - 1 == dieValue)) {
+            ability10die1.classList.add("ability-space-available");
+        }
+    }
 }
