@@ -173,11 +173,98 @@ function activateAbilitySpaces(dieValue) {
                 abilityDieSpace1.classList.add("ability-space-available");
                 abilityDieSpace2.classList.add("ability-space-available");
             } else if (currentAbility.getAttribute("id") == "ability0" && emptySpace) {
-                // If one space is empty.
                 console.log("Ability0 with one available space.");
+                if (abilityDieSpace1.innerText != "") {
+                    let abilityValue = parseInt(abilityDieSpace1.innerText);
+                    if (abilityValue + dieValue > 9) {
+                        abilityDieSpace2.classList.add("ability-space-available");
+                    }
+                } else if (abilityDieSpace2.innerText != "") {
+                    let abilityValue = parseInt(abilityDieSpace2.innerText);
+                    if (abilityValue + dieValue > 9) {
+                        abilityDieSpace1.classList.add("ability-space-available");
+                    }
+                }
+            } else if (currentAbility.getAttribute("id") == "ability3" && emptySpace) {
+                console.log("Ability3 with one available space.");
+                if (abilityDieSpace1.innerText != "") {
+                    let abilityValue = parseInt(abilityDieSpace1.innerText);
+                    if (abilityValue + dieValue < 5) {
+                        abilityDieSpace2.classList.add("ability-space-available");
+                    }
+                } else if (abilityDieSpace2.innerText != "") {
+                    let abilityValue = parseInt(abilityDieSpace2.innerText);
+                    if (abilityValue + dieValue < 5) {
+                        abilityDieSpace1.classList.add("ability-space-available");
+                    }
+                }
+            } else if ((currentAbility.getAttribute("id") == "ability8") || (currentAbility.getAttribute("id") == "ability6") && emptySpace) {
+                console.log("Ability8 or Ability6 with one available space.");
+                if (abilityDieSpace1.innerText != "") {
+                    let abilityValue = parseInt(abilityDieSpace1.innerText);
+                    if (abilityValue == dieValue) {
+                        abilityDieSpace2.classList.add("ability-space-available");
+                    }
+                } else if (abilityDieSpace2.innerText != "") {
+                    let abilityValue = parseInt(abilityDieSpace2.innerText);
+                    if (abilityValue == dieValue) {
+                        abilityDieSpace1.classList.add("ability-space-available");
+                    }
+                }
+            } else if ((currentAbility.getAttribute("id") == "ability4") || (currentAbility.getAttribute("id") == "ability9") || (currentAbility.getAttribute("id") == "ability10") && emptySpace) {
+                console.log("Ability4, Ability9 or Ability10 with one available space.");
+                if (abilityDieSpace1.innerText != "") {
+                    let abilityValue = parseInt(abilityDieSpace1.innerText);
+                    if (abilityValue == (dieValue + 1) || (dieValue - 1)) {
+                        abilityDieSpace2.classList.add("ability-space-available");
+                    }
+                } else if (abilityDieSpace2.innerText != "") {
+                    let abilityValue = parseInt(abilityDieSpace2.innerText);
+                    if (abilityValue == (dieValue + 1) || (dieValue - 1)) {
+                        abilityDieSpace1.classList.add("ability-space-available");
+                    }
+                } else if (currentAbility.getAttribute("id") == "ability1" && emptySpace) {
+                    console.log("Ability1 with one available space.");
+                    if (abilityDieSpace1.innerText != "") {
+                        let abilityValue = parseInt(abilityDieSpace1.innerText);
+                        if (abilityValue + dieValue == 8 || 9) {
+                            abilityDieSpace2.classList.add("ability-space-available");
+                        }
+                    } else if (abilityDieSpace2.innerText != "") {
+                        let abilityValue = parseInt(abilityDieSpace2.innerText);
+                        if (abilityValue + dieValue == 8 || 9) {
+                            abilityDieSpace1.classList.add("ability-space-available");
+                        }
+                    }
+                } else if (currentAbility.getAttribute("id") == "ability7" && emptySpace) {
+                    console.log("Ability7 with one available space.");
+                    if (abilityDieSpace1.innerText != "") {
+                        let abilityValue = parseInt(abilityDieSpace1.innerText);
+                        if (abilityValue + dieValue == 5 || 6) {
+                            abilityDieSpace2.classList.add("ability-space-available");
+                        }
+                    } else if (abilityDieSpace2.innerText != "") {
+                        let abilityValue = parseInt(abilityDieSpace2.innerText);
+                        if (abilityValue + dieValue == 5 || 6) {
+                            abilityDieSpace1.classList.add("ability-space-available");
+                        }
+                    }
+                } else if ((currentAbility.getAttribute("id") == "ability2") || (currentAbility.getAttribute("id") == "ability5") && emptySpace) {
+                    console.log("Ability2 or Ability5 with one available space.");
+                    if (abilityDieSpace1.innerText != "") {
+                        let abilityValue = parseInt(abilityDieSpace1.innerText);
+                        if ((abilityValue + dieValue == 6) || (abilityValue + dieValue == 7) || (abilityValue + dieValue == 8)) {
+                            abilityDieSpace2.classList.add("ability-space-available");
+                        }
+                    } else if (abilityDieSpace2.innerText != "") {
+                        let abilityValue = parseInt(abilityDieSpace2.innerText);
+                        if (abilityValue + dieValue == 6 || 7 || 8) {
+                            abilityDieSpace1.classList.add("ability-space-available");
+                        }
+                    }
+                } 
             }
         }
-        // This will need to search through each ability type and compare the two ability spaces to see if they can accept a number. Remember, dieValue is the current clicked die.
     }
 }
 
