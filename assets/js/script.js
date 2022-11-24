@@ -165,15 +165,17 @@ function activateAbilitySpaces(dieValue) {
             console.log(`Ability ${x} is active.`)
             let abilityDieSpace1 = document.getElementById("ability"+x+"-space1");
             let abilityDieSpace2 = document.getElementById("ability"+x+"-space2");
+            let emptySpace = abilityDieSpace1.innerText == "" || abilityDieSpace2.innerText == "";
+            console.log(`Empty Space = ${emptySpace}`);
             // If the two spaces are empty.
             if (abilityDieSpace1.innerText == "" && abilityDieSpace2.innerText == "") {
                 console.log(`Dice spaces for ability ${x} are empty.`)
                 abilityDieSpace1.classList.add("ability-space-available");
                 abilityDieSpace2.classList.add("ability-space-available");
+            } else if (currentAbility.getAttribute("id") == "ability0" && emptySpace) {
+                // If one space is empty.
+                console.log("Ability0 with one available space.");
             }
-            // if (currentAbility.id === ability0) {
-            //     console.log("Ability0");
-            // }
         }
         // This will need to search through each ability type and compare the two ability spaces to see if they can accept a number. Remember, dieValue is the current clicked die.
     }
