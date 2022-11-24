@@ -25,7 +25,7 @@ markOutOfBounds();
 markPreFilled();
 createRoundTracker();
 createConfirmButtons();
-availableDice = [];
+let availableDice = [];
 
 // Event listener for rolling dice.
 let diceRoller = document.getElementById("roll-dice-button");
