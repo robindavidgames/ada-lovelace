@@ -8,9 +8,9 @@
     const evidence04Surround = ["v0513", "v0515", "v0613", "v0614", "v0615"];
     const evidence05Surround = ["v0510", "v0511", "v0512", "v0610", "v0612", "v0710", "v0711", "v0712"];
     const evidence06Surround = ["v0814", "v0815", "v0913", "v0915", "v1013", "v1014", "v1015"];
-    const evidence07Surround = ["v0907", "v0908", "v0910", "v1007", "v1009", "v1107", "v1110", "v1207", "v1209", "v1307", "v1308", "v1309"];
+    const evidence07Surround = ["v0907", "v0908", "v0909", "v1007", "v1009", "v1010", "v1107", "v1110", "v1207", "v1209", "v1210", "v1307", "v1308", "v1309"];
     const evidence08Surround = ["v0918", "v0919", "v0920", "v1018", "v1020", "v1118", "v1119", "v1120"];
-    const evidence09Surround = ["v1001", "v1002", "v1003", "v1101", "v1103", "v1201", "v1204", "v1301", "v1302", "v1303", "v1304"];
+    const evidence09Surround = ["v1001", "v1002", "v1003", "v1101", "v1103", "v1104", "v1201", "v1204", "v1301", "v1302", "v1303", "v1304"];
     const evidence10Surround = ["v1210", "v1211", "v1310", "v1312", "v1410", "v1411", "v1412"];
     const evidence11Surround = ["v1412", "v1413", "v1414", "v1512", "v1514"];
 

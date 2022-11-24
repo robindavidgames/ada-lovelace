@@ -42,6 +42,16 @@ function randomiseDice() {
         let num = Math.floor(Math.random() * 6) + 1;
         availableDice.push(num);
     }
+
+    // Remove clicked dice styling if any remain.
+    dieValue = "";
+    for (let x = 1; x < 3; x++) {
+        let dice = document.getElementById("available"+x);
+        dice.classList.remove("clicked-die");
+    }
+    deactivateSpaces();
+    deactivateAbilitySpaces();
+
     placeRolledDice(availableDice);
     reduceReserveSpaces();
     return;
@@ -52,8 +62,8 @@ function randomiseDice() {
  */
 function placeRolledDice(availableDice) {
     for (let x = 1; x < 3; x++) {
-        dieValue = availableDice[x-1];
-        document.getElementById("available"+x).textContent = dieValue;
+        let rolledDieValue = availableDice[x-1];
+        document.getElementById("available"+x).textContent = rolledDieValue;
         document.getElementById("available"+x).classList.remove("used-rolled-dice");
         document.getElementById("available"+x).classList.add("unused-rolled-dice");
     }
@@ -107,6 +117,17 @@ newRoundButton.addEventListener("click", function() {
  * Sets up a new round.
  */
 function setUpNewRound() {
+    // Empty unused dice.
+    dieValue = "";
+    for (let x = 1; x < 3; x++) {
+        let dice = document.getElementById("available"+x);
+        dice.textContent = "";
+        dice.classList.remove("used-rolled-dice");
+        dice.classList.remove("unused-rolled-dice");
+        dice.classList.remove("clicked-die");
+    }
+
+
     // Update the tracking boxes.
     for (let x = 1; x < 7; x++) {
         let checkAvailable = document.getElementById("reserve"+x);
@@ -165,7 +186,7 @@ function activateAbilitySpaces(dieValue) {
             console.log(`Ability ${x} is active.`)
             let abilityDieSpace1 = document.getElementById("ability"+x+"-space1");
             let abilityDieSpace2 = document.getElementById("ability"+x+"-space2");
-            let emptySpace = abilityDieSpace1.innerText == "" || abilityDieSpace2.innerText == "";
+            let emptySpace = abilityDieSpace1.innerText === "" || abilityDieSpace2.innerText === "";
             console.log(`Empty Space = ${emptySpace}`);
             // If the two spaces are empty.
             if (abilityDieSpace1.innerText == "" && abilityDieSpace2.innerText == "") {
@@ -200,6 +221,7 @@ function activateAbilitySpaces(dieValue) {
                 }
             } else if ((currentAbility.getAttribute("id") == "ability8") || (currentAbility.getAttribute("id") == "ability6") && emptySpace) {
                 console.log("Ability8 or Ability6 with one available space.");
+                // Confirmed working.
                 if (abilityDieSpace1.innerText != "") {
                     let abilityValue = parseInt(abilityDieSpace1.innerText);
                     if (abilityValue == dieValue) {
