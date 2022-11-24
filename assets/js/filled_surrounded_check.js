@@ -33,11 +33,7 @@
             evidenceComplete[y] = true;
             abilityActivation();
         }
-
-    console.log(`${y+1} surrounded: ${evidenceSurrounded}`);
     }
-
-    console.log(evidenceComplete);
 
     /**
      * Check if the previous evidence check returned yes values for each space.
@@ -79,11 +75,7 @@ function checkRoom() {
         if (roomFilled) {
             roomComplete[y] = true;
         }
-
-    console.log(`${y+1} filled: ${roomFilled}`);
     }
-
-    console.log(roomComplete);
 
     /**
      * Check if the previous evidence check returned yes values for each space.

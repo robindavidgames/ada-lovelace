@@ -29,8 +29,6 @@
         }
     }
     if (currentShape !== "") {
-        console.log("Current shape is selected.");
-        // This needs to update the selected shape.
         for (let x = 1; x < 10; x++) {
             if (currentShape == x+"-0-0") {
                 currentShape = x+"-90-0";
@@ -72,8 +70,6 @@
         }
     }
     if (currentShape !== "") {
-        console.log("Current shape is selected.");
-        // This needs to update the selected shape.
         for (let x = 1; x < 10; x++) {
             if (currentShape == x+"-0-0") {
                 currentShape = x+"-0-1";

@@ -11,6 +11,9 @@ let spacesToCheck = [];
 let vertical = 0;
 let horizontal = 0;
 
+// Let the "confirm" and "cancel" buttons know what they are referring to.
+let confirmType = "none";
+
 // If there is currently a temporary placement shape on the board.
 let tempPlacement = false;
 
@@ -77,7 +80,6 @@ function reduceReserveSpaces() {
             usedDice.classList.remove("empty");
             usedDice.classList.add("filled");
             numberOfDiceRolled += 1;
-            console.log(`numberOfDiceRolled is equal to ${numberOfDiceRolled}`);
         }
     }
     // Remove roll dice button if all dice are in used space.
@@ -116,7 +118,6 @@ function setUpNewRound() {
     }
     // Update the round number.
     roundNumber++;
-    console.log(`Begin round: ${roundNumber}`);
     document.getElementById("round-tracker").textContent = "Round "+roundNumber+" of 6";
     // Reset the buttons.
     document.getElementById("new-round-button").classList.add("hidden");
@@ -128,7 +129,6 @@ for (let x = 1; x < 3; x++) {
     let clickDice = document.getElementById("available"+x);
     clickDice.addEventListener("click", function() {
         if (clickDice.classList.contains("unused-rolled-dice")) {
-            console.log(`Event listener clicked dice ${x}`);
             clickDie(x);
         }
     });
@@ -147,7 +147,6 @@ function clickDie(clickedDice) {
     // Read the text on the chosen die.
     dieValue = parseInt(dieChosen.innerText);
     dieChosen.classList.add("clicked-die");
-    console.log(`dieValue variable is ${dieValue}`);
     deactivateSpaces();
     deactivateAbilitySpaces();
     activateSpaces();
@@ -277,7 +276,6 @@ for (let x = 1; x < 10; x++) {
                 removeClicked[i].classList.add("shape-available");
                 removeClicked[i].classList.remove("shape-picked");
             }
-            console.log(`Event listener clicked available shape ${x}`);
             clickShape.classList.remove("shape-available");
             clickShape.classList.add("shape-picked");
             pickShape(clickShape, x);
@@ -290,7 +288,6 @@ for (let x = 1; x < 10; x++) {
  * Argument is the chosenShape and x is the shape number.
  */
 function pickShape(chosenShape, x) {
-    console.log(`User has chosen ${chosenShape}`);
     if (chosenShape.classList.contains("rotate-0") && chosenShape.classList.contains("flip-0")) {
         currentShape = x+"-0-0";
     } else if (chosenShape.classList.contains("rotate-90") && chosenShape.classList.contains("flip-0")) {
@@ -308,14 +305,12 @@ function pickShape(chosenShape, x) {
     } else if (chosenShape.classList.contains("rotate-270") && chosenShape.classList.contains("flip-1")) {
         currentShape = x+"-270-1";
     }
-    console.log(`Chosen shape ${x} - ${currentShape}`);
 }
 
 // Event listener for clicking spaces on the board.
 let boardSpace = document.getElementsByClassName("valid-space")
 for (let x = 0; x < boardSpace.length; x++) {
     boardSpace[x].addEventListener("click", function() {
-        console.log(`User clicked space ${boardSpace[x]}`);
         if (currentShape !== "" && tempPlacement == false) {
             checkShape(boardSpace[x]);
         }
@@ -339,8 +334,6 @@ function checkShape(boardSpace) {
     // Define each shape.
     shapeDefiner();
 
-    console.log(`spacesToCheck: ${spacesToCheck}`);
-
     // Check if the spaces are null or if they include unavailable spaces.
     let approve = true;
     for (let x = 0; x < spacesToCheck.length; x++) {
@@ -357,6 +350,7 @@ function checkShape(boardSpace) {
     if (approve == true) {
         let confirmation = "no";
         paintSpaces(confirmation);
+        confirmType = "shape";
         confirmPopUp();
     }
 }
@@ -364,17 +358,29 @@ function checkShape(boardSpace) {
 // Event listener for confirm button.
 let confirmButtonClick = document.getElementById("confirm-button")
 confirmButtonClick.addEventListener("click", function() {
-    console.log("User clicked confirm button.");
+    console.log(`confirmType = ${confirmType}`);
     let confirmation = "yes";
-    paintSpaces(confirmation);
+    if (confirmType === "shape") {
+        paintSpaces(confirmation);
+    } else if (confirmType === "ability") {
+        console.log("Ability confirm");
+    } else {
+        console.log("Unknown confirm type.");
+    }
 });
 
 // Event listener for cancel button.
 let cancelButtonClick = document.getElementById("cancel-button")
 cancelButtonClick.addEventListener("click", function() {
-    console.log("User clicked cancel button.");
+    console.log(`confirmType = ${confirmType}`);
     let confirmation = "cancel";
-    paintSpaces(confirmation);
+    if (confirmType === "shape") {
+        paintSpaces(confirmation);
+    } else if (confirmType === "ability") {
+        console.log("Ability confirm");
+    } else {
+        console.log("Unknown confirm type.");
+    }
 });
 
 /**
@@ -388,20 +394,20 @@ function confirmPopUp() {
 }
 
 /**
- * Pop up a confirm and cancel buttons when placing a shape.
+ * Remove confirm and cancel buttons when placing a shape.
  */
 function removePopUp() {
     let confirmCancelButtons = document.getElementsByClassName("confirm-cancel-buttons");
     for (let x = 0; x < confirmCancelButtons.length; x++) {
         confirmCancelButtons[x].classList.add("hidden");
     }
+    confirmType = "none";
 }
 
 /**
  * Fill in spaces.
  */
 function paintSpaces(confirmation) {
-    console.log(`confirmtation reads ${confirmation}`)
     if (confirmation === "yes") {
         // Player has clicked "confirm", so change spaces to contain-shape.
         for (let x = 0; x < spacesToCheck.length; x++) {
