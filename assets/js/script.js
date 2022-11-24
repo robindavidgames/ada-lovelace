@@ -395,6 +395,7 @@ confirmButtonClick.addEventListener("click", function() {
         paintSpaces(confirmation);
     } else if (confirmType === "ability") {
         console.log("Ability confirm");
+        confirmAbilityPlacement();
     } else {
         console.log("Unknown confirm type.");
     }
@@ -409,10 +410,35 @@ cancelButtonClick.addEventListener("click", function() {
         paintSpaces(confirmation);
     } else if (confirmType === "ability") {
         console.log("Ability confirm");
+        cancelAbilityPlacement();
     } else {
         console.log("Unknown confirm type.");
     }
 });
+
+/**
+ * Confirm placing a die in the abilities section.
+ */
+function confirmAbilityPlacement() {
+    let chosenAbilitySpace = document.getElementsByClassName("ability-space-picked");
+    chosenAbilitySpace[0].classList.add("ability-space-confirmed");
+    chosenAbilitySpace[0].classList.remove("ability-space-picked");
+    deactivateDice();
+    deactivateSpaces();
+    deactivateAbilitySpaces();
+    removePopUp();
+}
+
+/**
+ * Cancel placing a die in the abilities section.
+ */
+function cancelAbilityPlacement() {
+    let chosenAbilitySpace = document.getElementsByClassName("ability-space-picked");
+    chosenAbilitySpace[0].textContent = ""; 
+    chosenAbilitySpace[0].classList.add("ability-space-available");
+    chosenAbilitySpace[0].classList.remove("ability-space-picked");
+    removePopUp();
+}
 
 /**
  * Pop up a confirm and cancel buttons when placing a shape.
