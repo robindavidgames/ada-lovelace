@@ -2,6 +2,10 @@
  * Check current shape rotation and rotate by 90 degrees CW.
  */
  function rotate90Degrees() {
+    // removeClickedSpaces();
+    confirmation = "cancel";
+    paintSpaces(confirmation);
+
     let checkRotation = document.getElementById("shape1");
     if (checkRotation.classList.contains("rotate-0")) {
         for (let x = 1; x < 10; x++) {
@@ -55,6 +59,10 @@
  * Check current shape flip and flip horizontal.
  */
  function flipHorizontal() {
+    // removeClickedSpaces();
+    confirmation = "cancel";
+    paintSpaces(confirmation);
+
     let checkFlip = document.getElementById("shape1");
     if (checkFlip.classList.contains("flip-0")) {
         for (let x = 1; x < 10; x++) {

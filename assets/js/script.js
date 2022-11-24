@@ -160,7 +160,8 @@ function clickDie(clickedDice) {
 function activateAbilitySpaces(dieValue) {
     for (let x = 0; x < 11; x++) {
         // If the ability is not inactive.
-        if (!document.getElementById("ability"+x).classList.contains("inactive-ability")) {
+        let currentAbility = document.getElementById("ability"+x);
+        if (!currentAbility.classList.contains("inactive-ability")) {
             console.log(`Ability ${x} is active.`)
             let abilityDieSpace1 = document.getElementById("ability"+x+"-space1");
             let abilityDieSpace2 = document.getElementById("ability"+x+"-space2");
@@ -170,13 +171,16 @@ function activateAbilitySpaces(dieValue) {
                 abilityDieSpace1.classList.add("ability-space-available");
                 abilityDieSpace2.classList.add("ability-space-available");
             }
+            // if (currentAbility.id === ability0) {
+            //     console.log("Ability0");
+            // }
         }
         // This will need to search through each ability type and compare the two ability spaces to see if they can accept a number. Remember, dieValue is the current clicked die.
     }
 }
 
 // Event listener for clicking ability spaces.
-for (let x = 1; x < 11; x++) {
+for (let x = 0; x < 11; x++) {
     let clickSpace1 = document.getElementById("ability"+x+"-space1");
     clickSpace1.addEventListener("click", function() {
         if (clickSpace1.classList.contains("ability-space-available")) {
