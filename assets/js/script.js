@@ -195,10 +195,22 @@ for (let x = 1; x < 11; x++) {
  * Add dice value to the ability space, pop up confirmation. Then check if both have been filled in. If so, redirect to the ability specific function.
  */
 function abilitySpaceClicked(clickSpace) {
+    // Remove other ability clicked.
+    let priorClickedAbility = document.getElementsByClassName("ability-space-picked");
+    if (priorClickedAbility.length != 0) {
+        priorClickedAbility[0].textContent = "";
+        priorClickedAbility[0].classList.add("ability-space-available");
+        priorClickedAbility[0].classList.remove("ability-space-picked");
+    }
+    // Remove other shapes clicked.
+
     clickSpace.classList.remove("ability-space-available");
     clickSpace.classList.add("ability-space-picked");
     clickSpace.textContent = dieValue;
-    // Disable all other spaces and pop up confirm button.
+    // Remove click on other ability and shape.
+    let confirmation = "no";
+    confirmType = "ability";
+    confirmPopUp();
 }
 
 /**
