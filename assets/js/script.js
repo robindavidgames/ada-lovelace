@@ -195,6 +195,25 @@ for (let x = 1; x < 11; x++) {
  * Add dice value to the ability space, pop up confirmation. Then check if both have been filled in. If so, redirect to the ability specific function.
  */
 function abilitySpaceClicked(clickSpace) {
+    // // Remove other ability/shapes/spaces clicked.
+    removeClickedSpaces();
+
+    clickSpace.classList.remove("ability-space-available");
+    clickSpace.classList.add("ability-space-picked");
+    clickSpace.textContent = dieValue;
+    let confirmation = "no";
+    confirmType = "ability";
+    confirmPopUp();
+}
+
+/**
+ * Updo any painted spaces, remove clicked abilities and shapes.
+ */
+function removeClickedSpaces() {
+    // Undo any painted spaces.
+    confirmation = "cancel";
+    paintSpaces(confirmation);
+
     // Remove other ability clicked.
     let priorClickedAbility = document.getElementsByClassName("ability-space-picked");
     if (priorClickedAbility.length != 0) {
@@ -203,14 +222,11 @@ function abilitySpaceClicked(clickSpace) {
         priorClickedAbility[0].classList.remove("ability-space-picked");
     }
     // Remove other shapes clicked.
-
-    clickSpace.classList.remove("ability-space-available");
-    clickSpace.classList.add("ability-space-picked");
-    clickSpace.textContent = dieValue;
-    // Remove click on other ability and shape.
-    let confirmation = "no";
-    confirmType = "ability";
-    confirmPopUp();
+    let priorClickedShape = document.getElementsByClassName("shape-picked")
+    if (priorClickedShape.length != 0) {
+        priorClickedShape[0].classList.add("shape-available");
+        priorClickedShape[0].classList.remove("shape-picked");
+    }
 }
 
 /**
@@ -282,12 +298,9 @@ for (let x = 1; x < 10; x++) {
     let clickShape = document.getElementById("shape"+x);
     clickShape.addEventListener("click", function() {
         if (clickShape.classList.contains("shape-available")) {
-            // Remove styling on previously clicked elements.
-            let removeClicked = document.getElementsByClassName("shape-picked")
-            for (let i = 0; i < removeClicked.length; i++) {
-                removeClicked[i].classList.add("shape-available");
-                removeClicked[i].classList.remove("shape-picked");
-            }
+            // Clear any other clicked spaces/shapes/abilities.
+            removeClickedSpaces();
+
             clickShape.classList.remove("shape-available");
             clickShape.classList.add("shape-picked");
             pickShape(clickShape, x);
