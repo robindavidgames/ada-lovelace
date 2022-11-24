@@ -117,6 +117,11 @@ newRoundButton.addEventListener("click", function() {
  * Sets up a new round.
  */
 function setUpNewRound() {
+    deactivateAbilitySpaces();
+    deactivateSpaces();
+    confirmation = "cancel";
+    paintSpaces(confirmation);
+
     // Empty unused dice.
     dieValue = "";
     for (let x = 1; x < 3; x++) {
@@ -127,7 +132,6 @@ function setUpNewRound() {
         dice.classList.remove("clicked-die");
     }
 
-
     // Update the tracking boxes.
     for (let x = 1; x < 7; x++) {
         let checkAvailable = document.getElementById("reserve"+x);
@@ -137,9 +141,11 @@ function setUpNewRound() {
         usedDice.classList.add("empty");
         usedDice.classList.remove("filled");
     }
+
     // Update the round number.
     roundNumber++;
     document.getElementById("round-tracker").textContent = "Round "+roundNumber+" of 6";
+    
     // Reset the buttons.
     document.getElementById("new-round-button").classList.add("hidden");
     document.getElementById("roll-dice-button").classList.remove("hidden");
@@ -173,121 +179,6 @@ function clickDie(clickedDice) {
     activateSpaces();
     activateAbilitySpaces(dieValue);
     return;
-}
-
-/**
- * Ability spaces activate if the chosen die is valid.
- */
-function activateAbilitySpaces(dieValue) {
-    for (let x = 0; x < 11; x++) {
-        // If the ability is not inactive.
-        let currentAbility = document.getElementById("ability"+x);
-        if (!currentAbility.classList.contains("inactive-ability")) {
-            console.log(`Ability ${x} is active.`)
-            let abilityDieSpace1 = document.getElementById("ability"+x+"-space1");
-            let abilityDieSpace2 = document.getElementById("ability"+x+"-space2");
-            let emptySpace = abilityDieSpace1.innerText === "" || abilityDieSpace2.innerText === "";
-            console.log(`Empty Space = ${emptySpace}`);
-            // If the two spaces are empty.
-            if (abilityDieSpace1.innerText == "" && abilityDieSpace2.innerText == "") {
-                console.log(`Dice spaces for ability ${x} are empty.`)
-                abilityDieSpace1.classList.add("ability-space-available");
-                abilityDieSpace2.classList.add("ability-space-available");
-            } else if (currentAbility.getAttribute("id") == "ability0" && emptySpace) {
-                console.log("Ability0 with one available space.");
-                if (abilityDieSpace1.innerText != "") {
-                    let abilityValue = parseInt(abilityDieSpace1.innerText);
-                    if (abilityValue + dieValue > 9) {
-                        abilityDieSpace2.classList.add("ability-space-available");
-                    }
-                } else if (abilityDieSpace2.innerText != "") {
-                    let abilityValue = parseInt(abilityDieSpace2.innerText);
-                    if (abilityValue + dieValue > 9) {
-                        abilityDieSpace1.classList.add("ability-space-available");
-                    }
-                }
-            } else if (currentAbility.getAttribute("id") == "ability3" && emptySpace) {
-                console.log("Ability3 with one available space.");
-                if (abilityDieSpace1.innerText != "") {
-                    let abilityValue = parseInt(abilityDieSpace1.innerText);
-                    if (abilityValue + dieValue < 5) {
-                        abilityDieSpace2.classList.add("ability-space-available");
-                    }
-                } else if (abilityDieSpace2.innerText != "") {
-                    let abilityValue = parseInt(abilityDieSpace2.innerText);
-                    if (abilityValue + dieValue < 5) {
-                        abilityDieSpace1.classList.add("ability-space-available");
-                    }
-                }
-            } else if ((currentAbility.getAttribute("id") == "ability8") || (currentAbility.getAttribute("id") == "ability6") && emptySpace) {
-                console.log("Ability8 or Ability6 with one available space.");
-                // Confirmed working.
-                if (abilityDieSpace1.innerText != "") {
-                    let abilityValue = parseInt(abilityDieSpace1.innerText);
-                    if (abilityValue == dieValue) {
-                        abilityDieSpace2.classList.add("ability-space-available");
-                    }
-                } else if (abilityDieSpace2.innerText != "") {
-                    let abilityValue = parseInt(abilityDieSpace2.innerText);
-                    if (abilityValue == dieValue) {
-                        abilityDieSpace1.classList.add("ability-space-available");
-                    }
-                }
-            } else if ((currentAbility.getAttribute("id") == "ability4") || (currentAbility.getAttribute("id") == "ability9") || (currentAbility.getAttribute("id") == "ability10") && emptySpace) {
-                console.log("Ability4, Ability9 or Ability10 with one available space.");
-                if (abilityDieSpace1.innerText != "") {
-                    let abilityValue = parseInt(abilityDieSpace1.innerText);
-                    if (abilityValue == (dieValue + 1) || (dieValue - 1)) {
-                        abilityDieSpace2.classList.add("ability-space-available");
-                    }
-                } else if (abilityDieSpace2.innerText != "") {
-                    let abilityValue = parseInt(abilityDieSpace2.innerText);
-                    if (abilityValue == (dieValue + 1) || (dieValue - 1)) {
-                        abilityDieSpace1.classList.add("ability-space-available");
-                    }
-                } else if (currentAbility.getAttribute("id") == "ability1" && emptySpace) {
-                    console.log("Ability1 with one available space.");
-                    if (abilityDieSpace1.innerText != "") {
-                        let abilityValue = parseInt(abilityDieSpace1.innerText);
-                        if (abilityValue + dieValue == 8 || 9) {
-                            abilityDieSpace2.classList.add("ability-space-available");
-                        }
-                    } else if (abilityDieSpace2.innerText != "") {
-                        let abilityValue = parseInt(abilityDieSpace2.innerText);
-                        if (abilityValue + dieValue == 8 || 9) {
-                            abilityDieSpace1.classList.add("ability-space-available");
-                        }
-                    }
-                } else if (currentAbility.getAttribute("id") == "ability7" && emptySpace) {
-                    console.log("Ability7 with one available space.");
-                    if (abilityDieSpace1.innerText != "") {
-                        let abilityValue = parseInt(abilityDieSpace1.innerText);
-                        if (abilityValue + dieValue == 5 || 6) {
-                            abilityDieSpace2.classList.add("ability-space-available");
-                        }
-                    } else if (abilityDieSpace2.innerText != "") {
-                        let abilityValue = parseInt(abilityDieSpace2.innerText);
-                        if (abilityValue + dieValue == 5 || 6) {
-                            abilityDieSpace1.classList.add("ability-space-available");
-                        }
-                    }
-                } else if ((currentAbility.getAttribute("id") == "ability2") || (currentAbility.getAttribute("id") == "ability5") && emptySpace) {
-                    console.log("Ability2 or Ability5 with one available space.");
-                    if (abilityDieSpace1.innerText != "") {
-                        let abilityValue = parseInt(abilityDieSpace1.innerText);
-                        if ((abilityValue + dieValue == 6) || (abilityValue + dieValue == 7) || (abilityValue + dieValue == 8)) {
-                            abilityDieSpace2.classList.add("ability-space-available");
-                        }
-                    } else if (abilityDieSpace2.innerText != "") {
-                        let abilityValue = parseInt(abilityDieSpace2.innerText);
-                        if (abilityValue + dieValue == 6 || 7 || 8) {
-                            abilityDieSpace1.classList.add("ability-space-available");
-                        }
-                    }
-                } 
-            }
-        }
-    }
 }
 
 // Event listener for clicking ability spaces.
