@@ -290,6 +290,20 @@ function checkAbilityActivated() {
 
                     abilityFinished[x] = true;
                 }
+
+                if ((x == 4) || (x == 9) || (x == 10)) {
+                    // Violin, Meat and Bike
+                    for (let y = 0; y < 2; y++) {
+                        let element = document.createElement("div");
+                        element.setAttribute("class", "wild-space");
+                        element.setAttribute("id", "ability-complete"+y+"-div"+x);
+                        abilityToComplete.appendChild(element);
+                        document.getElementById("ability-complete"+y+"-div"+x).textContent = "Wild"
+                    }
+
+                    // Needs event listener and that event needs to trigger all shapes available.
+                    abilityFinished[x] = true;
+                }
             }
         }
     }

@@ -253,3 +253,20 @@ nav {
     border-width: thin; */
     padding: 0;
 }
+
+.wild-space {
+    height: 35px;
+    width: 70px;
+    float: left;
+    margin: 3px;
+    text-align: center;
+    font-size: larger;
+    font-weight: 700;
+    line-height: 35px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    border-color: black;
+    border-style: solid;
+    border-width: thin;
+    padding: 0;
+}
