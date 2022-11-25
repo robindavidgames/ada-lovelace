@@ -308,3 +308,21 @@ function checkAbilityActivated() {
         }
     }
 }
+
+// Event listener for wild shapes.
+document.getElementById("ability4").addEventListener("click", function(e) {
+	// e.target is the clicked element!
+	// If it was a list item
+	// if(e.target && e.target.nodeName == "LI") {
+    // If it is a div with class "wild-space".
+    if (e.target && e.target.matches("div.wild-space")) {
+		// List item found!  Output the ID!
+		console.log("List item ", e.target.id.replace("post-", ""), " was clicked!");
+        // let currentWildShape = e.target.id.replace;
+        // wildShapeAbility(currentWildShape);
+	}
+});
+
+// function wildShapeAbility(currentWildShape) {
+//     console.log(currentWildShape);
+// }
