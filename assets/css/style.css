@@ -33,6 +33,15 @@ nav {
     margin-left: 10px;
 }
 
+.ability-set-wrap {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 5px;
+}
+
 /* Establish style for all die and boxes. */
 .space {
     height: 35px;

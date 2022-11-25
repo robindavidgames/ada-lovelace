@@ -435,6 +435,7 @@ function confirmAbilityPlacement() {
     deactivateSpaces();
     deactivateAbilitySpaces();
     removePopUp();
+    checkAbilityActivated();
 }
 
 /**

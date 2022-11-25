@@ -195,3 +195,16 @@
         }
     }
 }
+
+/**
+ * Check if abilities are complete and activate their power.
+ */
+function checkAbilityActivated() {
+    for (let x = 0; x < 11; x++) {
+        let firstAbility = document.getElementById("ability"+x+"-space1");
+        let secondAbility = document.getElementById("ability"+x+"-space2");
+        if ((firstAbility.classList.contains("ability-space-confirmed")) && (secondAbility.classList.contains("ability-space-confirmed"))) {
+                console.log(`Ability${x} finished`);
+            }
+        }
+    }
