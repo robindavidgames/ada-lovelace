@@ -221,3 +221,18 @@ nav {
 .inactive-ability div, .inactive-ability img {
     opacity: 0.3;
 }
+
+.ability-completed div {
+    visibility: hidden;
+}
+
+/* .ability-completed img {
+    opacity: ;
+} */
+
+.ability-completed {
+    background-color: blue;
+    opacity: 0.3;
+    border-radius: 5px;
+    margin-right: 20px;
+}

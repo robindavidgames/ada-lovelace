@@ -205,6 +205,8 @@ function checkAbilityActivated() {
         let secondAbility = document.getElementById("ability"+x+"-space2");
         if ((firstAbility.classList.contains("ability-space-confirmed")) && (secondAbility.classList.contains("ability-space-confirmed"))) {
                 console.log(`Ability${x} finished`);
+                let abilityToComplete = document.getElementById("ability"+x);
+                abilityToComplete.classList.add("ability-completed");
             }
         }
     }
