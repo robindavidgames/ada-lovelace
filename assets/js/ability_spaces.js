@@ -318,11 +318,21 @@ document.getElementById("ability4").addEventListener("click", function(e) {
     if (e.target && e.target.matches("div.wild-space")) {
 		// List item found!  Output the ID!
 		console.log("List item ", e.target.id.replace("post-", ""), " was clicked!");
-        // let currentWildShape = e.target.id.replace;
-        // wildShapeAbility(currentWildShape);
+        let currentWildShape = e.target.id;
+        wildShapeAbility(currentWildShape);
 	}
 });
 
-// function wildShapeAbility(currentWildShape) {
-//     console.log(currentWildShape);
-// }
+function wildShapeAbility(currentWildShape) {
+    console.log(currentWildShape);
+    let clickedWild = document.getElementById(currentWildShape);
+
+    clickedWild.classList.add("active-wild-space");
+    clickedWild.classList.remove("wild-space");
+
+    // Unclick on other things. Remove shapes, etc.
+    // Activate all shapes.
+    // Activate confirm/cancel buttons.
+    // Upon confirm/cancel:
+    // clickedWild.classList.add("used-wild-space");
+}
