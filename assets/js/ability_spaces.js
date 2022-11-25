@@ -223,17 +223,7 @@ function checkAbilityActivated() {
                     abilityToComplete.appendChild(element);
                     document.getElementById("ability-complete-div"+x).textContent = "7 points"
                     abilityFinished[x] = true;
-                } 
-                
-                // if (x == 5) {
-                    // Binoculars
-                //     let element = document.createElement("div");
-                //     element.setAttribute("class", "ability-space");
-                //     element.setAttribute("id", "ability-complete-div5");
-                //     abilityToComplete.appendChild(element);
-                //     document.getElementById("ability-complete-div5").textContent = "7 points"
-                //     abilityFinished[5] = true;
-                // }
+                }
                 
                 if ((x == 8) || (x == 6)) {
                     // Telescope or crowbar
@@ -243,19 +233,63 @@ function checkAbilityActivated() {
                     element.setAttribute("id", "ability-complete-div"+x);
                     abilityToComplete.appendChild(element);
                     document.getElementById("ability-complete-div"+x).textContent = "3 points"
+
+                    // Implement the ability.
+                    let usedDiceDiv = document.getElementById("used-dice");
+                    let usedDice = usedDiceDiv.getElementsByClassName("filled");
+                    let unusedDiceDiv = document.getElementById("reserve-dice");
+                    let unusedDice = unusedDiceDiv.getElementsByClassName("empty");
+                    console.log(`Used dice length is ${usedDice.length}`);
+                    if (usedDice.length == 0) {
+                        console.log("No used dice to move.");
+                    } else if (usedDice.length == 1) {
+                        usedDice[0].classList.add("empty");
+                        usedDice[0].classList.remove("filled");
+                        unusedDice[0].classList.add("filled");
+                        unusedDice[0].classList.remove("empty");
+                    } else if (usedDice.length == 2) {
+                        usedDice[0].classList.add("empty");
+                        usedDice[0].classList.remove("filled");
+                        unusedDice[0].classList.add("filled");
+                        unusedDice[0].classList.remove("empty");
+                        usedDice[1].classList.add("empty");
+                        usedDice[1].classList.remove("filled");
+                        unusedDice[1].classList.add("filled");
+                        unusedDice[1].classList.remove("empty");
+                    } else if (usedDice.length == 3) {
+                        remove3dice(0, 1, 2);
+                    } else if (usedDice.length == 4) {
+                        remove3dice(1, 2, 3);
+                    } else if (usedDice.length == 5) {
+                        remove3dice(2, 3, 4);
+                    } else if (usedDice.length == 6) {
+                        remove3dice(3, 4, 5);
+                    }
+                    
+                    function remove3dice(a, b, c) {
+                        usedDice[c].classList.add("empty");
+                        usedDice[c].classList.remove("filled");
+                        unusedDice[c].classList.add("filled");
+                        unusedDice[c].classList.remove("empty");
+                        usedDice[b].classList.add("empty");
+                        usedDice[b].classList.remove("filled");
+                        unusedDice[b].classList.add("filled");
+                        unusedDice[b].classList.remove("empty");
+                        usedDice[a].classList.add("empty");
+                        usedDice[a].classList.remove("filled");
+                        unusedDice[a].classList.add("filled");
+                        unusedDice[a].classList.remove("empty");
+                    }
+
+                    // If the new round button was up, hide it and put the roll button back.
+                    let newRoundCheck = document.getElementById("new-round-button");
+                    if (!newRoundCheck.classList.contains("hidden")) {
+                        document.getElementById("new-round-button").classList.add("hidden");
+                        document.getElementById("roll-dice-button").classList.remove("hidden");
+                    }
+
                     abilityFinished[x] = true;
                 }
-                
-                // if (x == 6) {
-                    // Crowbar
-                    // Copy the above.
-                    // let element = document.createElement("div");
-                    // element.setAttribute("class", "ability-space");
-                    // element.setAttribute("id", "ability-complete-div6");
-                    // abilityToComplete.appendChild(element);
-                    // document.getElementById("ability-complete-div6").textContent = "3 points"
-                    // abilityFinished[6] = true;
-                // }
             }
         }
     }

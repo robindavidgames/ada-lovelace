@@ -72,6 +72,13 @@ function placeRolledDice(availableDice) {
         document.getElementById("available"+x).classList.remove("used-rolled-dice");
         document.getElementById("available"+x).classList.add("unused-rolled-dice");
     }
+
+    if ((document.getElementById("reserve5").classList.contains("empty")) && (document.getElementById("reserve6").classList.contains("filled"))) {
+        // If only 1 dice available, make the second dice unavailable.
+        document.getElementById("available2").textContent = "";
+        document.getElementById("available2").classList.remove("unused-rolled-dice");
+        document.getElementById("available2").classList.add("used-rolled-dice");
+    }
     return;
 }
 
@@ -80,9 +87,14 @@ function placeRolledDice(availableDice) {
  */
 function reduceReserveSpaces() {
     let numberOfDiceRolled = 0;
+
+    // If only 1 dice left to roll, indicate this.
+    if ((document.getElementById("reserve5").classList.contains("empty")) && (document.getElementById("reserve6").classList.contains("filled"))) {
+        numberOfDiceRolled += 1;
+    }
+    
     for (let x = 1; x < 7; x++) {
         // Ensure that only 2 dice are changed.
-        // Possible bug: what if only 1 dice remains?
         if (numberOfDiceRolled == 2) {
             continue;
         }
