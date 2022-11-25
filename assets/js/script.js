@@ -19,7 +19,7 @@ let tempPlacement = false;
 
 let evidenceComplete = [false, false, false, false, false, false, false, false, false, false, false];
 let roomComplete = [false, false, false, false, false, false, false, false, false];
-let abilityFinished = [false, false, false, false, false, false, false, false, false];
+let abilityFinished = [false, false, false, false, false, false, false, false, false, false, false];
 
 createPlayArea();
 markOutOfBounds();

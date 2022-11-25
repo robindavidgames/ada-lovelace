@@ -201,56 +201,61 @@
  */
 function checkAbilityActivated() {
     for (let x = 0; x < 11; x++) {
-        let firstAbility = document.getElementById("ability"+x+"-space1");
-        let secondAbility = document.getElementById("ability"+x+"-space2");
-        if ((firstAbility.classList.contains("ability-space-confirmed")) && (secondAbility.classList.contains("ability-space-confirmed")) && (abilityFinished[x] == false)) {
-            console.log(`Ability${x} finished`);
+        if (abilityFinished[x] == false) {
 
-            let abilityToComplete = document.getElementById("ability"+x);
-            abilityToComplete.classList.add("ability-completed");
-            let divsToRemove = abilityToComplete.getElementsByClassName("space");
-            for (let y = 0; y < divsToRemove.length; y++) {
-                divsToRemove[y].classList.add("hidden");
-            }
+            let firstAbility = document.getElementById("ability"+x+"-space1");
+            let secondAbility = document.getElementById("ability"+x+"-space2");
+            if ((firstAbility.classList.contains("ability-space-confirmed")) && (secondAbility.classList.contains("ability-space-confirmed"))) {
+                console.log(`Ability${x} finished`);
 
-            if (x = 2) {
-                // Teapot
-                let element = document.createElement("div");
-                element.setAttribute("class", "ability-space");
-                element.setAttribute("id", "ability-complete-div2");
-                abilityToComplete.appendChild(element);
-                document.getElementById("ability-complete-div2").textContent = "7 points"
-                abilityFinished[2] = true;
-                console.log(abilityFinished);
-            } else if (x = 5) {
-                // Binoculars
-                let element = document.createElement("div");
-                element.setAttribute("class", "ability-space");
-                element.setAttribute("id", "ability-complete-div5");
-                abilityToComplete.appendChild(element);
-                document.getElementById("ability-complete-div5").textContent = "7 points"
-                abilityFinished[5] = true;
-                console.log(abilityFinished);
-            } else if (x = 8) {
-                // Telescope
-                // Needs to reset 3 used dice.
-                let element = document.createElement("div");
-                element.setAttribute("class", "ability-space");
-                element.setAttribute("id", "ability-complete-div8");
-                abilityToComplete.appendChild(element);
-                document.getElementById("ability-complete-div8").textContent = "3 points"
-                abilityFinished[8] = true;
-                console.log(abilityFinished);
-            } else if (x = 6) {
-                // Crowbar
-                // Copy the above.
-                let element = document.createElement("div");
-                element.setAttribute("class", "ability-space");
-                element.setAttribute("id", "ability-complete-div6");
-                abilityToComplete.appendChild(element);
-                document.getElementById("ability-complete-div6").textContent = "3 points"
-                abilityFinished[6] = true;
-                console.log(abilityFinished);
+                let abilityToComplete = document.getElementById("ability"+x);
+                abilityToComplete.classList.add("ability-completed");
+                let divsToRemove = abilityToComplete.getElementsByClassName("space");
+                for (let y = 0; y < divsToRemove.length; y++) {
+                    divsToRemove[y].classList.add("hidden");
+                }
+
+                if ((x == 2) || (x == 5)) {
+                    // Teapot and Binoculars
+                    let element = document.createElement("div");
+                    element.setAttribute("class", "ability-space");
+                    element.setAttribute("id", "ability-complete-div"+x);
+                    abilityToComplete.appendChild(element);
+                    document.getElementById("ability-complete-div"+x).textContent = "7 points"
+                    abilityFinished[x] = true;
+                } 
+                
+                // if (x == 5) {
+                    // Binoculars
+                //     let element = document.createElement("div");
+                //     element.setAttribute("class", "ability-space");
+                //     element.setAttribute("id", "ability-complete-div5");
+                //     abilityToComplete.appendChild(element);
+                //     document.getElementById("ability-complete-div5").textContent = "7 points"
+                //     abilityFinished[5] = true;
+                // }
+                
+                if ((x == 8) || (x == 6)) {
+                    // Telescope or crowbar
+                    // Needs to reset 3 used dice.
+                    let element = document.createElement("div");
+                    element.setAttribute("class", "ability-space");
+                    element.setAttribute("id", "ability-complete-div"+x);
+                    abilityToComplete.appendChild(element);
+                    document.getElementById("ability-complete-div"+x).textContent = "3 points"
+                    abilityFinished[x] = true;
+                }
+                
+                // if (x == 6) {
+                    // Crowbar
+                    // Copy the above.
+                    // let element = document.createElement("div");
+                    // element.setAttribute("class", "ability-space");
+                    // element.setAttribute("id", "ability-complete-div6");
+                    // abilityToComplete.appendChild(element);
+                    // document.getElementById("ability-complete-div6").textContent = "3 points"
+                    // abilityFinished[6] = true;
+                // }
             }
         }
     }
