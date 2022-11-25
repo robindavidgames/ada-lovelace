@@ -58,7 +58,7 @@
     if (!ability2.classList.contains("inactive-ability") && ability2die1.innerText != "") {
         let abilityValue = parseInt(ability2die1.innerText);
         if ((abilityValue + dieValue == 6) || (abilityValue + dieValue == 7) || (abilityValue + dieValue == 8)) {
-            ability1die2.classList.add("ability-space-available");
+            ability2die2.classList.add("ability-space-available");
         }
     } else if (ability2die2.innerText != "") {
         let abilityValue = parseInt(ability2die2.innerText);
@@ -204,9 +204,22 @@ function checkAbilityActivated() {
         let firstAbility = document.getElementById("ability"+x+"-space1");
         let secondAbility = document.getElementById("ability"+x+"-space2");
         if ((firstAbility.classList.contains("ability-space-confirmed")) && (secondAbility.classList.contains("ability-space-confirmed"))) {
-                console.log(`Ability${x} finished`);
-                let abilityToComplete = document.getElementById("ability"+x);
-                abilityToComplete.classList.add("ability-completed");
+            console.log(`Ability${x} finished`);
+            let abilityToComplete = document.getElementById("ability"+x);
+            abilityToComplete.classList.add("ability-completed");
+            let divsToRemove = abilityToComplete.getElementsByClassName("space");
+            for (let y = 0; y < divsToRemove.length; y++) {
+                divsToRemove[y].classList.add("hidden");
+            }
+
+            // Teapot or binoculars.
+            if ((x = 2) || (x = 5)) {
+                let element = document.createElement("div");
+                element.setAttribute("class", "ability-space");
+                element.setAttribute("id", "ability-complete-div"+x);
+                abilityToComplete.appendChild(element);
+                document.getElementById("ability-complete-div"+x).textContent = "7 points"
             }
         }
     }
+}

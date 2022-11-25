@@ -222,13 +222,34 @@ nav {
     opacity: 0.3;
 }
 
-.ability-completed div {
-    visibility: hidden;
-}
+/* .ability-completed div { */
+    /* visibility: hidden; */
+    /* display: none;
+} */
+
+/* .visible-div {
+    display: inherit;
+} */
 
 .ability-completed {
-    background-color: blue;
-    opacity: 0.3;
+    background-color: aqua;
     border-radius: 5px;
     margin-right: 20px;
+}
+
+.ability-space {
+    height: 35px;
+    width: 150px;
+    float: left;
+    margin: 3px;
+    text-align: center;
+    font-size: larger;
+    font-weight: 700;
+    line-height: 35px;
+    /* background-color: whitesmoke; */
+    /* border-radius: 5px;
+    border-color: black;
+    border-style: solid;
+    border-width: thin; */
+    padding: 0;
 }
