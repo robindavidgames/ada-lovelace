@@ -294,3 +294,42 @@ nav {
     background-color: grey;
     color: rgba(0,0,0,0);
 }
+
+.ability-piece-1 {
+    width: 50px;
+    height: auto;
+    margin: auto;
+}
+
+.ability-piece-2 {
+    width: 50px;
+    height: auto;
+}
+
+.ability-shape {
+    height: 50px;
+    width: 70px;
+    float: left;
+    margin: 3px;
+    text-align: center;
+    font-size: larger;
+    font-weight: 700;
+    line-height: 35px;
+    border-radius: 5px;
+    border-color: black;
+    border-style: solid;
+    border-width: thin;
+    padding: 3px;
+}
+
+.ability-shape-space {
+    background-color: whitesmoke;
+}
+
+.active-ability-shape {
+    background-color: lightgreen;
+}
+
+.ability-shape-space-used {
+    background-color: grey;
+}

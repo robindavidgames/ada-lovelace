@@ -73,12 +73,12 @@
     let ability3die2 = document.getElementById("ability3-space2");
     if (!ability3.classList.contains("inactive-ability") && ability3die1.innerText != "") {
         let abilityValue = parseInt(ability3die1.innerText);
-        if (abilityValue + dieValue > 5) {
+        if (abilityValue + dieValue < 5) {
             ability3die2.classList.add("ability-space-available");
         }
     } else if (ability3die2.innerText != "") {
         let abilityValue = parseInt(ability3die2.innerText);
-        if (abilityValue + dieValue > 5) {
+        if (abilityValue + dieValue < 5) {
             ability3die1.classList.add("ability-space-available");
         }
     }
@@ -221,7 +221,7 @@ function checkAbilityActivated() {
                     element.setAttribute("class", "ability-space");
                     element.setAttribute("id", "ability-complete-div"+x);
                     abilityToComplete.appendChild(element);
-                    document.getElementById("ability-complete-div"+x).textContent = "7 points"
+                    document.getElementById("ability-complete-div"+x).textContent = "7 points";
                     abilityFinished[x] = true;
                 }
                 
@@ -231,7 +231,7 @@ function checkAbilityActivated() {
                     element.setAttribute("class", "ability-space");
                     element.setAttribute("id", "ability-complete-div"+x);
                     abilityToComplete.appendChild(element);
-                    document.getElementById("ability-complete-div"+x).textContent = "3 points"
+                    document.getElementById("ability-complete-div"+x).textContent = "3 points";
 
                     // Reset up to 3 dice.
                     let usedDiceDiv = document.getElementById("used-dice");
@@ -297,7 +297,7 @@ function checkAbilityActivated() {
                         element.setAttribute("class", "wild-space wild");
                         element.setAttribute("id", "ability-complete"+y+"-div"+x);
                         abilityToComplete.appendChild(element);
-                        document.getElementById("ability-complete"+y+"-div"+x).textContent = "Wild"
+                        document.getElementById("ability-complete"+y+"-div"+x).textContent = "Wild";
                     }
                     abilityFinished[x] = true;
                 }
@@ -309,9 +309,21 @@ function checkAbilityActivated() {
                         element.setAttribute("class", "reroll-space reroll");
                         element.setAttribute("id", "ability-complete"+y+"-div"+x);
                         abilityToComplete.appendChild(element);
-                        document.getElementById("ability-complete"+y+"-div"+x).textContent = "#"
+                        document.getElementById("ability-complete"+y+"-div"+x).textContent = "#";
                     }
-                    // Needs event listener and that event needs to trigger all shapes available.
+                    abilityFinished[x] = true;
+                }
+
+                if ((x == 3) || (x == 0)) {
+                    // Key and Apple
+                    for (let y = 1; y < 3; y++) {
+                        let element = document.createElement("div");
+                        element.setAttribute("class", "ability-shape-space ability-shape");
+                        element.setAttribute("id", "ability-complete"+y+"-div"+x);
+                        abilityToComplete.appendChild(element);
+                        document.getElementById("ability-complete"+y+"-div"+x).innerHTML = '<img src="assets/images/abilitypiece'+y+'.png" class="ability-piece-'+y+'">';
+                    }
+                    // Needs event listener etc.
                     abilityFinished[x] = true;
                 }
             }
