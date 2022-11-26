@@ -113,6 +113,7 @@ nav {
 
 .used-rolled-dice {
     background-color: black;
+    color: rgba(0,0,0,0);
 }
 
 .shape-picker {
@@ -222,15 +223,6 @@ nav {
     opacity: 0.3;
 }
 
-/* .ability-completed div { */
-    /* visibility: hidden; */
-    /* display: none;
-} */
-
-/* .visible-div {
-    display: inherit;
-} */
-
 .ability-completed {
     background-color: aqua;
     border-radius: 5px;
@@ -246,41 +238,47 @@ nav {
     font-size: larger;
     font-weight: 700;
     line-height: 35px;
-    /* background-color: whitesmoke; */
-    /* border-radius: 5px;
+    padding: 0;
+}
+
+.wild {
+    height: 35px;
+    width: 70px;
+    float: left;
+    margin: 3px;
+    text-align: center;
+    font-size: larger;
+    font-weight: 700;
+    line-height: 35px;
+    border-radius: 5px;
     border-color: black;
     border-style: solid;
-    border-width: thin; */
+    border-width: thin;
     padding: 0;
 }
 
 .wild-space {
-    height: 35px;
-    width: 70px;
-    float: left;
-    margin: 3px;
-    text-align: center;
-    font-size: larger;
-    font-weight: 700;
-    line-height: 35px;
     background-color: whitesmoke;
-    border-radius: 5px;
-    border-color: black;
-    border-style: solid;
-    border-width: thin;
-    padding: 0;
 }
 
 .used-wild-space {
+    background-color: gray;
+    /* color: rgba(0,0,0,0); */
+}
+
+.active-wild-space {
+    background-color: lightgreen;
+}
+
+.reroll {
     height: 35px;
-    width: 70px;
+    width: 30px;
     float: left;
     margin: 3px;
     text-align: center;
     font-size: larger;
     font-weight: 700;
     line-height: 35px;
-    background-color: gray;
     border-radius: 5px;
     border-color: black;
     border-style: solid;
@@ -288,19 +286,11 @@ nav {
     padding: 0;
 }
 
-.active-wild-space {
-    height: 35px;
-    width: 70px;
-    float: left;
-    margin: 3px;
-    text-align: center;
-    font-size: larger;
-    font-weight: 700;
-    line-height: 35px;
-    background-color: lightgreen;
-    border-radius: 5px;
-    border-color: black;
-    border-style: solid;
-    border-width: thin;
-    padding: 0;
+.reroll-space {
+    background-color: whitesmoke;
+}
+
+.reroll-space-used {
+    background-color: grey;
+    color: rgba(0,0,0,0);
 }

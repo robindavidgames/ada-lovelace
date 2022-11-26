@@ -294,26 +294,23 @@ function checkAbilityActivated() {
                     // Violin, Meat and Bike
                     for (let y = 0; y < 2; y++) {
                         let element = document.createElement("div");
-                        element.setAttribute("class", "wild-space");
+                        element.setAttribute("class", "wild-space wild");
                         element.setAttribute("id", "ability-complete"+y+"-div"+x);
                         abilityToComplete.appendChild(element);
                         document.getElementById("ability-complete"+y+"-div"+x).textContent = "Wild"
                     }
-
-                    // Needs event listener and that event needs to trigger all shapes available.
                     abilityFinished[x] = true;
                 }
 
                 if ((x == 1) || (x == 7)) {
                     // Martini and Tophat
                     for (let y = 0; y < 4; y++) {
-                        // let element = document.createElement("div");
-                        // element.setAttribute("class", "wild-space");
-                        // element.setAttribute("id", "ability-complete"+y+"-div"+x);
-                        // abilityToComplete.appendChild(element);
-                        // document.getElementById("ability-complete"+y+"-div"+x).textContent = "Wild"
+                        let element = document.createElement("div");
+                        element.setAttribute("class", "reroll-space reroll");
+                        element.setAttribute("id", "ability-complete"+y+"-div"+x);
+                        abilityToComplete.appendChild(element);
+                        document.getElementById("ability-complete"+y+"-div"+x).textContent = "#"
                     }
-
                     // Needs event listener and that event needs to trigger all shapes available.
                     abilityFinished[x] = true;
                 }
@@ -326,7 +323,7 @@ function checkAbilityActivated() {
 // See event delegation https://davidwalsh.name/event-delegate
 document.getElementById("ability4").addEventListener("click", function(e) {
     if (e.target && e.target.matches("div.wild-space")) {
-		console.log("List item ", e.target.id.replace("post-", ""), " was clicked!");
+		// console.log("List item ", e.target.id.replace("post-", ""), " was clicked!");
         let currentWildShape = e.target.id;
         wildShapeAbility(currentWildShape);
 	}
@@ -334,7 +331,6 @@ document.getElementById("ability4").addEventListener("click", function(e) {
 
 document.getElementById("ability9").addEventListener("click", function(e) {
     if (e.target && e.target.matches("div.wild-space")) {
-		console.log("List item ", e.target.id.replace("post-", ""), " was clicked!");
         let currentWildShape = e.target.id;
         wildShapeAbility(currentWildShape);
 	}
@@ -342,7 +338,6 @@ document.getElementById("ability9").addEventListener("click", function(e) {
 
 document.getElementById("ability10").addEventListener("click", function(e) {
     if (e.target && e.target.matches("div.wild-space")) {
-		console.log("List item ", e.target.id.replace("post-", ""), " was clicked!");
         let currentWildShape = e.target.id;
         wildShapeAbility(currentWildShape);
 	}
@@ -351,7 +346,7 @@ document.getElementById("ability10").addEventListener("click", function(e) {
 /**
  * Upon pressing a wild shape button, activates a dice of a value 13. Shapes are all associated with value 13.
  */
-function wildShapeAbility(currentWildShape) {
+ function wildShapeAbility(currentWildShape) {
 
     // Uncolour elements
     uncolourElements();
@@ -368,3 +363,28 @@ function wildShapeAbility(currentWildShape) {
     activateSpaces();
 
 }
+
+// Event listener for rerolls.
+document.getElementById("ability1").addEventListener("click", function(e) {
+    if (e.target && e.target.matches("div.reroll-space")) {
+        let currentRerollSpace = e.target.id;
+        let spaceToDeactivate = document.getElementById(currentRerollSpace);
+        spaceToDeactivate.classList.add("reroll-space-used");
+        spaceToDeactivate.classList.remove("reroll-space");
+        rerollAbilityUse = true;
+        availableDice = [];
+        randomiseDice();
+	}
+});
+
+document.getElementById("ability7").addEventListener("click", function(e) {
+    if (e.target && e.target.matches("div.reroll-space")) {
+        let currentRerollSpace = e.target.id;
+        let spaceToDeactivate = document.getElementById(currentRerollSpace);
+        spaceToDeactivate.classList.add("reroll-space-used");
+        spaceToDeactivate.classList.remove("reroll-space");
+        rerollAbilityUse = true;
+        availableDice = [];
+        randomiseDice();
+	}
+});

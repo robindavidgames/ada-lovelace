@@ -25,6 +25,9 @@ let abilityFinished = [false, false, false, false, false, false, false, false, f
 // If the user has clicked wild
 let wildAbilityUse = false;
 
+// If user has clicked reroll
+let rerollAbilityUse = false;
+
 createPlayArea();
 markOutOfBounds();
 markPreFilled();
@@ -62,7 +65,12 @@ function randomiseDice() {
     removePopUp;
 
     placeRolledDice(availableDice);
-    reduceReserveSpaces();
+
+    if (rerollAbilityUse == false) {
+        reduceReserveSpaces();
+    }
+
+    rerollAbilityUse = false;
     return;
 }
 
@@ -73,15 +81,19 @@ function placeRolledDice(availableDice) {
     for (let x = 1; x < 3; x++) {
         let rolledDieValue = availableDice[x-1];
         document.getElementById("available"+x).textContent = rolledDieValue;
-        document.getElementById("available"+x).classList.remove("used-rolled-dice");
-        document.getElementById("available"+x).classList.add("unused-rolled-dice");
+        if (rerollAbilityUse == false) {
+            document.getElementById("available"+x).classList.remove("used-rolled-dice");
+            document.getElementById("available"+x).classList.add("unused-rolled-dice");
+        }
     }
 
     if ((document.getElementById("reserve5").classList.contains("empty")) && (document.getElementById("reserve6").classList.contains("filled"))) {
         // If only 1 dice available, make the second dice unavailable.
         document.getElementById("available2").textContent = "";
-        document.getElementById("available2").classList.remove("unused-rolled-dice");
-        document.getElementById("available2").classList.add("used-rolled-dice");
+        if (rerollAbilityUse == false) {
+            document.getElementById("available2").classList.remove("unused-rolled-dice");
+            document.getElementById("available2").classList.add("used-rolled-dice");
+        }
     }
     return;
 }
