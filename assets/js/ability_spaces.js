@@ -321,7 +321,8 @@ function checkAbilityActivated() {
                         element.setAttribute("class", "ability-shape-space ability-shape");
                         element.setAttribute("id", "ability-complete"+y+"-div"+x);
                         abilityToComplete.appendChild(element);
-                        document.getElementById("ability-complete"+y+"-div"+x).innerHTML = '<img src="assets/images/abilitypiece'+y+'.png" class="ability-piece-'+y+'">';
+                        document.getElementById("ability-complete"+y+"-div"+x).innerHTML = '<img src="assets/images/abilitypiece'+y+'.png" class="ability-piece-'+y+' rotate-0">';
+                        // keyAppleVisible = true;
                     }
                     // Needs event listener etc.
                     abilityFinished[x] = true;
@@ -358,7 +359,7 @@ document.getElementById("ability10").addEventListener("click", function(e) {
 /**
  * Upon pressing a wild shape button, activates a dice of a value 13. Shapes are all associated with value 13.
  */
- function wildShapeAbility(currentWildShape) {
+function wildShapeAbility(currentWildShape) {
 
     // Uncolour elements
     uncolourElements();
@@ -400,3 +401,48 @@ document.getElementById("ability7").addEventListener("click", function(e) {
         randomiseDice();
 	}
 });
+
+// Event listener for shape ability.
+document.getElementById("ability3").addEventListener("click", function(e) {
+    if (e.target && e.target.matches("div.ability-shape-space")) {
+        let currentShapeAbility = e.target.id;
+        shapeAbility(currentShapeAbility);
+	}
+});
+
+document.getElementById("ability0").addEventListener("click", function(e) {
+    if (e.target && e.target.matches("div.ability-shape-space")) {
+        let currentShapeAbility = e.target.id;
+        shapeAbility(currentShapeAbility);
+	}
+});
+
+/**
+ * Upon pressing the shape ability, gain ability to place large shape.
+ */
+function shapeAbility(currentShapeAbility) {
+
+    // Uncolour elements
+    uncolourElements();
+
+    console.log(currentShapeAbility);
+    let clickedShapeAbility = document.getElementById(currentShapeAbility);
+
+    clickedShapeAbility.classList.add("active-ability-shape");
+    clickedShapeAbility.classList.remove("ability-shape-space");
+
+    // This needs to move to when the divs are created.
+    let shape1Orientation = document.getElementById("shape1");
+    if ((shape1Orientation.classList.contains("rotate-0")) || (shape1Orientation.classList.contains("rotate-180"))) {
+        // present shapes in normal orientation.
+    } else {
+        // present shapes in 90 orientation.
+    }
+    // Check which classes shape 1 contains. If they are rotated/flipped, apply those classes to the HTML inside the divs.
+
+    // console.log("Setting wild ability use to true.");
+    // wildAbilityUse = true;
+    // dieValue = 13;
+    // activateSpaces();
+
+}

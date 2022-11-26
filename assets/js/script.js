@@ -28,6 +28,9 @@ let wildAbilityUse = false;
 // If user has clicked reroll
 let rerollAbilityUse = false;
 
+// If the key or apple abilities have been unlocked.
+// let keyAppleVisible = false;
+
 createPlayArea();
 markOutOfBounds();
 markPreFilled();
