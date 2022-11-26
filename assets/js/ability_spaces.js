@@ -319,18 +319,39 @@ document.getElementById("ability4").addEventListener("click", function(e) {
 	}
 });
 
+document.getElementById("ability9").addEventListener("click", function(e) {
+    if (e.target && e.target.matches("div.wild-space")) {
+		console.log("List item ", e.target.id.replace("post-", ""), " was clicked!");
+        let currentWildShape = e.target.id;
+        wildShapeAbility(currentWildShape);
+	}
+});
+
+document.getElementById("ability10").addEventListener("click", function(e) {
+    if (e.target && e.target.matches("div.wild-space")) {
+		console.log("List item ", e.target.id.replace("post-", ""), " was clicked!");
+        let currentWildShape = e.target.id;
+        wildShapeAbility(currentWildShape);
+	}
+});
+
+/**
+ * Upon pressing a wild shape button, activates a dice of a value 13. Shapes are all associated with value 13.
+ */
 function wildShapeAbility(currentWildShape) {
+
+    // Uncolour elements
+    uncolourElements();
+
     console.log(currentWildShape);
     let clickedWild = document.getElementById(currentWildShape);
 
     clickedWild.classList.add("active-wild-space");
     clickedWild.classList.remove("wild-space");
 
-    // Activate the dieclicker but with a value of 13. Then add d13 as a class to all the shapes. Will need to ensure that ability placement doesn't activate with a d13.
+    console.log("Setting wild ability use to true.");
+    wildAbilityUse = true;
+    dieValue = 13;
+    activateSpaces();
 
-    // Unclick on other things. Remove shapes, etc.
-    // Activate all shapes.
-    // Activate confirm/cancel buttons.
-    // Upon confirm/cancel:
-    // clickedWild.classList.add("used-wild-space");
 }

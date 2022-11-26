@@ -17,9 +17,13 @@ let confirmType = "none";
 // If there is currently a temporary placement shape on the board.
 let tempPlacement = false;
 
+// Track completion of evidence, filling of rooms, if abilities have been completed with dice.
 let evidenceComplete = [false, false, false, false, false, false, false, false, false, false, false];
 let roomComplete = [false, false, false, false, false, false, false, false, false];
 let abilityFinished = [false, false, false, false, false, false, false, false, false, false, false];
+
+// If the user has clicked wild
+let wildAbilityUse = false;
 
 createPlayArea();
 markOutOfBounds();
@@ -182,16 +186,13 @@ for (let x = 1; x < 3; x++) {
  * Player can click on an available die.
  */
 function clickDie(clickedDice) {
-    let uncolourDice = document.getElementsByClassName("die-roller");
-    for (let x = 0; x < uncolourDice.length; x++) {
-        uncolourDice[x].classList.remove("clicked-die");
-    }
+    // Uncolour previously clicked dice/abilities.
+    uncolourElements();
 
     let dieChosen = document.getElementById('available'+clickedDice);
     // Read the text on the chosen die.
     dieValue = parseInt(dieChosen.innerText);
     dieChosen.classList.add("clicked-die");
-
     confirmation = "cancel";
     paintSpaces(confirmation);
     removePopUp;
@@ -200,6 +201,22 @@ function clickDie(clickedDice) {
     activateSpaces();
     activateAbilitySpaces(dieValue);
     return;
+}
+
+/**
+ * Any elements or abilities that are previously in use are uncoloured.
+ */
+function uncolourElements() {
+    let uncolourDice = document.getElementsByClassName("die-roller");
+    for (let x = 0; x < uncolourDice.length; x++) {
+        uncolourDice[x].classList.remove("clicked-die");
+    }
+
+    let uncolourWild = document.getElementsByClassName("active-wild-space");
+    if (uncolourWild.length == 1) {
+        uncolourWild[0].classList.add("wild-space");
+        uncolourWild[0].classList.remove("active-wild-space");
+    }
 }
 
 // Event listener for clicking ability spaces.
@@ -430,6 +447,7 @@ cancelButtonClick.addEventListener("click", function() {
     if (confirmType === "shape") {
         paintSpaces(confirmation);
     } else if (confirmType === "ability") {
+        // Related to placing dice on the ability spaces.
         console.log("Ability confirm");
         cancelAbilityPlacement();
     } else {
@@ -527,15 +545,26 @@ function paintSpaces(confirmation) {
  * Deactivate the used dice.
  */
 function deactivateDice() {
-    for (let x = 1; x < 3; x++) {
-        let deactivate = document.getElementById("available"+x);
-        if (deactivate.classList.contains("clicked-die")) {
-            deactivate.classList.remove("clicked-die");
-            deactivate.classList.remove("unused-rolled-dice");
-            deactivate.classList.add("used-rolled-dice");
-            deactivate.textContent = "";
+    if (wildAbilityUse == true) {
+        console.log("Wild ability space is true");
+        wildAbilityUse = false;
+        let deactivate = document.getElementsByClassName("active-wild-space");
+        deactivate[0].classList.add("used-wild-space");
+        deactivate[0].classList.remove("active-wild-space");
+        deactivate.textContent = "";
+    } else {
+        for (let x = 1; x < 3; x++) {
+            let deactivate = document.getElementById("available"+x);
+            if (deactivate.classList.contains("clicked-die")) {
+                deactivate.classList.remove("clicked-die");
+                deactivate.classList.remove("unused-rolled-dice");
+                deactivate.classList.add("used-rolled-dice");
+                deactivate.textContent = "";
+            }
         }
-    };
+    }
+
+    
 }
 
 /**
