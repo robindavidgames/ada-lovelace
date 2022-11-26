@@ -332,7 +332,7 @@ function checkAbilityActivated() {
                         // element.setAttribute("class", "ability-shape-space ability-shape");
                         element.setAttribute("id", "ability-complete"+y+"-div"+x);
                         abilityToComplete.appendChild(element);
-                        document.getElementById("ability-complete"+y+"-div"+x).innerHTML = '<img src="assets/images/abilitypiece'+y+'.png" class="ability-piece-'+y+'">';
+                        document.getElementById("ability-complete"+y+"-div"+x).innerHTML = '<img src="assets/images/abilitypiece'+y+'.png" class="ability-piece ability-piece-'+y+'">';
                     }
                     // Needs event listener etc.
                     abilityFinished[x] = true;
@@ -427,6 +427,25 @@ document.getElementById("ability0").addEventListener("click", function(e) {
 	}
 });
 
+// Event listener if the image is clicked instead of the div
+document.getElementById("ability3").addEventListener("click", function(e) {
+    if (e.target && e.target.matches("img.ability-piece")) {
+        let imageclicked = e.target;
+        let parent = imageclicked.parentNode;
+        let currentShapeAbility = parent.id;
+        shapeAbility(currentShapeAbility);
+	}
+});
+
+document.getElementById("ability0").addEventListener("click", function(e) {
+    if (e.target && e.target.matches("img.ability-piece")) {
+        let imageclicked = e.target;
+        let parent = imageclicked.parentNode;
+        let currentShapeAbility = parent.id;
+        shapeAbility(currentShapeAbility);
+	}
+});
+
 /**
  * Upon pressing the shape ability, gain ability to place large shape.
  */
@@ -434,10 +453,9 @@ function shapeAbility(currentShapeAbility) {
 
     // Uncolour elements
     uncolourElements();
-
     removeClickedSpaces();
 
-    console.log(currentShapeAbility);
+    // console.log(currentShapeAbility);
     let clickedShapeAbility = document.getElementById(currentShapeAbility);
 
     clickedShapeAbility.classList.add("active-ability-shape");
@@ -457,25 +475,9 @@ function shapeAbility(currentShapeAbility) {
         currentShape = "15-90-0";
     }
 
-    // ability-complete2-div3
+    abilityShapeUse = true;
 
-    // pickShape(clickedShapeAbility, 14);
-
-    // Check the current orientation of the shape and update the shape checker to appropriate.
-    // Later, make sure that rotating the shapes affects these buttons too.
-    
-    // if ((clickedShapeAbility.classList.contains(rotate-0)) && ())
-
-    // let clickShape = document.getElementById("shape"+x);
-    // clickShape.addEventListener("click", function() {
-    //     if (clickShape.classList.contains("shape-available")) {
-            // Clear any other clicked spaces/shapes/abilities.
-            // removeClickedSpaces();
-
-            // clickShape.classList.remove("shape-available");
-            // clickShape.classList.add("shape-picked");
-            // pickShape(clickShape, x);
-        // }
-    // });
+    // Needs to rotate when rotate button is pressed (and change currentShape)
+    // Needs event listener to respond to the image being clicked.
 
 }

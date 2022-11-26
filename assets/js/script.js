@@ -28,6 +28,9 @@ let wildAbilityUse = false;
 // If user has clicked reroll
 let rerollAbilityUse = false;
 
+// If user has clicked ability shape
+let abilityShapeUse = false;
+
 createPlayArea();
 markOutOfBounds();
 markPreFilled();
@@ -229,6 +232,14 @@ function uncolourElements() {
         uncolourWild[0].classList.add("wild-space");
         uncolourWild[0].classList.remove("active-wild-space");
     }
+
+    let uncolourAbilityShape = document.getElementsByClassName("active-ability-shape");
+    if (uncolourAbilityShape.length == 1) {
+        uncolourAbilityShape[0].classList.add("ability-shape-space");
+        uncolourAbilityShape[0].classList.remove("active-ability-shape");
+    }
+
+    abilityShapeUse = false;
 }
 
 // Event listener for clicking ability spaces.
@@ -529,6 +540,7 @@ function paintSpaces(confirmation) {
         deactivateDice();
         deactivateSpaces();
         deactivateAbilitySpaces();
+        deativateShapeAbilitySpace();
         removePopUp();
         checkSurround();
         checkRoom();
@@ -554,6 +566,18 @@ function paintSpaces(confirmation) {
 }
 
 /**
+ * Deactivate the ability associated with the bonus shapes.
+ */
+function deativateShapeAbilitySpace() {
+    if (abilityShapeUse == true) {
+        let currentUsedAbilityShape = document.getElementsByClassName("active-ability-shape");
+        currentUsedAbilityShape[0].classList.add("ability-shape-space-used");
+        currentUsedAbilityShape[0].classList.remove("active-ability-shape");
+        abilityShapeUse = false;
+    }
+}
+
+/**
  * Deactivate the used dice.
  */
 function deactivateDice() {
@@ -575,8 +599,6 @@ function deactivateDice() {
             }
         }
     }
-
-    
 }
 
 /**
