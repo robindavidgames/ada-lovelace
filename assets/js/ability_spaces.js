@@ -227,14 +227,13 @@ function checkAbilityActivated() {
                 
                 if ((x == 8) || (x == 6)) {
                     // Telescope or crowbar
-                    // Needs to reset 3 used dice.
                     let element = document.createElement("div");
                     element.setAttribute("class", "ability-space");
                     element.setAttribute("id", "ability-complete-div"+x);
                     abilityToComplete.appendChild(element);
                     document.getElementById("ability-complete-div"+x).textContent = "3 points"
 
-                    // Implement the ability.
+                    // Reset up to 3 dice.
                     let usedDiceDiv = document.getElementById("used-dice");
                     let usedDice = usedDiceDiv.getElementsByClassName("filled");
                     let unusedDiceDiv = document.getElementById("reserve-dice");
@@ -299,6 +298,20 @@ function checkAbilityActivated() {
                         element.setAttribute("id", "ability-complete"+y+"-div"+x);
                         abilityToComplete.appendChild(element);
                         document.getElementById("ability-complete"+y+"-div"+x).textContent = "Wild"
+                    }
+
+                    // Needs event listener and that event needs to trigger all shapes available.
+                    abilityFinished[x] = true;
+                }
+
+                if ((x == 1) || (x == 7)) {
+                    // Martini and Tophat
+                    for (let y = 0; y < 4; y++) {
+                        // let element = document.createElement("div");
+                        // element.setAttribute("class", "wild-space");
+                        // element.setAttribute("id", "ability-complete"+y+"-div"+x);
+                        // abilityToComplete.appendChild(element);
+                        // document.getElementById("ability-complete"+y+"-div"+x).textContent = "Wild"
                     }
 
                     // Needs event listener and that event needs to trigger all shapes available.
