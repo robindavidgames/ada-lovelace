@@ -310,13 +310,9 @@ function checkAbilityActivated() {
 }
 
 // Event listener for wild shapes.
+// See event delegation https://davidwalsh.name/event-delegate
 document.getElementById("ability4").addEventListener("click", function(e) {
-	// e.target is the clicked element!
-	// If it was a list item
-	// if(e.target && e.target.nodeName == "LI") {
-    // If it is a div with class "wild-space".
     if (e.target && e.target.matches("div.wild-space")) {
-		// List item found!  Output the ID!
 		console.log("List item ", e.target.id.replace("post-", ""), " was clicked!");
         let currentWildShape = e.target.id;
         wildShapeAbility(currentWildShape);
@@ -329,6 +325,8 @@ function wildShapeAbility(currentWildShape) {
 
     clickedWild.classList.add("active-wild-space");
     clickedWild.classList.remove("wild-space");
+
+    // Activate the dieclicker but with a value of 13. Then add d13 as a class to all the shapes. Will need to ensure that ability placement doesn't activate with a d13.
 
     // Unclick on other things. Remove shapes, etc.
     // Activate all shapes.
