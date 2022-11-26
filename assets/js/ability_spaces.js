@@ -478,6 +478,5 @@ function shapeAbility(currentShapeAbility) {
     abilityShapeUse = true;
 
     // Needs to rotate when rotate button is pressed (and change currentShape)
-    // Needs event listener to respond to the image being clicked.
 
 }

@@ -434,7 +434,8 @@ function checkShape(boardSpace) {
         if (check == null) {
             console.log("null space");
             approve = false;
-        } else if (!check.classList.contains("available")) {
+        } else if ((!check.classList.contains("available")) || (check.classList.contains("filled")) || (check.classList.contains("contains-shape"))) {
+        // } else if (!check.classList.contains("available")) {
             console.log("not available");
             approve = false;
         }
@@ -534,6 +535,7 @@ function paintSpaces(confirmation) {
             let paint = document.getElementById(spacesToCheck[x]);
             paint.classList.remove("available");
             paint.classList.remove("unconfirmed-shape");
+            // paint.classList.remove("valid-space");
             paint.classList.add("contains-shape");
         }
         tempPlacement = false;
