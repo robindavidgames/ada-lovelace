@@ -318,11 +318,21 @@ function checkAbilityActivated() {
                     // Key and Apple
                     for (let y = 1; y < 3; y++) {
                         let element = document.createElement("div");
-                        element.setAttribute("class", "ability-shape-space ability-shape");
+
+                        // Check current orientation.
+                        let shape1Orientation = document.getElementById("shape1");
+                        if ((shape1Orientation.classList.contains("rotate-0")) || (shape1Orientation.classList.contains("rotate-180"))) {
+                            // present shapes in normal orientation.
+                            element.setAttribute("class", "ability-shape-space ability-shape rotate-0");
+                        } else {
+                            // present shapes in 90 orientation.
+                            element.setAttribute("class", "ability-shape-space ability-shape rotate-90");
+                        }
+
+                        // element.setAttribute("class", "ability-shape-space ability-shape");
                         element.setAttribute("id", "ability-complete"+y+"-div"+x);
                         abilityToComplete.appendChild(element);
-                        document.getElementById("ability-complete"+y+"-div"+x).innerHTML = '<img src="assets/images/abilitypiece'+y+'.png" class="ability-piece-'+y+' rotate-0">';
-                        // keyAppleVisible = true;
+                        document.getElementById("ability-complete"+y+"-div"+x).innerHTML = '<img src="assets/images/abilitypiece'+y+'.png" class="ability-piece-'+y+'">';
                     }
                     // Needs event listener etc.
                     abilityFinished[x] = true;
@@ -431,14 +441,8 @@ function shapeAbility(currentShapeAbility) {
     clickedShapeAbility.classList.add("active-ability-shape");
     clickedShapeAbility.classList.remove("ability-shape-space");
 
-    // This needs to move to when the divs are created.
-    let shape1Orientation = document.getElementById("shape1");
-    if ((shape1Orientation.classList.contains("rotate-0")) || (shape1Orientation.classList.contains("rotate-180"))) {
-        // present shapes in normal orientation.
-    } else {
-        // present shapes in 90 orientation.
-    }
-    // Check which classes shape 1 contains. If they are rotated/flipped, apply those classes to the HTML inside the divs.
+    // Check the current orientation of the shape and update the shape checker to appropriate.
+    // Later, make sure that rotating the shapes affects these buttons too.
 
     // console.log("Setting wild ability use to true.");
     // wildAbilityUse = true;
