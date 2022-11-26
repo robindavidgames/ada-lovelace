@@ -62,6 +62,7 @@ function randomiseDice() {
     }
     deactivateSpaces();
     deactivateAbilitySpaces();
+    uncolourElements();
 
     confirmation = "cancel";
     paintSpaces(confirmation);
@@ -155,6 +156,7 @@ newRoundButton.addEventListener("click", function() {
 function setUpNewRound() {
     deactivateAbilitySpaces();
     deactivateSpaces();
+    uncolourElements();
     confirmation = "cancel";
     paintSpaces(confirmation);
 
