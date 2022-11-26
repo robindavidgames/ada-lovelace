@@ -2,7 +2,6 @@
  * Check current shape rotation and rotate by 90 degrees CW.
  */
  function rotate90Degrees() {
-    // removeClickedSpaces();
     confirmation = "cancel";
     paintSpaces(confirmation);
 
@@ -59,7 +58,6 @@
  * Check current shape flip and flip horizontal.
  */
  function flipHorizontal() {
-    // removeClickedSpaces();
     confirmation = "cancel";
     paintSpaces(confirmation);
 
@@ -352,6 +350,28 @@ function shapeDefiner() {
     } else if (currentShape == "9-270-1") {
         adjustSpace(1, 0);
         adjustSpace(1, 1);
+    } else if (currentShape == "14-0-0") {
+        adjustSpace(1, 0);
+        adjustSpace(2, 0);
+        adjustSpace(0, 1);
+        adjustSpace(1, 1);
+        adjustSpace(2, 1);
+    } else if (currentShape == "14-90-0") {
+        adjustSpace(-1, 0);
+        adjustSpace(-1, 1);
+        adjustSpace(0, 1);
+        adjustSpace(-1, 2);
+        adjustSpace(0, 2);
+    } else if (currentShape == "15-0-0") {
+        adjustSpace(1, 0);
+        adjustSpace(2, 0);
+        adjustSpace(3, 0);
+        adjustSpace(4, 0);
+    } else if (currentShape == "15-90-0") {
+        adjustSpace(0, 1);
+        adjustSpace(0, 2);
+        adjustSpace(0, 3);
+        adjustSpace(0, 4);
     } else {
         console.log("Error: Undefined shape selected.");
     }

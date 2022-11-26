@@ -435,18 +435,47 @@ function shapeAbility(currentShapeAbility) {
     // Uncolour elements
     uncolourElements();
 
+    removeClickedSpaces();
+
     console.log(currentShapeAbility);
     let clickedShapeAbility = document.getElementById(currentShapeAbility);
 
     clickedShapeAbility.classList.add("active-ability-shape");
     clickedShapeAbility.classList.remove("ability-shape-space");
 
+    if (((clickedShapeAbility.id == "ability-complete1-div3") || (clickedShapeAbility.id == "ability-complete1-div0")) && (clickedShapeAbility.classList.contains("rotate-0"))) {
+        // Unrotated 3x2
+        currentShape = "14-0-0";
+    } else if (((clickedShapeAbility.id == "ability-complete1-div3") || (clickedShapeAbility.id == "ability-complete1-div0")) && (clickedShapeAbility.classList.contains("rotate-90"))) {
+        // Rotated 3x2
+        currentShape = "14-90-0";
+    } else if (((clickedShapeAbility.id == "ability-complete2-div3") || (clickedShapeAbility.id == "ability-complete2-div0")) && (clickedShapeAbility.classList.contains("rotate-0"))) {
+        // Unrotated 1x5
+        currentShape = "15-0-0";
+    } else if (((clickedShapeAbility.id == "ability-complete2-div3") || (clickedShapeAbility.id == "ability-complete2-div0")) && (clickedShapeAbility.classList.contains("rotate-90"))) {
+        // Rotated 1x5
+        currentShape = "15-90-0";
+    }
+
+    // ability-complete2-div3
+
+    // pickShape(clickedShapeAbility, 14);
+
     // Check the current orientation of the shape and update the shape checker to appropriate.
     // Later, make sure that rotating the shapes affects these buttons too.
+    
+    // if ((clickedShapeAbility.classList.contains(rotate-0)) && ())
 
-    // console.log("Setting wild ability use to true.");
-    // wildAbilityUse = true;
-    // dieValue = 13;
-    // activateSpaces();
+    // let clickShape = document.getElementById("shape"+x);
+    // clickShape.addEventListener("click", function() {
+    //     if (clickShape.classList.contains("shape-available")) {
+            // Clear any other clicked spaces/shapes/abilities.
+            // removeClickedSpaces();
+
+            // clickShape.classList.remove("shape-available");
+            // clickShape.classList.add("shape-picked");
+            // pickShape(clickShape, x);
+        // }
+    // });
 
 }
