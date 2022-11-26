@@ -537,7 +537,6 @@ function paintSpaces(confirmation) {
             let paint = document.getElementById(spacesToCheck[x]);
             paint.classList.remove("available");
             paint.classList.remove("unconfirmed-shape");
-            // paint.classList.remove("valid-space");
             paint.classList.add("contains-shape");
         }
         tempPlacement = false;

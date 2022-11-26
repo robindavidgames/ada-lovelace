@@ -5,6 +5,8 @@
     confirmation = "cancel";
     paintSpaces(confirmation);
 
+    let abilityShapeAdjust = document.getElementsByClassName("ability-shape");
+
     let checkRotation = document.getElementById("shape1");
     if (checkRotation.classList.contains("rotate-0")) {
         for (let x = 1; x < 10; x++) {
@@ -13,6 +15,11 @@
             adjustShape.classList.add("rotate-90");
         }
         // rotateAbilityShape(0);
+        for (let x = 0; x < abilityShapeAdjust.length; x++) {
+            abilityShapeAdjust[x].classList.add("rotate-90");
+            abilityShapeAdjust[x].classList.remove("rotate-0");
+        }
+
     } else if (checkRotation.classList.contains("rotate-90")) {
         for (let x = 1; x < 10; x++) {
             let adjustShape = document.getElementById("shape"+x);
@@ -20,6 +27,11 @@
             adjustShape.classList.add("rotate-180");
         }
         // rotateAbilityShape(90);
+        for (let x = 0; x < abilityShapeAdjust.length; x++) {
+            abilityShapeAdjust[x].classList.add("rotate-0");
+            abilityShapeAdjust[x].classList.remove("rotate-90");
+        }
+
     } else if (checkRotation.classList.contains("rotate-180")) {
         for (let x = 1; x < 10; x++) {
             let adjustShape = document.getElementById("shape"+x);
@@ -27,6 +39,11 @@
             adjustShape.classList.add("rotate-270");
         }
         // rotateAbilityShape(0);
+        for (let x = 0; x < abilityShapeAdjust.length; x++) {
+            abilityShapeAdjust[x].classList.add("rotate-90");
+            abilityShapeAdjust[x].classList.remove("rotate-0");
+        }
+
     } else if (checkRotation.classList.contains("rotate-270")) {
         for (let x = 1; x < 10; x++) {
             let adjustShape = document.getElementById("shape"+x);
@@ -34,6 +51,11 @@
             adjustShape.classList.add("rotate-0");
         }
         // rotateAbilityShape(90);
+        for (let x = 0; x < abilityShapeAdjust.length; x++) {
+            abilityShapeAdjust[x].classList.add("rotate-0");
+            abilityShapeAdjust[x].classList.remove("rotate-90");
+        }
+
     }
     if (currentShape !== "") {
         for (let x = 1; x < 10; x++) {
@@ -55,36 +77,17 @@
                 currentShape = x+"-0-1";
             }
         }
-        // if (currentShape == "14-0-0") {
-        //     currentShape = "14-90-0";
-        // } else if (currentShape == "14-90-0") {
-        //     currentShape = "14-0-0";
-        // } else if (currentShape == "15-0-0") {
-        //     currentShape = "15-90-0";
-        // } else if (currentShape == "15-90-0") {
-        //     currentShape = "15-0-0";
-        // }
+        if (currentShape == "14-0-0") {
+            currentShape = "14-90-0";
+        } else if (currentShape == "14-90-0") {
+            currentShape = "14-0-0";
+        } else if (currentShape == "15-0-0") {
+            currentShape = "15-90-0";
+        } else if (currentShape == "15-90-0") {
+            currentShape = "15-0-0";
+        }
     }
 }
-
-/**
- * Rotate the shapes on the key and apple ability buttons.
- */
-// function rotateAbilityShape(startingAngle) {
-//     let abilityShapeAdjust = document.getElementsByClassName("ability-shape");
-//     if (startingAngle = 0) {
-//         for (let x = 0; x < abilityShapeAdjust.length; x++) {
-//             abilityShapeAdjust[x].classList.add("rotate-90");
-//             abilityShapeAdjust[x].classList.remove("rotate-0");
-//         }
-//     } else if (startingAngle = 90) {
-//         for (let x = 0; x < abilityShapeAdjust.length; x++) {
-//             abilityShapeAdjust[x].classList.add("rotate-0");
-//             abilityShapeAdjust[x].classList.remove("rotate-90");
-//         }
-//     }
-    
-// }
 
 /**
  * Check current shape flip and flip horizontal.
