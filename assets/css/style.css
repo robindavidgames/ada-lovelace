@@ -9,6 +9,10 @@ nav {
     padding-bottom: 30px;
 }
 
+h2 {
+    padding-top: 10px;
+}
+
 #play-area {
     padding-left: 10px;
     padding-top: 20px;
