@@ -14,6 +14,10 @@ h3 {
     padding-top: 7px;
 }
 
+#size-warning {
+    display: none;
+}
+
 #page-default {
     max-width: 1000px;
 }
@@ -499,5 +503,11 @@ h3 {
     
     .right-section {
         max-width: 150px;
+    }
+}
+
+@media only screen and (max-width: 474px) {
+    #size-warning {
+        display: block;
     }
 }
