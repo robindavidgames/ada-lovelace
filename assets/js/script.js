@@ -453,12 +453,10 @@ function checkShape(boardSpace) {
 // Event listener for confirm button.
 let confirmButtonClick = document.getElementById("confirm-button")
 confirmButtonClick.addEventListener("click", function() {
-    console.log(`confirmType = ${confirmType}`);
     let confirmation = "yes";
     if (confirmType === "shape") {
         paintSpaces(confirmation);
     } else if (confirmType === "ability") {
-        console.log("Ability confirm");
         confirmAbilityPlacement();
     } else {
         console.log("Unknown confirm type.");
@@ -468,13 +466,10 @@ confirmButtonClick.addEventListener("click", function() {
 // Event listener for cancel button.
 let cancelButtonClick = document.getElementById("cancel-button")
 cancelButtonClick.addEventListener("click", function() {
-    console.log(`confirmType = ${confirmType}`);
     let confirmation = "cancel";
     if (confirmType === "shape") {
         paintSpaces(confirmation);
     } else if (confirmType === "ability") {
-        // Related to placing dice on the ability spaces.
-        console.log("Ability confirm");
         cancelAbilityPlacement();
     } else {
         console.log("Unknown confirm type.");
@@ -585,7 +580,6 @@ function deativateShapeAbilitySpace() {
  */
 function deactivateDice() {
     if (wildAbilityUse == true) {
-        console.log("Wild ability space is true");
         wildAbilityUse = false;
         let deactivate = document.getElementsByClassName("active-wild-space");
         deactivate[0].classList.add("used-wild-space");

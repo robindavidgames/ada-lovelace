@@ -6,13 +6,11 @@
         // If the ability is not inactive.
         let currentAbility = document.getElementById("ability"+x);
         if (!currentAbility.classList.contains("inactive-ability")) {
-            console.log(`Ability ${x} is active.`)
             let abilityDieSpace1 = document.getElementById("ability"+x+"-space1");
             let abilityDieSpace2 = document.getElementById("ability"+x+"-space2");
 
             // If the two spaces are empty.
             if (abilityDieSpace1.innerText == "" && abilityDieSpace2.innerText == "") {
-                console.log(`Dice spaces for ability ${x} are empty.`)
                 abilityDieSpace1.classList.add("ability-space-available");
                 abilityDieSpace2.classList.add("ability-space-available");
             }
@@ -206,7 +204,6 @@ function checkAbilityActivated() {
             let firstAbility = document.getElementById("ability"+x+"-space1");
             let secondAbility = document.getElementById("ability"+x+"-space2");
             if ((firstAbility.classList.contains("ability-space-confirmed")) && (secondAbility.classList.contains("ability-space-confirmed"))) {
-                console.log(`Ability${x} finished`);
 
                 let abilityToComplete = document.getElementById("ability"+x);
                 abilityToComplete.classList.add("ability-completed");
@@ -238,7 +235,6 @@ function checkAbilityActivated() {
                     let usedDice = usedDiceDiv.getElementsByClassName("filled");
                     let unusedDiceDiv = document.getElementById("reserve-dice");
                     let unusedDice = unusedDiceDiv.getElementsByClassName("empty");
-                    console.log(`Used dice length is ${usedDice.length}`);
                     if (usedDice.length == 0) {
                         console.log("No used dice to move.");
                     } else if (usedDice.length == 1) {
@@ -346,7 +342,6 @@ function checkAbilityActivated() {
 // See event delegation https://davidwalsh.name/event-delegate
 document.getElementById("ability4").addEventListener("click", function(e) {
     if (e.target && e.target.matches("div.wild-space")) {
-		// console.log("List item ", e.target.id.replace("post-", ""), " was clicked!");
         let currentWildShape = e.target.id;
         wildShapeAbility(currentWildShape);
 	}
@@ -374,13 +369,11 @@ function wildShapeAbility(currentWildShape) {
     // Uncolour elements
     uncolourElements();
 
-    console.log(currentWildShape);
     let clickedWild = document.getElementById(currentWildShape);
 
     clickedWild.classList.add("active-wild-space");
     clickedWild.classList.remove("wild-space");
 
-    console.log("Setting wild ability use to true.");
     wildAbilityUse = true;
     dieValue = 13;
     activateSpaces();
@@ -455,7 +448,6 @@ function shapeAbility(currentShapeAbility) {
     uncolourElements();
     removeClickedSpaces();
 
-    // console.log(currentShapeAbility);
     let clickedShapeAbility = document.getElementById(currentShapeAbility);
 
     clickedShapeAbility.classList.add("active-ability-shape");
