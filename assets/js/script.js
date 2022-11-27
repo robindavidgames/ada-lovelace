@@ -302,7 +302,7 @@ function removeClickedSpaces() {
  * Ability spaces deactivate when changing dice selection.
  */
 function deactivateAbilitySpaces() {
-    let inactiveAbilitySpaces = document.getElementsByClassName('ability-space-available');
+    let inactiveAbilitySpaces = document.getElementsByClassName('ability-die-space');
     for (let i = 0; i < inactiveAbilitySpaces.length; i++) {
         let makeUnavailable = inactiveAbilitySpaces[i];
         makeUnavailable.classList.remove("ability-space-available");

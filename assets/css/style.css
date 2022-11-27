@@ -192,11 +192,13 @@ nav {
 #confirm-button {
     position: relative;
     width: 170px;
+    z-index: 999;
 }
 
 #cancel-button {
     position: relative;
     width: 170px;
+    z-index: 9999;
 }
 
 #round-tracker {

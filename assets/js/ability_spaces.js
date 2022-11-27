@@ -121,12 +121,12 @@
     let ability6die2 = document.getElementById("ability6-space2");
     if (!ability6.classList.contains("inactive-ability") && ability6die1.innerText != "") {
         let abilityValue = parseInt(ability6die1.innerText);
-        if ((abilityValue == dieValue) || (abilityValue - 1 == dieValue)) {
+        if ((abilityValue == dieValue)) {
             ability6die2.classList.add("ability-space-available");
         }
     } else if (ability6die2.innerText != "") {
         let abilityValue = parseInt(ability6die2.innerText);
-        if ((abilityValue == dieValue) || (abilityValue - 1 == dieValue)) {
+        if ((abilityValue == dieValue)) {
             ability6die1.classList.add("ability-space-available");
         }
     }
@@ -153,12 +153,12 @@
     let ability8die2 = document.getElementById("ability8-space2");
     if (!ability8.classList.contains("inactive-ability") && ability8die1.innerText != "") {
         let abilityValue = parseInt(ability8die1.innerText);
-        if ((abilityValue == dieValue) || (abilityValue - 1 == dieValue)) {
+        if ((abilityValue == dieValue)) {
             ability8die2.classList.add("ability-space-available");
         }
     } else if (ability8die2.innerText != "") {
         let abilityValue = parseInt(ability8die2.innerText);
-        if ((abilityValue == dieValue) || (abilityValue - 1 == dieValue)) {
+        if ((abilityValue == dieValue)) {
             ability8die1.classList.add("ability-space-available");
         }
     }
