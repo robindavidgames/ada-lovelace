@@ -364,7 +364,7 @@ h3 {
 
     #right-panel {
         padding-top: 7px;
-        max-width: 200px;
+        /* max-width: 200px; */
     }
     
     .background-image {
@@ -473,9 +473,9 @@ h3 {
 
 @media only screen and (max-width: 768px) {
     
-    #right-panel {
+    /* #right-panel {
         max-width: 150px;
-    }
+    } */
     
     .background-image {
         width: 310px;
@@ -501,7 +501,37 @@ h3 {
         width: 60px;
     }
     
+    /* .right-section {
+        max-width: 150px;
+    } */
+}
+
+@media only screen and (max-width: 648px) {
     .right-section {
+        max-width: 250px;
+    }
+
+    #right-panel {
+        max-width: 250px;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .right-section {
+        max-width: 175px;
+    }
+
+    #right-panel {
+        max-width: 175px;
+    }
+}
+
+@media only screen and (max-width: 502px) {
+    .right-section {
+        max-width: 150px;
+    }
+
+    #right-panel {
         max-width: 150px;
     }
 }
