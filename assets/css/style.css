@@ -354,25 +354,14 @@ h3 {
 
 @media only screen and (max-width: 992px) {
 
-    /* html{
-        font-size: 50%
-    } */
-    
-    /* #play-area {
-        padding-left: 7px;
-        padding-top: 15px;
-    } */
-    
     #right-panel {
         padding-top: 7px;
         max-width: 200px;
     }
     
     .background-image {
-        width: 588px;
-        height: 490px;
-        position: absolute;
-        z-index: -1;
+        width: 390px;
+        height: 330px;
     }
     
     .evidence-image {
@@ -386,31 +375,13 @@ h3 {
         margin-left: 5px;
     }
     
-    /* .ability-set-wrap {
-        border-style: solid;
-        border-width: 1px;
-        border-radius: 4px;
-        margin-left: 2px;
-        margin-right: 2px;
-        padding: 4px;
-    } */
-    
-    /* Establish style for all die and boxes. */
     .space {
         height: 17px;
         width: 17px;
-        /* float: left; */
         margin: 1px;
-        /* text-align: center; */
         font-size: small;
-        /* font-weight: 700; */
         line-height: 17px;
-        /* background-color: whitesmoke; */
         border-radius: 2px;
-        /* border-color: black;
-        border-style: solid;
-        border-width: thin;
-        padding: 0; */
     }
     
     .annotations-in-abilities {
@@ -418,12 +389,6 @@ h3 {
         font-size: 12px;
         text-align: center;
     }
-    
-    
-    /* #dice-area {
-        margin-left: 11px;
-        margin-top: 20px;
-    } */
     
     .shape-picker {
         width: 61px;
@@ -448,21 +413,6 @@ h3 {
         width: 83px;
     }
     
-    /* .right-section { */
-        /* border-style: solid; */
-        /* border-width: 2px; */
-        /* border-color: black; */
-        /* border-radius: 2px;
-        margin-top: 2.5px;
-        margin-bottom: 2.5px;
-    } */
-/*     
-    .ability-completed {
-        background-color: aqua;
-        border-radius: 3px;
-        margin-right: 14px;
-    }
-     */
     .ability-space {
         height: 17px;
         width: 71px;
@@ -474,30 +424,18 @@ h3 {
         height: 17px;
         width: 34px;
         margin: 2px;
-        /* text-align: center; */
         font-size: smaller;
-        /* font-weight: 700; */
         line-height: 17px;
         border-radius: 2px;
-        /* border-color: black;
-        border-style: solid;
-        border-width: thin;
-        padding: 0; */
     }
     
     .reroll {
         height: 17px;
         width: 14px;
         margin: 2px;
-        /* text-align: center; */
         font-size: small;
-        /* font-weight: 700; */
         line-height: 17px;
         border-radius: 2px;
-        /* border-color: black;
-        border-style: solid;
-        border-width: thin;
-        padding: 0; */
     }
 
     .ability-piece-1 {
@@ -513,16 +451,49 @@ h3 {
     .ability-shape {
         height: 37px;
         width: 37px;
-        /* float: left; */
         margin: 2px;
         font-size: small;
-        /* font-weight: 700; */
         line-height: 17px;
         border-radius: 2px;
-        /* border-color: black;
-        border-style: solid;
-        border-width: thin; */
         padding: 3px;
     }
+
+    .long-annotation {
+        font-size: smaller;
+    }
+}
+
+@media only screen and (max-width: 768px) {
     
+    #right-panel {
+        max-width: 150px;
+    }
+    
+    .background-image {
+        width: 310px;
+        height: 260px;
+        padding-top: 10px;
+    }
+    
+    .space {
+        height: 13px;
+        width: 13px;
+        line-height: 13px;
+    }
+    
+    #confirm-button {
+        width: 60px;
+    }
+    
+    #cancel-button {
+        width: 60px;
+    }
+    
+    #round-tracker {
+        width: 60px;
+    }
+    
+    .right-section {
+        max-width: 150px;
+    }
 }
