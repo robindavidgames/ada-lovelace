@@ -625,6 +625,108 @@ function abilityActivation() {
 /**
  * Present scoring information.
  */
- function presentScoring() {
+function presentScoring() {
+    deactivateAbilitySpaces();
+    deactivateSpaces();
+    uncolourElements();
+    confirmation = "cancel";
+    paintSpaces(confirmation);
 
+    // Update the round number.
+    document.getElementById("round-tracker").textContent = "";
+    
+    // Hide Elements in Right Panel.
+    let rightPanel = document.getElementById("right-panel");
+    let children = rightPanel.children;
+    for (let x = 0; x < children.length; x++) {
+        children[x].classList.add("hidden");
+    }
+    // document.getElementById("new-round-button").classList.add("hidden");
+
+    // Calculate scores.
+    // Surrounding evidence. 2 points per piece.
+    let numberEvidenceSurrounded = 0;
+    for (let x = 0; x < evidenceComplete.length; x++) {
+        if (evidenceComplete[x] == true) {
+            numberEvidenceSurrounded += 2;
+        }
+    }
+    console.log(numberEvidenceSurrounded);
+
+    // Filling rooms. Room specific value.
+    checkRoom();
+    // let roomValues = [9, 9, 8, 6, 11, 11, 8, 6, 10];
+    let roomScores = 0;
+    // for (let x = 0; x < roomScores.length; x++) {
+    //     if (roomComplete[x] == true) {
+    //         roomScores += roomValues[x];
+    //     }
+    // }
+
+    if (roomComplete[0] == true) {
+        roomScores += 9;
+    }
+    if (roomComplete[1] == true) {
+        roomScores += 9;
+    }
+    if (roomComplete[2] == true) {
+        roomScores += 8;
+    }
+    if (roomComplete[3] == true) {
+        roomScores += 6;
+    }
+    if (roomComplete[4] == true) {
+        roomScores += 11;
+    }
+    if (roomComplete[5] == true) {
+        roomScores += 11;
+    }
+    if (roomComplete[6] == true) {
+        roomScores += 8;
+    }
+    if (roomComplete[7] == true) {
+        roomScores += 6;
+    }
+    if (roomComplete[8] == true) {
+        roomScores += 10;
+    }
+    console.log(roomScores);
+
+    // Scores for specific evidence abilities.
+    // 3 points
+    let vp3ab1 = document.getElementById("ability-complete-div8");
+    let vp3ab2 = document.getElementById("ability-complete-div6");
+    // 7 points
+    let vp7ab1 = document.getElementById("ability-complete-div2");
+    let vp7ab2 = document.getElementById("ability-complete-div5");
+
+    let abilityScores = 0;
+    if (vp3ab1 != null) {
+        abilityScores += 3;
+    }
+    if (vp3ab2 != null) {
+        abilityScores += 3;
+    }
+    if (vp7ab1 != null) {
+        abilityScores += 7;
+    }
+    if (vp7ab2 != null) {
+        abilityScores += 7;
+    }
+    console.log(abilityScores);
+
+    console.log(evidenceComplete);
+    console.log(roomComplete);
+
+    // Add scoring table.
+    let scoringTable = document.createElement("div");
+    // scoringTable.setAttribute("class", "reroll-space reroll");
+    scoringTable.setAttribute("id", "scoring-table");
+    rightPanel.appendChild(scoringTable);
+    document.getElementById("scoring-table").innerHTML = "<h2>Game Over!</h2><p>After six rounds, you have scored:</p>";
+
+    
+
+    // let evidenceComplete = [false, false, false, false, false, false, false, false, false, false, false];
+    // let roomComplete = [false, false, false, false, false, false, false, false, false];
 }
