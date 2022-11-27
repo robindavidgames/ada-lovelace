@@ -717,22 +717,22 @@ function presentScoring() {
     // scoringTable.setAttribute("class", "reroll-space reroll");
     scoringTable.setAttribute("id", "scoring-table");
     rightPanel.appendChild(scoringTable);
-    document.getElementById("scoring-table").innerHTML = "<h2>Game Over!</h2><p>After sixty minutes, Ada's time is up!</p><p>She thoroughly searched "+numberEvidenceSurrounded+" pieces of evidence. (for <b>"+scoreEvidenceSurrounded+" points!)</b></p><p>From scouring the rooms in the museum, she scored <b>"+roomScores+" points!</b></p><p>Some pieces of evidence proved particularly valuable. From these, she scored <b>"+abilityScores+" points!</b></p><h3>Final Score: "+finalScore+" points!</h3>";
+    document.getElementById("scoring-table").innerHTML = "<h2>Game Over!</h2><p>After sixty minutes, Ada's time is up!</p><p>She thoroughly searched "+numberEvidenceSurrounded+" pieces of evidence. (for <b>"+scoreEvidenceSurrounded+" points!)</b></p><p>From scouring the rooms in the museum, she scored <b>"+roomScores+" points!</b></p><p>Some pieces of evidence proved particularly valuable. From these, she scored <b>"+abilityScores+" points!</b></p><h3>Final Score: "+finalScore+" points!</h3><br>";
 
     let narrativeEnd = document.createElement("div");
     narrativeEnd.setAttribute("id", "narrative-end");
     rightPanel.appendChild(narrativeEnd);
     if (finalScore < 30) {
-        document.getElementById("narrative-end").innerHTML = "<h3>How does Ada's first investigation end?</h3><p>Flustered, you drop an ancient abacus on the ground, smashing it. Everybody boos.</p>"
+        document.getElementById("narrative-end").innerHTML = "<h3 class='text-muted'>How does Ada's first investigation end?</h3><p>Flustered, you drop an ancient abacus on the ground, smashing it. Everybody boos.</p>"
     } else if (finalScore < 40) {
-        document.getElementById("narrative-end").innerHTML = "<h3>How does Ada's first investigation end?</h3><p>A few random knick-knacks do not make a convincing case!</p>"
+        document.getElementById("narrative-end").innerHTML = "<h3 class='text-muted'>How does Ada's first investigation end?</h3><p>A few random knick-knacks do not make a convincing case!</p>"
     } else if (finalScore < 50) {
-        document.getElementById("narrative-end").innerHTML = "<h3>How does Ada's first investigation end?</h3><p>You have a case, but it is unconvincing. Your reputation is in tatters.</p>"
+        document.getElementById("narrative-end").innerHTML = "<h3 class='text-muted'>How does Ada's first investigation end?</h3><p>You have a case, but it is unconvincing. Your reputation is in tatters.</p>"
     } else if (finalScore < 60) {
-        document.getElementById("narrative-end").innerHTML = "<h3>How does Ada's first investigation end?</h3><p>You've gathered some decent evidence, so you blame Sir Charles Wheatstone.</p><p>“Preposterous!” he yells.</p><p>Others come to his defence: “He was performing on his concertina at the time.”</p><p>Whoops!</p>"
+        document.getElementById("narrative-end").innerHTML = "<h3 class='text-muted'>How does Ada's first investigation end?</h3><p>You've gathered some decent evidence, so you blame Sir Charles Wheatstone.</p><p>“Preposterous!” he yells.</p><p>Others come to his defence: “He was performing on his concertina at the time.”</p><p>Whoops!</p>"
     } else if (finalScore < 75) {
-        document.getElementById("narrative-end").innerHTML = "<h3>How does Ada's first investigation end?</h3><p>You try to blame Charles Babbage and some people say, “By golly, I think she's right!” But you're not right. Charles is not amused.</p>"
+        document.getElementById("narrative-end").innerHTML = "<h3 class='text-muted'>How does Ada's first investigation end?</h3><p>You try to blame Charles Babbage and some people say, “By golly, I think she's right!” But you're not right. Charles is not amused.</p>"
     } else if (finalScore > 74) {
-        document.getElementById("narrative-end").innerHTML = "<h3>How does Ada's first investigation end?</h3><p>You pin the blame on Lord Byron, even though he has been dead for 18 years. But your evidence is so thorough, everyone is convinced you are telling the truth. And that means nobody realises it was really you who stole the Lebombo Bone! <b>Ada Lovelace: Master Criminal!</b></p>"
+        document.getElementById("narrative-end").innerHTML = "<h3 class='text-muted'>How does Ada's first investigation end?</h3><p>You pin the blame on Lord Byron, even though he has been dead for 18 years. But your evidence is so thorough, everyone is convinced you are telling the truth. And that means nobody realises it was really you who stole the Lebombo Bone! <b>Ada Lovelace: Master Criminal!</b></p>"
     } 
 }
