@@ -14,6 +14,10 @@ h3 {
     padding-top: 7px;
 }
 
+#page-default {
+    max-width: 1000px;
+}
+
 #play-area {
     padding-left: 7px;
     padding-top: 15px;
