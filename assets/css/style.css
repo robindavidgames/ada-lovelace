@@ -14,6 +14,18 @@ h3 {
     padding-top: 7px;
 }
 
+/* .overlay-text {
+    position: relative;
+    top: 8px;
+    left: 16px;
+} */
+
+/* .shape-container {
+    position: relative;
+    text-align: center;
+    color: black;
+} */
+
 #size-warning {
     display: none;
 }
@@ -141,9 +153,23 @@ h3 {
     margin: 3px;
 }
 
+/* .shape-container-outer {
+    width: 90px;
+    height: 90px;
+    position: relative;
+    overflow: hidden;
+}
+
+.shape-container {
+    position: absolute;
+} */
+
 .shape-image {
     width: 88px;
     height: 88px;
+    /* position:absolute;
+    top:0;
+    left:0; */
 }
 
 .rotate-0 {
