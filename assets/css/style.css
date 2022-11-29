@@ -39,6 +39,11 @@ h3 {
     margin-top: 10px;
 }
 
+.tutorial-image {
+    width: 400px;
+    float: inline-end;
+}
+
 #bone {
     float: right;
     display: block;
