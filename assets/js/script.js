@@ -37,6 +37,22 @@ markPreFilled();
 createRoundTracker();
 createConfirmButtons();
 let availableDice = [];
+// createTutorial();
+
+// Event listener for beginning the game.
+let beginButton = document.getElementById("begin");
+beginButton.addEventListener("click", function() {
+    let tutorialDiv = document.getElementById("tutorial-div");
+    tutorialDiv.remove();
+});
+
+// Event listener for x button.
+let closeButton = document.getElementById("x-button");
+closeButton.addEventListener("click", function() {
+    let tutorialDiv = document.getElementById("tutorial-div");
+    tutorialDiv.remove();
+});
+
 
 // Event listener for rolling dice.
 let diceRoller = document.getElementById("roll-dice-button");

@@ -113,3 +113,15 @@ function createConfirmButtons() {
     cancelButton.setAttribute("class", "hidden confirm-cancel-buttons");
     cancelButtonWrapper.appendChild(cancelButton);
 }
+
+/**
+ * Present tutorial and story.
+ */
+// function createTutorial() {
+//     let tutorialWrapper = document.getElementById("page-default");
+
+//     let tutorial = document.createElement("div");
+//     tutorial.setAttribute("id", "tutorial-div");
+//     // tutorial.setAttribute("class", "");
+//     tutorialWrapper.appendChild(tutorial);
+// }
