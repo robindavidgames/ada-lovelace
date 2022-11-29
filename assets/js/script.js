@@ -44,6 +44,8 @@ let beginButton = document.getElementById("begin");
 beginButton.addEventListener("click", function() {
     let tutorialDiv = document.getElementById("tutorial-div");
     tutorialDiv.remove();
+    let rollDiceButton = document.getElementById("roll-dice-button");
+    rollDiceButton.classList.remove("hidden");
 });
 
 // Event listener for x button.
@@ -51,6 +53,8 @@ let closeButton = document.getElementById("x-button");
 closeButton.addEventListener("click", function() {
     let tutorialDiv = document.getElementById("tutorial-div");
     tutorialDiv.remove();
+    let rollDiceButton = document.getElementById("roll-dice-button");
+    rollDiceButton.classList.remove("hidden");
 });
 
 

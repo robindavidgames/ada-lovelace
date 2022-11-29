@@ -15,12 +15,11 @@ h3 {
 }
 
 #tutorial-div {
-    width: 800px;
-    height: 500px;
-    position: absolute;
+    width: 80%;
+    height: 80%;
+    max-width: 800px;
+    position: fixed;
     margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 10px;
     padding: 30px;
     background-color: white;
     border-style: solid;
@@ -36,17 +35,11 @@ h3 {
     display: inline;
 }
 
-/* .overlay-text {
-    position: relative;
-    top: 8px;
-    left: 16px;
-} */
-
-/* .shape-container {
-    position: relative;
-    text-align: center;
-    color: black;
-} */
+#bone {
+    float: right;
+    display: block;
+    width: 200px;
+}
 
 #size-warning {
     display: none;
@@ -175,23 +168,9 @@ h3 {
     margin: 3px;
 }
 
-/* .shape-container-outer {
-    width: 90px;
-    height: 90px;
-    position: relative;
-    overflow: hidden;
-}
-
-.shape-container {
-    position: absolute;
-} */
-
 .shape-image {
     width: 88px;
     height: 88px;
-    /* position:absolute;
-    top:0;
-    left:0; */
 }
 
 .rotate-0 {
@@ -411,7 +390,19 @@ h3 {
 
     #right-panel {
         padding-top: 7px;
-        /* max-width: 200px; */
+    }
+
+    #tutorial-div {
+        /* width: 80%;
+        height: 80%; */
+        max-width: 600px;
+        margin-left: 50px;
+        padding: 30px;
+        border-radius: 5px;
+    }
+    
+    #bone {
+        width: 150px;
     }
     
     .background-image {
@@ -525,6 +516,19 @@ h3 {
         height: 260px;
         padding-top: 10px;
     }
+
+    #tutorial-div {
+        /* width: 80%;
+        height: 80%; */
+        max-width: 400px;
+        margin-left: 30px;
+        padding: 10px;
+        border-radius: 2px;
+    }
+    
+    /* #bone {
+        width: 150px;
+    } */
     
     .space {
         height: 13px;
