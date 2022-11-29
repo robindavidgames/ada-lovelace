@@ -35,6 +35,10 @@ h3 {
     display: inline;
 }
 
+#replay-button {
+    margin-top: 10px;
+}
+
 #bone {
     float: right;
     display: block;
