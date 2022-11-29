@@ -134,9 +134,15 @@ function reduceReserveSpaces() {
     if (checkUsed[1].classList.contains("filled") && checkUsed[2].classList.contains("filled") && checkUsed[3].classList.contains("filled") && checkUsed[4].classList.contains("filled") && checkUsed[5].classList.contains("filled") && checkUsed[0].classList.contains("filled")) {
         document.getElementById("roll-dice-button").classList.add("hidden");
         document.getElementById("new-round-button").classList.remove("hidden");
+        if (roundNumber == 6) {
+            document.getElementById("new-round-button").innerText = "End Game (Two unused dice)";
+        } else {
+            document.getElementById("new-round-button").innerText = "Begin Next Round (Two unused dice)";
+        }
     } else {
         document.getElementById("roll-dice-button").classList.remove("hidden");
         document.getElementById("new-round-button").classList.add("hidden");
+        document.getElementById("roll-dice-button").innerText = "Roll Two Dice (Two unused dice)";
     }
 }
 
@@ -461,7 +467,32 @@ confirmButtonClick.addEventListener("click", function() {
     } else {
         console.log("Unknown confirm type.");
     }
+    updateRollButton();
 });
+
+/**
+ * Reduce number of unused dice displayed on roll button / new round button.
+ */
+function updateRollButton() {
+    let checkRolled1 = document.getElementById("available1");
+    let checkRolled2 = document.getElementById("available2");
+
+    if (checkRolled1.classList.contains("used-rolled-dice") && checkRolled2.classList.contains("used-rolled-dice")) {
+        // Both dice are used
+        document.getElementById("roll-dice-button").innerText = "Roll Two Dice";
+        document.getElementById("new-round-button").innerText = "Begin Next Round";
+        if (roundNumber == 6) {
+            document.getElementById("new-round-button").innerText = "End Game"
+        }
+    } else if (checkRolled1.classList.contains("used-rolled-dice") || checkRolled2.classList.contains("used-rolled-dice")) {
+        // One die is used
+        document.getElementById("roll-dice-button").innerText = "Roll Two Dice (One unused die)";
+        document.getElementById("new-round-button").innerText = "Begin Next Round (One unused die)";
+        if (roundNumber == 6) {
+            document.getElementById("new-round-button").innerText = "End Game (One unused die)"
+        }
+    }
+}
 
 // Event listener for cancel button.
 let cancelButtonClick = document.getElementById("cancel-button")
