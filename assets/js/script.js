@@ -330,8 +330,12 @@ function removeClickedSpaces() {
 function deactivateAbilitySpaces() {
     let inactiveAbilitySpaces = document.getElementsByClassName('ability-die-space');
     for (let i = 0; i < inactiveAbilitySpaces.length; i++) {
-        let makeUnavailable = inactiveAbilitySpaces[i];
-        makeUnavailable.classList.remove("ability-space-available");
+        if (inactiveAbilitySpaces[i].classList.contains("ability-space-available")) {
+            let makeUnavailable = inactiveAbilitySpaces[i];
+            makeUnavailable.classList.remove("ability-space-available");
+            makeUnavailable.innerText = "";
+        }
+        
     }
     return;
 }
@@ -584,9 +588,11 @@ function paintSpaces(confirmation) {
         // Player has clicked "confirm", so change spaces to contain-shape.
         for (let x = 0; x < spacesToCheck.length; x++) {
             let paint = document.getElementById(spacesToCheck[x]);
-            paint.classList.remove("available");
-            paint.classList.remove("unconfirmed-shape");
-            paint.classList.add("contains-shape");
+            if (paint != null) {
+                paint.classList.remove("available");
+                paint.classList.remove("unconfirmed-shape");
+                paint.classList.add("contains-shape");
+            }
         }
         spacesToCheck = [];
         tempPlacement = false;
@@ -601,16 +607,20 @@ function paintSpaces(confirmation) {
         // Player has not yet chosen "confirm" or "cancel", so shapes are greyed out.
         for (let x = 0; x < spacesToCheck.length; x++) {
             let paint = document.getElementById(spacesToCheck[x]);
-            paint.classList.remove("available");
-            paint.classList.add("unconfirmed-shape");
+            if (paint != null) {
+                paint.classList.remove("available");
+                paint.classList.add("unconfirmed-shape");
+            }
         }
         tempPlacement = true;
     } else if (confirmation === "cancel") {
         // Player has clicked "cancel", so remove the unconfirmed-shape.
         for (let x = 0; x < spacesToCheck.length; x++) {
             let paint = document.getElementById(spacesToCheck[x]);
-            paint.classList.remove("unconfirmed-shape");
-            paint.classList.add("available");
+            if (paint != null) {
+                paint.classList.remove("unconfirmed-shape");
+                paint.classList.add("available");
+            }
         }
         spacesToCheck = [];
         tempPlacement = false;
