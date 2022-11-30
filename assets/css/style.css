@@ -1,3 +1,15 @@
+.shape-container {
+    position: relative;
+    display: inline-block;
+}
+
+.overlay-text {
+    position: absolute;
+    padding-top: 5px;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
 html{
     font-size: 70%
 }
@@ -534,6 +546,13 @@ h3 {
     }
 
     .long-annotation {
+        font-size: smaller;
+    }
+
+    .overlay-text {
+        padding-top: 2px;
+        padding-left: 2px;
+        font-weight: normal;
         font-size: smaller;
     }
 }
