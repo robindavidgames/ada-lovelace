@@ -97,6 +97,7 @@ function flipHorizontal() {
     paintSpaces(confirmation);
 
     let checkFlip = document.getElementById("shape1");
+
     if (checkFlip.classList.contains("flip-0")) {
         for (let x = 1; x < 10; x++) {
             let adjustShape = document.getElementById("shape"+x);
@@ -110,24 +111,69 @@ function flipHorizontal() {
             adjustShape.classList.add("flip-0");
         }
     }
-    if (currentShape !== "") {
+
+    // Check rotation first:
+    // If rotate is horizontal, flip as normal, but if vertical, reverse the rotation too (90 to 270 and vice versa)
+    if (checkFlip.classList.contains("rotate-0") || checkFlip.classList.contains("rotate-180")) {
+        if (currentShape !== "") {
+            for (let x = 1; x < 10; x++) {
+                if (currentShape == x+"-0-0") {
+                    currentShape = x+"-0-1";
+                } else if (currentShape == x+"-90-0") {
+                    currentShape = x+"-90-1";
+                } else if (currentShape == x+"-180-0") {
+                    currentShape = x+"-180-1";
+                } else if (currentShape == x+"-270-0") {
+                    currentShape = x+"-270-1";
+                } else if (currentShape == x+"-0-1") {
+                    currentShape = x+"-0-0";
+                } else if (currentShape == x+"-90-1") {
+                    currentShape = x+"-90-0";
+                } else if (currentShape == x+"-180-1") {
+                    currentShape = x+"-180-0";
+                } else if (currentShape == x+"-270-1") {
+                    currentShape = x+"-270-0";
+                }
+            }
+        }
+    } else if (checkFlip.classList.contains("rotate-90")) {
+        // Change rotation to 270 also
         for (let x = 1; x < 10; x++) {
-            if (currentShape == x+"-0-0") {
-                currentShape = x+"-0-1";
-            } else if (currentShape == x+"-90-0") {
-                currentShape = x+"-90-1";
-            } else if (currentShape == x+"-180-0") {
-                currentShape = x+"-180-1";
-            } else if (currentShape == x+"-270-0") {
-                currentShape = x+"-270-1";
-            } else if (currentShape == x+"-0-1") {
-                currentShape = x+"-0-0";
-            } else if (currentShape == x+"-90-1") {
-                currentShape = x+"-90-0";
-            } else if (currentShape == x+"-180-1") {
-                currentShape = x+"-180-0";
-            } else if (currentShape == x+"-270-1") {
-                currentShape = x+"-270-0";
+            let adjustShape = document.getElementById("shape"+x);
+            adjustShape.classList.remove("rotate-90");
+            adjustShape.classList.add("rotate-270");
+        }
+        flipShapeVertical();
+    } else if (checkFlip.classList.contains("rotate-270")) {
+        // Change rotation to 90
+        for (let x = 1; x < 10; x++) {
+            let adjustShape = document.getElementById("shape"+x);
+            adjustShape.classList.remove("rotate-270");
+            adjustShape.classList.add("rotate-90");
+        }
+        flipShapeVertical();
+    }
+
+    function flipShapeVertical() {
+        if (currentShape !== "") {
+            for (let x = 1; x < 10; x++) {
+                if (currentShape == x+"-0-0") {
+                    currentShape = x+"-0-1";
+                } else if (currentShape == x+"-90-0") {
+                    currentShape = x+"-270-1";
+                } else if (currentShape == x+"-180-0") {
+                    currentShape = x+"-180-1";
+                } else if (currentShape == x+"-270-0") {
+                    currentShape = x+"-90-1";
+                } else if (currentShape == x+"-0-1") {
+                    currentShape = x+"-0-0";
+                } else if (currentShape == x+"-90-1") {
+                    currentShape = x+"-270-0";
+                } else if (currentShape == x+"-180-1") {
+                    currentShape = x+"-180-0";
+                } else if (currentShape == x+"-270-1") {
+                    currentShape = x+"-90-0";
+                }
             }
         }
     }
