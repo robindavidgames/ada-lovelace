@@ -588,6 +588,7 @@ function paintSpaces(confirmation) {
             paint.classList.remove("unconfirmed-shape");
             paint.classList.add("contains-shape");
         }
+        spacesToCheck = [];
         tempPlacement = false;
         deativateShapeAbilitySpace(); // Moved this to the top because it might be getting effected by other functions.
         deactivateDice();
@@ -611,6 +612,7 @@ function paintSpaces(confirmation) {
             paint.classList.remove("unconfirmed-shape");
             paint.classList.add("available");
         }
+        spacesToCheck = [];
         tempPlacement = false;
         removePopUp();
     }
