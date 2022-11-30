@@ -40,14 +40,34 @@ h3 {
 }
 
 .tutorial-image {
-    width: 400px;
-    float: inline-end;
+    width: 250px;
+    float: right;
 }
 
-#bone {
-    float: right;
-    display: block;
+.bone {
     width: 200px;
+    padding-bottom: 10px;
+}
+
+.ada-face {
+    float: inline-end;
+    width: 150px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.pad-left {
+    padding-left: 20px;
+}
+
+.surrounded-image {
+    width: 125px;
+    padding: 10px;
+    display: inline;
+}
+
+#how-to-play-header {
+    padding-top: 30px;
 }
 
 #size-warning {
