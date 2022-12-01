@@ -523,7 +523,8 @@ let cancelButtonClick = document.getElementById("cancel-button")
 cancelButtonClick.addEventListener("click", function() {
     let confirmation = "cancel";
     if (confirmType === "shape") {
-        paintSpaces(confirmation);
+        // paintSpaces(confirmation);
+        removeClickedSpaces();
     } else if (confirmType === "ability") {
         cancelAbilityPlacement();
     } else {
@@ -622,6 +623,7 @@ function paintSpaces(confirmation) {
                 paint.classList.add("available");
             }
         }
+        currentShape = "";
         spacesToCheck = [];
         tempPlacement = false;
         removePopUp();
@@ -648,17 +650,19 @@ function deactivateDice() {
     if (wildAbilityUse == true) {
         wildAbilityUse = false;
         let deactivate = document.getElementsByClassName("active-wild-space");
-        deactivate[0].classList.add("used-wild-space");
-        deactivate[0].classList.remove("active-wild-space");
-        deactivate.textContent = "";
+        if (deactivate.length > 0) {
+            deactivate[0].classList.add("used-wild-space");
+            deactivate[0].textContent = "";
+            deactivate[0].classList.remove("active-wild-space");
+        }
     } else {
         for (let x = 1; x < 3; x++) {
             let deactivate = document.getElementById("available"+x);
             if (deactivate.classList.contains("clicked-die")) {
-                deactivate.classList.remove("clicked-die");
-                deactivate.classList.remove("unused-rolled-dice");
                 deactivate.classList.add("used-rolled-dice");
                 deactivate.textContent = "";
+                deactivate.classList.remove("unused-rolled-dice");
+                deactivate.classList.remove("clicked-die");
             }
         }
     }
