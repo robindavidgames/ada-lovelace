@@ -31,6 +31,9 @@ let rerollAbilityUse = false;
 // If user has clicked ability shape
 let abilityShapeUse = false;
 
+// If the user is just adjusting the shape
+// let shapeAdjustment = false;
+
 createPlayArea();
 markOutOfBounds();
 markPreFilled();
@@ -530,6 +533,7 @@ cancelButtonClick.addEventListener("click", function() {
     } else {
         console.log("Unknown confirm type.");
     }
+    currentShape = "";
 });
 
 /**
@@ -623,7 +627,11 @@ function paintSpaces(confirmation) {
                 paint.classList.add("available");
             }
         }
-        currentShape = "";
+        // if (shapeAdjustment == false) {
+        //     currentShape = "";
+        // } else {
+        //     shapeAdjustment = false;
+        // }
         spacesToCheck = [];
         tempPlacement = false;
         removePopUp();

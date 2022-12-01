@@ -2,6 +2,7 @@
  * Check current shape rotation and rotate by 90 degrees CW.
  */
  function rotate90Degrees() {
+    // shapeAdjustment = true;
     confirmation = "cancel";
     paintSpaces(confirmation);
 
@@ -93,6 +94,7 @@
  * Check current shape flip and flip horizontal.
  */
 function flipHorizontal() {
+    // shapeAdjustment = true;
     confirmation = "cancel";
     paintSpaces(confirmation);
 
