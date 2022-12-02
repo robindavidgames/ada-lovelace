@@ -367,7 +367,8 @@ document.getElementById("ability10").addEventListener("click", function(e) {
 function wildShapeAbility(currentWildShape) {
 
     confirmation = "cancel";
-    paintSpaces(confirmation);
+    // paintSpaces(confirmation);
+    removeClickedSpaces();
     uncolourElements();
     removePopUp;
     deactivateSpaces();

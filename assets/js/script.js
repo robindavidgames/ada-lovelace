@@ -234,6 +234,8 @@ for (let x = 1; x < 3; x++) {
 function clickDie(clickedDice) {
     // Uncolour previously clicked dice/abilities.
     uncolourElements();
+    wildAbilityUse = false;
+    abilityShapeUse = false;
 
     let dieChosen = document.getElementById('available'+clickedDice);
     // Read the text on the chosen die.
@@ -632,6 +634,7 @@ function paintSpaces(confirmation) {
         // } else {
         //     shapeAdjustment = false;
         // }
+        // wildAbilityUse = false;
         spacesToCheck = [];
         tempPlacement = false;
         removePopUp();
